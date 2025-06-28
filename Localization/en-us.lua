@@ -46,6 +46,14 @@ return {
                 },
             },
 
+            bl_mot_knight = {
+                name = "The Knight",
+                text = {
+                    "Can only play",
+                    "#1#",
+                },
+            },
+
             bl_mot_lapis_loupe = {
                 name = "Lapis Loupe",
                 text = {

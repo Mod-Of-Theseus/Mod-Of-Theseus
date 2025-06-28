@@ -58,6 +58,35 @@ SMODS.Blind {
     end,
 }
 
+SMODS.Blind {
+    key = "knight",
+    atlas = "Blinds",
+    pos = {y = 2},
+    discovered = true,
+    boss = {min = 4},
+    boss_colour = HEX("111111"),
+    loc_vars = function(self)
+        return {
+            vars = {
+                G.GAME.current_round.most_played_poker_hand,
+            },
+        }
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+                "(most played hand)",
+            },
+        }
+    end,
+    debuff_hand = function(self, cards, hand, handname, check)
+        return not G.GAME.blind.disabled and handname ~= G.GAME.current_round.most_played_poker_hand
+    end,
+    get_loc_debuff_text = function(self)
+        return "Must play your most played poker hand, bitch."
+    end,
+}
+
 SMODS.Blind { -- by sephdotwav, art by inspectnerd
     key = "lapis_loupe",
     atlas = "BlindsFinisher",
