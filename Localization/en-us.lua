@@ -38,6 +38,14 @@ return {
                 },
             },
 
+            bl_mot_slash = {
+                name = "The Slash",
+                text = {
+                    "Played cards are destroyed",
+                    "after scoring",
+                },
+            },
+
             bl_mot_lapis_loupe = {
                 name = "Lapis Loupe",
                 text = {
