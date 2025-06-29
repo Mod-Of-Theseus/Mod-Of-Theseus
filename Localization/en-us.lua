@@ -49,7 +49,7 @@ return {
             bl_mot_knight = {
                 name = "The Knight",
                 text = {
-                    "Can only play",
+                    "Play only",
                     "#1#",
                 },
             },

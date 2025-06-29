@@ -49,12 +49,15 @@ SMODS.Blind { -- by sephdotwav, art by inspectnerd
 
 SMODS.Blind {
     key = "slash",
+    atlas = "Blinds",
+    pos = {y = 3},
     discovered = true,
     boss = {min = 2},
     boss_colour = HEX("FF0883"),
     after_scoring = function(self)
-        print('hello?')
-        SMODS.destroy_cards(G.play.cards)
+        if not G.GAME.blind.disabled then
+            SMODS.destroy_cards(G.play.cards)
+        end
     end,
 }
 
@@ -63,7 +66,7 @@ SMODS.Blind {
     atlas = "Blinds",
     pos = {y = 2},
     discovered = true,
-    boss = {min = 4},
+    boss = {min = 2},
     boss_colour = HEX("111111"),
     loc_vars = function(self)
         return {
@@ -83,7 +86,7 @@ SMODS.Blind {
         return not G.GAME.blind.disabled and handname ~= G.GAME.current_round.most_played_poker_hand
     end,
     get_loc_debuff_text = function(self)
-        return "Must play your most played poker hand, bitch."
+        return "Play only "..G.GAME.current_round.most_played_poker_hand
     end,
 }
 
@@ -92,6 +95,7 @@ SMODS.Blind { -- by sephdotwav, art by inspectnerd
     atlas = "BlindsFinisher",
     pos = {y = 0},
     discovered = true,
+    dollars = 8,
     mult = 5,
     boss = {showdown = true},
     boss_colour = HEX("1c53a8"),
