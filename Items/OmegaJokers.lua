@@ -37,4 +37,5 @@ SMODS.Joker {
             end
         end
     end
+    -- No relevant info for joker display
 }

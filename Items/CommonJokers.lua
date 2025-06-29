@@ -33,5 +33,17 @@ SMODS.Joker {
         if context.joker_main then
             return {chips = card.ability.extra.chips}
         end
+    end,
+
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" },
+            },
+            text_config = { colour = G.C.CHIPS }
+        }
     end
+
 }

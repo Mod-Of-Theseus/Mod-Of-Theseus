@@ -19,7 +19,7 @@
 ]]
 
 if not ModofTheseus then
-    ModofTheseus = {}
+  ModofTheseus = {}
 end
 
 ModofTheseus = {
@@ -31,25 +31,25 @@ ModofTheseus_config = ModofTheseus.config
 ModofTheseus.enabled = copy_table(ModofTheseus_config)
 
 SMODS.Atlas {
-    object_type = "Atlas",
-    key = "PLH",
-    path = "placeholders.png",
-    px = 71,
-    py = 95,
+  object_type = "Atlas",
+  key = "PLH",
+  path = "placeholders.png",
+  px = 71,
+  py = 95,
 }
 
 SMODS.Atlas {
-    key = "tarot",
-    path = "Tarots.png",
-    px = 71,
-    py = 95,
+  key = "tarot",
+  path = "Tarots.png",
+  px = 71,
+  py = 95,
 }
 
 SMODS.Atlas {
-    key = "CommonJ",
-    path = "CommonJokers.png",
-    px = 71,
-    py = 95
+  key = "CommonJ",
+  path = "CommonJokers.png",
+  px = 71,
+  py = 95
 }
 
 SMODS.Atlas({
@@ -74,56 +74,56 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas {
-    key = "RareJ",
-    path = "RareJokers.png",
-    px = 71,
-    py = 95
+  key = "RareJ",
+  path = "RareJokers.png",
+  px = 71,
+  py = 95
 }
 
 SMODS.Atlas {
-    key = "LegendJ",
-    path = "LegendaryJokers.png",
-    px = 71,
-    py = 95,
+  key = "LegendJ",
+  path = "LegendaryJokers.png",
+  px = 71,
+  py = 95,
 }
 
 SMODS.Atlas {
-    key = "OmegaJ",
-    path = "OmegaJokers.png",
-    px = 71,
-    py = 95,
+  key = "OmegaJ",
+  path = "OmegaJokers.png",
+  px = 71,
+  py = 95,
 }
 
 SMODS.Atlas {
-    key = 'Blinds',
-    path = 'Blinds.png',
-    px = 34,
-    py = 34,
-    frames = 21,
-    atlas_table = 'ANIMATION_ATLAS'
+  key = 'Blinds',
+  path = 'Blinds.png',
+  px = 34,
+  py = 34,
+  frames = 21,
+  atlas_table = 'ANIMATION_ATLAS'
 }
 
 SMODS.Atlas {
-    key = 'BlindsFinisher',
-    path = 'BlindsFinisher.png',
-    px = 34,
-    py = 34,
-    frames = 21,
-    atlas_table = 'ANIMATION_ATLAS'
+  key = 'BlindsFinisher',
+  path = 'BlindsFinisher.png',
+  px = 34,
+  py = 34,
+  frames = 21,
+  atlas_table = 'ANIMATION_ATLAS'
 }
 
 SMODS.Rarity {
-    key = "superb",
-    pools = {["Joker"] = true},
-    default_weight = 0.01,
-    badge_colour = HEX('ffb0b5'),
+  key = "superb",
+  pools = { ["Joker"] = true },
+  default_weight = 0.01,
+  badge_colour = HEX('ffb0b5'),
 }
 
 SMODS.Rarity {
-    key = "omega",
-    pools = {["Joker"] = true},
-    default_weight = 0,
-    badge_colour = HEX('000000'),
+  key = "omega",
+  pools = { ["Joker"] = true },
+  default_weight = 0,
+  badge_colour = HEX('000000'),
 }
 
 assert(SMODS.load_file("Items/Blinds.lua"))()
@@ -134,3 +134,6 @@ assert(SMODS.load_file("Items/OmegaJokers.lua"))()
 assert(SMODS.load_file("Items/RareJokers.lua"))()
 assert(SMODS.load_file("Items/UncommonJokers.lua"))()
 assert(SMODS.load_file("Items/Boosters.lua"))()
+assert(SMODS.load_file("Items/Enhancements.lua"))()
+assert(SMODS.load_file("contexts.lua"))()
+assert(SMODS.load_file("utils.lua"))() -- not technically used yet, but don't remove it. *cough cough* seph *cough cough* /lh

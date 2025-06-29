@@ -21,9 +21,9 @@
 SMODS.Consumable {
     key = "bermuda",
     set = "Spectral",
-    atlas = "tarot",
+    atlas = "PLH",
     hidden = true,
-    pos = {x = 5, y = 2},
+    pos = {x = 2, y = 2},
     can_use = function(self, card)
         return #G.jokers.cards < G.jokers.config.card_limit
     end,

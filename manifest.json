@@ -2,7 +2,9 @@
 	"id": "Mod_of_Theseus",
 	"name": "Mod of Theseus",
 	"display_name": "Theseus",
-	"author": ["Mothball"],
+	"author": [
+		"Mothball"
+	],
 	"description": "A broken and balanced mod...",
 	"prefix": "mot",
 	"main_file": "Main.lua",
@@ -11,5 +13,6 @@
 	"badge_text_colour": "97572b",
 	"version": "0.0.0-alpha",
 	"dependencies": [
+		"Talisman"
 	]
 }

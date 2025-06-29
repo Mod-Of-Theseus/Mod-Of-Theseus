@@ -42,7 +42,25 @@ SMODS.Joker {
 
   calc_dollar_bonus = function(self, card)
     return card.ability.extra.dollars
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        { text = "+$" },
+        { ref_table = "card.ability.extra", ref_value = "dollars" },
+      },
+      text_config = { colour = G.C.GOLD },
+      reminder_text = {
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+      },
+      calc_function = function(card)
+        card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+      end
+    }
   end
+
 }
 
 SMODS.Joker({
@@ -116,5 +134,41 @@ SMODS.Joker({
         }
       end
     end
+  end,
+
+
+
+  
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        { text = "+", colour = G.C.MULT },
+        { ref_table = "card.joker_display_values", ref_value = "mult", colour = G.C.MULT, retrigger_type = "mult" },
+        {
+          border_nodes = {
+            { text = "X", },
+            { ref_table = "card.joker_display_values", ref_value = "x_mult", retrigger_type = "exp" }
+          }
+        },
+      },
+      calc_function = function(card)
+        local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if #scoring_hand == 0 then
+          card.joker_display_values.mult = 0
+          card.joker_display_values.x_mult = 0
+          return
+        end
+        for _, scored_card in ipairs(scoring_hand) do
+          if not SMODS.has_enhancement(scored_card, "m_stone") then
+            card.joker_display_values.mult = 0
+            card.joker_display_values.x_mult = 0
+            return
+          end
+        end
+        card.joker_display_values.mult = card.ability.extra.mult
+        card.joker_display_values.x_mult = card.ability.extra.x_mult
+      end
+    }
   end
 })

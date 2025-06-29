@@ -48,16 +48,20 @@ SMODS.Joker {
     if context.joker_main then
       return { xmult = card.ability.extra.X_mult }
     end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.ability.extra", ref_value = "X_mult", retrigger_type = "exp" },
+          }
+        }
+      },
+    }
   end
+
 }
-
-
-SMODS.Joker({
-  key = "reinforcedGlassJ",
-  pos = { x = 1, y = 0 },
-  rarity = 2,
-  atlas = "PLH",
-  cost = 4,
-  blueprint_compat = false,
-  unlocked = true
-})

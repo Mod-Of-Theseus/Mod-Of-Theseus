@@ -99,6 +99,15 @@ return {
                 },
             },
 
+            j_mot_victoryJ = {
+                name = "Victory Lap",
+                text = {
+                    "Gains {X:chips,C:white}X#2#{} Chips if played hand is a {C:attention}Straight{}",
+                    "Gains {X:chips,C:white}X#3#{} Chips if Straight hand is {C:attention}leveled up{}",
+                    "{C:inactive}Currently {X:chips,C:white}X#1#{} {C:inactive}Chips{}"
+                }
+            },
+
             j_mot_censoredJokerJ = {
                 name = "Censored Joker",
                 text = {
