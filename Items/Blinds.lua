@@ -111,13 +111,3 @@ SMODS.Blind { -- by sephdotwav, art by inspectnerd
         ease_discard(-G.GAME.current_round.discards_left)
     end
 }
-
---[ taken from https://github.com/Eremel/Ortalab/blob/9c86be4365dbeb663ae0d3c6a20e70df0804e199/objects/blinds.lua#L1140
-local draw_discard = G.FUNCS.draw_from_play_to_discard
-G.FUNCS.draw_from_play_to_discard = function(e)
-    local obj = G.GAME.blind.config.blind
-    if obj.after_scoring and not G.GAME.blind.disabled then
-        obj:after_scoring()
-    end
-    draw_discard(e)
-end
