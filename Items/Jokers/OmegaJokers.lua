@@ -121,20 +121,26 @@ SMODS.Joker{
 
     calculate = function(self, card, context)
         if context.ending_shop and not context.blueprint then
+            local remaining_slots = G.jokers.config.card_limit - #G.jokers.cards
             if G.GAME.dollars < to_big(card.ability.extra.cost) then -- check if player has enough money
                 return {
                     message = localize('k_not_enough_money'),
+                    colour = G.C.MONEY
+                }
+            elseif remaining_slots <= 0 then
+                return {
+                    message = localize('k_not_enough_slots'),
                     colour = G.C.MONEY
                 }
             end
             
             -- Deduct money
             ease_dollars(-card.ability.extra.cost)
+            local rolls = math.min(card.ability.extra.rolls, remaining_slots)
             
             -- Perform the rolls
-            for i = 1, card.ability.extra.rolls do
+            for i = 1, rolls do
                 local rolled_rarity = roll_rarity_weighted()
-                
                 -- Apply pity system for legendary+
                 if card.ability.extra.currentPity >= card.ability.extra.pity and rolled_rarity < 4 then
                     rolled_rarity = math.max(4, rolled_rarity) -- Guarantee at least legendary
@@ -188,8 +194,8 @@ SMODS.Joker{
             end
             
             -- Update pity counter and rolls
-            card.ability.extra.amountOfRolls = card.ability.extra.amountOfRolls + card.ability.extra.rolls
-            card.ability.extra.currentPity = card.ability.extra.currentPity + card.ability.extra.rolls
+            card.ability.extra.amountOfRolls = card.ability.extra.amountOfRolls + rolls
+            card.ability.extra.currentPity = card.ability.extra.currentPity + rolls
             
             -- Check if we need to increase the number of rolls
             if card.ability.extra.amountOfRolls >= card.ability.extra.rollIncrease then 
