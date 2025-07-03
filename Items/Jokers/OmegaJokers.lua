@@ -135,11 +135,11 @@ SMODS.Joker{
             end
             
             -- Deduct money
-            ease_dollars(-card.ability.extra.cost)
-            local rolls = math.min(card.ability.extra.rolls, remaining_slots)
+            local rolls = math.min(math.min(card.ability.extra.rolls, remaining_slots), math.floor(to_number(G.GAME.dollars) / 10))
             
             -- Perform the rolls
             for i = 1, rolls do
+                ease_dollars(-card.ability.extra.cost)
                 local rolled_rarity = roll_rarity_weighted()
                 -- Apply pity system for legendary+
                 if card.ability.extra.currentPity >= card.ability.extra.pity and rolled_rarity < 4 then
