@@ -16,7 +16,18 @@ SMODS.Consumable {
         if G.GAME.dollars ~= -20 then
             ease_dollars(-(G.GAME.dollars + 20), true)
         end
-    end
+    end,
+    mot_credits = {
+        idea = {
+            "Cooked Fish"
+        },
+        art = {
+            "Willow" -- ?
+        },
+        code = {
+            "Mothball"
+        }
+    }
 }
 
 SMODS.Consumable {
@@ -27,6 +38,17 @@ SMODS.Consumable {
     can_use = function(self, card)
         return #G.jokers.cards < G.jokers.config.card_limit
     end,
+
+    mot_credits = {
+        idea = {
+            "Mothball",
+        },
+        art = {
+        },
+        code = {
+            "Mothball",
+        },
+    },
 
     use = function(self, card, area, copier)
         SMODS.add_card{

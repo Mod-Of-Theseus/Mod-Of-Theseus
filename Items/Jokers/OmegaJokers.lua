@@ -103,6 +103,18 @@ SMODS.Joker{
         }
     },
 
+    mot_credits = {
+        idea = {
+            "Vrinee",
+        },
+        art = {
+            "Goldog",
+        },
+        code = {
+            "Vrinee",
+        },
+    },
+
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.cost, card.ability.extra.rolls, card.ability.extra.pity, card.ability.extra.currentPity, card.ability.extra.amountOfRolls, card.ability.extra.rollIncrease}}
     end,
