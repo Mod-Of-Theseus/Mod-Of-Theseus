@@ -78,6 +78,18 @@ SMODS.Joker {
     end
   end,
 
+  mot_credits = {
+    idea = {
+      "Fish",
+    },
+    art = {
+      "Fish",
+    },
+    code = {
+      "Fish",
+    },
+  },
+
   joker_display_def = function(JokerDisplay)
     ---@type JDJokerDefinition
     return {
@@ -107,7 +119,7 @@ SMODS.Joker {
       "Jinx",
     },
     art = {
-      -- "Jinx",
+      "Jinx",
     },
     code = {
       "Jinx",

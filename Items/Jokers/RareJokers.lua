@@ -239,6 +239,19 @@ SMODS.Joker {
   config = { extra = { repetitions = 3, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
   cost = 8,
   blueprint_compat = true,
+
+  mot_credits = {
+    idea = {
+      "Cooked Fish",
+    },
+    art = {
+      "Cooked Fish",
+    },
+    code = {
+      "Jinx",
+    },
+},
+
   loc_vars = function(self, info_queue, card)
     local suit = card.ability.extra.suit or "Hearts"
     return {
@@ -281,6 +294,17 @@ SMODS.Joker {
   config = { extra = { odds = 2 } },
   cost = 9,
   blueprint_compat = true, -- Made consistent with other effects
+  mot_credits = {
+    idea = {
+      "bologna",
+    },
+    art = {
+      "bologna",
+    },
+    code = {
+      "Cardboard",
+    },
+},
   loc_vars = function(self, info_queue, card)
     return { vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
   end,
