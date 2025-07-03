@@ -168,7 +168,7 @@ SMODS.Joker {
     if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
       card.ability.extra.x_chips = card.ability.extra.x_chips - card.ability.extra.x_chips_loss
 
-      if card.ability.extra.x_chips <= 0 then
+      if card.ability.extra.x_chips <= 1 then
         G.E_MANAGER:add_event(Event({
           func = function()
             -- This replicates the food destruction effect

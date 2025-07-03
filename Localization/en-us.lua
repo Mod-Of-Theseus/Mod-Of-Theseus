@@ -57,7 +57,7 @@ return {
         name = "Rekoj",
         text = {
           "{C:chips}+#1#{} Chips",
-          '{C:inactive}"Oh no, it\'s Jimbo\'s evil cousin, Obmij!{}'
+          '{C:inactive}"Oh no, it\'s Jimbo\'s evil cousin, Obmij!"{}'
         },
       },
       
@@ -65,7 +65,7 @@ return {
         name = "Salad Number",
         text = {
           "{C:chips}+#1#{} chips",
-          '{C:inactive}"Its bigger... technically{}'
+          '{C:inactive}Its bigger... technically{}'
         },
       },
 
@@ -89,7 +89,7 @@ return {
           "Gives {X:mult,C:white}X#1#{} Mult",
           "Increase by {X:mult,C:white}X#2#{} when selling a card",
           "Increase by {X:mult,C:white}X#3#{} when rerolling the shop",
-          '{C:inactive}"Literally 1984" - The Blood Moth.{}'
+          '{C:inactive}"Literally 1984" - The Blood Moth{}'
         },
       },
 
@@ -104,8 +104,8 @@ return {
       j_mot_bucketOfChickenJ = {
         name = "Bucket of Chicken",
         text = {
-          "{C:chips}X#1#{} Chips",
-          "{C:chips}-#2#X{} Chips per",
+          "{X:chips,C:white}X#1#{} {C:chips}Chips{}",
+          "{X:chips,C:white}-#2#X{} {C:chips}Chips{} per",
           "round played",
         },
       },
@@ -130,7 +130,7 @@ return {
           "when scored",
           " ",
           "If all scoring cards are stone cards",
-          "{C:red,s:1.1}+#1#{} Mult, then {C:red,s:1.1}x#2#{} Mult",
+          "{C:red,s:1.1}+#1#{} Mult, then {X:mult,C:white,s:1.1}x#2#{} Mult",
         }
       },
 

@@ -20,7 +20,7 @@
 
 SMODS.Joker({
   key = "reinforcedGlassJ",
-  pos = { x = 3, y = 0 },
+  pos = { x = 0, y = 0 },
   rarity = "mot_superb",
   atlas = "SuperbJ",
   cost = 10,
@@ -32,7 +32,7 @@ SMODS.Joker({
     },
     art = {
       "Jinx",
-      "Abducted",
+      "Aduckted",
     },
     code = {
       "Jinx",
