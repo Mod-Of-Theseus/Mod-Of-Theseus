@@ -22,8 +22,8 @@ SMODS.Joker({
   key = "reinforcedGlassJ",
   pos = { x = 3, y = 0 },
   rarity = "mot_superb",
-  atlas = "PLH",
-  cost = 4,
+  atlas = "SuperbJ",
+  cost = 10,
   blueprint_compat = false,
   unlocked = true,
   mot_credits = {

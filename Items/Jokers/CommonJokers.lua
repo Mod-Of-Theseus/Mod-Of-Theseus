@@ -23,7 +23,7 @@ SMODS.Joker {
   pos = { x = 0, y = 0 },
   rarity = 1,
   atlas = "CommonJ",
-  config = { extra = { chips = 4 } },
+  config = { extra = { chips = 40 } },
   cost = 1,
   blueprint_compat = true,
   mot_credits = {
@@ -67,7 +67,7 @@ SMODS.Joker {
   rarity = 1,
   atlas = "PLH",
   config = { extra = { chips = 1 } },
-  cost = 1,
+  cost = 0,
   blueprint_compat = true,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips } }
