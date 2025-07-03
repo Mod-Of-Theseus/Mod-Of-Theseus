@@ -59,8 +59,8 @@ local function roll_rarity_weighted()
         [1] = 500,  -- Common (50%)
         [2] = 250,  -- Uncommon (25%)
         [3] = 150,  -- Rare (15%)
-        [4] = 70,   -- Legendary (7%)
-        [5] = 25,   -- Superb (2.5%)
+        [4] = 25,   -- Legendary (7%)
+        [5] = 70,   -- Superb (2.5%)
         [6] = 5     -- Omega (0.5%)
     }
     
@@ -91,14 +91,15 @@ SMODS.Joker{
     pos = {x = 0, y = 0},
     rarity = "mot_omega",
     atlas = "PLH",
-    config = {extra = {cost = 10, rolls = 1,pity = 80, currentPity = 0,amountOfRolls = 0,rollIncrease = 5}},
-    cost = 15,
+    config = {extra = {rolls = 1, rollCap = 5, currentPity = 0, imutable = { cost = 10, rollIncrease = 5, maxRollCap = 25,  amountOfRolls = 0, pity = 20, }}},
+    cost = 50,
     blueprint_compat = false,
     loc_txt = {
         name = "Gacha joker",
         text = {
             "Rolls a random joker every end of shop for {X:money,C:white}$#1#{}",
             "Every {C:green}#6#{} rolls, increases how many rolls you get by {C:green}1{}",
+            "{C:green}#2#{C:inactive} rolls (Max: #7#)",
             "{C:inactive} #4#/#3# pity for legendary+",
         }
     },
@@ -108,21 +109,23 @@ SMODS.Joker{
             "Vrinee",
         },
         art = {
-            "Goldog",
+            -- "Goldog",
         },
         code = {
             "Vrinee",
+            "Mothball", -- trying
+            "Hoarfrost Trickle",
         },
     },
 
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.cost, card.ability.extra.rolls, card.ability.extra.pity, card.ability.extra.currentPity, card.ability.extra.amountOfRolls, card.ability.extra.rollIncrease}}
+        return {vars = {card.ability.extra.imutable.cost, card.ability.extra.rolls, card.ability.extra.imutable.pity, card.ability.extra.currentPity, card.ability.extra.imutable.amountOfRolls, card.ability.extra.imutable.rollIncrease, card.ability.extra.rollCap }}
     end,
 
     calculate = function(self, card, context)
         if context.ending_shop and not context.blueprint then
             local remaining_slots = G.jokers.config.card_limit - #G.jokers.cards
-            if G.GAME.dollars < to_big(card.ability.extra.cost) then -- check if player has enough money
+            if G.GAME.dollars < to_big(card.ability.extra.imutable.cost) then -- check if player has enough money
                 return {
                     message = localize('k_not_enough_money'),
                     colour = G.C.MONEY
@@ -134,15 +137,18 @@ SMODS.Joker{
                 }
             end
             
-            -- Deduct money
-            local rolls = math.min(math.min(card.ability.extra.rolls, remaining_slots), math.floor(to_number(G.GAME.dollars) / 10))
+            if card.ability.extra.rollCap >= card.ability.extra.imutable.maxRollCap then card.ability.extra.rollCap = card.ability.extra.imutable.maxRollCap end
+            if card.ability.extra.rolls >= card.ability.extra.rollCap then card.ability.extra.rolls = card.ability.extra.rollCap end
+            
+            local rolls = math.min(card.ability.extra.rolls, math.min( remaining_slots, math.floor(to_number(G.GAME.dollars) / 10)))
             
             -- Perform the rolls
             for i = 1, rolls do
-                ease_dollars(-card.ability.extra.cost)
+                -- Deduct money
+                ease_dollars(-card.ability.extra.imutable.cost)
                 local rolled_rarity = roll_rarity_weighted()
                 -- Apply pity system for legendary+
-                if card.ability.extra.currentPity >= card.ability.extra.pity and rolled_rarity < 4 then
+                if card.ability.extra.currentPity >= card.ability.extra.imutable.pity and rolled_rarity < 4 then
                     rolled_rarity = math.max(4, rolled_rarity) -- Guarantee at least legendary
                     card.ability.extra.currentPity = 0 -- Reset pity
                 elseif rolled_rarity >= 4 then
@@ -194,21 +200,45 @@ SMODS.Joker{
             end
             
             -- Update pity counter and rolls
-            card.ability.extra.amountOfRolls = card.ability.extra.amountOfRolls + rolls
+            card.ability.extra.imutable.amountOfRolls = card.ability.extra.imutable.amountOfRolls + rolls
             card.ability.extra.currentPity = card.ability.extra.currentPity + rolls
             
             -- Check if we need to increase the number of rolls
-            if card.ability.extra.amountOfRolls >= card.ability.extra.rollIncrease then 
+            while card.ability.extra.imutable.amountOfRolls >= card.ability.extra.imutable.rollIncrease do
                 card.ability.extra.rolls = card.ability.extra.rolls + 1
-                card.ability.extra.amountOfRolls = 0
+                card.ability.extra.imutable.amountOfRolls = card.ability.extra.imutable.amountOfRolls - card.ability.extra.imutable.rollIncrease
             end 
             
+            -- doing this again after to be safe
+            if card.ability.extra.rollCap >= card.ability.extra.imutable.maxRollCap then card.ability.extra.rollCap = card.ability.extra.imutable.maxRollCap end
+            if card.ability.extra.rolls >= card.ability.extra.rollCap then card.ability.extra.rolls = card.ability.extra.rollCap end
+
             -- Message to player
             return {
                 message = localize("k_mot_gacha"),
                 colour = G.C.MONEY
             }
         end
+    end,
+
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { ref_table = "card.ability.extra", ref_value = "rolls"},
+                { text = " rolls"},
+                { text = " (Max: ", colour = G.C.GREY },
+                { ref_table = "card.ability.extra", ref_value = "rollCap" , colour = G.C.GREY },
+                { text = ")", colour = G.C.GREY},
+            },
+            text_config = { colour = G.C.GREEN },
+            reminder_text = {
+                { text = "Pity: "},
+                { ref_table = "card.ability.extra", ref_value = "currentPity"},
+                { text = "/"},
+                { ref_table = "card.ability.extra.imutable", ref_value = "pity"},
+                -- { text = ")"},
+            },
+        }
     end
-    
 }
