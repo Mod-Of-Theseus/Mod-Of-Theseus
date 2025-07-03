@@ -252,14 +252,15 @@ return {
 
   misc = {
     labels = {
-      k_mot_superb = { "Superb" },
-      k_mot_omega = { "Omega" },
+      k_mot_superb = "Superb",
+      k_mot_omega = "Omega",
     },
 
     dictionary = {
-      k_mot_superb = { "Superb" },
-      k_mot_omega = { "Omega" },
+      k_mot_superb = "Superb",
+      k_mot_omega = "Omega",
       k_not_enough_money = "Not enough money!",
+      k_not_enough_slots = "Not enough slots!",
       k_rolled = "Rolled",
       k_mot_gacha = "Gacha Roll!",
     },
