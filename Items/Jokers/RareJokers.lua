@@ -293,6 +293,9 @@ SMODS.Joker {
   atlas = "RareJ",
   config = { extra = { odds = 2 } },
   cost = 9,
+  pools = {
+    ["Food"] = true
+  },
   blueprint_compat = true, -- Made consistent with other effects
   mot_credits = {
     idea = {
