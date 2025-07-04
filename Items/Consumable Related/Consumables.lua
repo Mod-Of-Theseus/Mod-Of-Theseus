@@ -54,7 +54,7 @@ SMODS.ConsumableType {
         collection = 'Maintenance Cards',
         name = 'Maintenance'
     },
-    shop_rate = 0.4
+    -- shop_rate = 0.4 -- disable while WIP
 }
 
 SMODS.ConsumableType {
@@ -66,7 +66,7 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Tarots',
         name = 'Det. Tarot'
     },
-    shop_rate = 0.4
+    -- shop_rate = 0.4 -- disable while WIP
 }
 
 SMODS.ConsumableType {
@@ -78,7 +78,7 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Planets',
         name = 'Det. Planet'
     },
-    shop_rate = 0.4
+    -- shop_rate = 0.4 -- disable while WIP
 }
 
 SMODS.ConsumableType {
@@ -90,5 +90,6 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Spectrals',
         name = 'Det. Spectral'
     },
+    
 }
 

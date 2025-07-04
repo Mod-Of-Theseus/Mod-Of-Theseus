@@ -25,7 +25,8 @@ for i = 1, 2 do -- i'm going to assume there will be graphics for the Theseus pa
         },
         atlas = 'PLH',
         pos = { x = 0 + i, y = 0 },
-        weight = 0.5,
+        -- weight = 0.5,
+        weight = 0.0, -- Disable while WIP
         cost = 4,
     	create_card = function()
     		return create_card("Theseus", G.pack_cards, nil, nil, true, true, nil, "mot_theseus")
