@@ -153,6 +153,9 @@ end
 -- Blind / Antes
 assert(SMODS.load_file("Items/Blinds.lua"))()
 
+-- Challenges
+assert(SMODS.load_file("Items/Challenges.lua"))()
+
 -- Mod Utilities
 assert(SMODS.load_file("overrides.lua"))()
 assert(SMODS.load_file("contexts.lua"))()

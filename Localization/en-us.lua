@@ -251,6 +251,10 @@ return {
   },
 
   misc = {
+    challenge_names = {
+      c_mot_gachaC = "Gacha",
+    },
+
     labels = {
       k_mot_superb = "Superb",
       k_mot_omega = "Omega",
