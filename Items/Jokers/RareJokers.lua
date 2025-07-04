@@ -28,7 +28,7 @@ SMODS.Joker {
   blueprint_compat = false,
   mot_credits = {
     idea = {
-      "Fish",
+      "Yo Fish",
     },
     art = {
       "Abducted",
