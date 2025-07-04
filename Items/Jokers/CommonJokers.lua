@@ -80,13 +80,13 @@ SMODS.Joker {
 
   mot_credits = {
     idea = {
-      "Fish",
+      "Yo Fish",
     },
     art = {
-      "Fish",
+      "Yo Fish",
     },
     code = {
-      "Fish",
+      "Yo Fish",
     },
   },
 

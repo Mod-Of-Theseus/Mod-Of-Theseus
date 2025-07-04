@@ -88,10 +88,10 @@ SMODS.Joker {
   atlas = "PLH",
   mot_credits = {
     idea = {
-      "Fish",
+      "Yo Fish",
     },
     art = {
-      "Fish",
+      "Yo Fish",
     },
     code = {
       "Jinx",
@@ -148,10 +148,10 @@ SMODS.Joker {
   blueprint_compat = true,
   mot_credits = {
     idea = {
-      "Fish",
+      "Yo Fish",
     },
     art = {
-      "Fish",
+      "Yo Fish",
     },
     code = {
       "Jinx",
