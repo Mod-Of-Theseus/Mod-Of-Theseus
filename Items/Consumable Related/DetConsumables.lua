@@ -95,7 +95,6 @@ SMODS.Consumable {
                 for _ = 1, card.ability.extra.cards do
                     SMODS.add_card {set = "Base", area = G.hand}
                 end
-                G.hand:sort()
                 return true
         end}))
     end
