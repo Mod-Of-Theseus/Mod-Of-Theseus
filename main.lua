@@ -31,7 +31,8 @@ ModofTheseus_config = ModofTheseus.config
 ModofTheseus.enabled = copy_table(ModofTheseus_config)
 
 SMODS.ObjectType {
-  key = "sinfulPool"
+  key = "sinfulPool",
+  default = "lusty_joker"
 }
 
 SMODS.Atlas {
@@ -40,6 +41,13 @@ SMODS.Atlas {
   path = "placeholders.png",
   px = 71,
   py = 95,
+}
+
+SMODS.Atlas {
+  key = "detC",
+  path = "DeterioratedConsumables.png",
+  px = 71,
+  py = 95
 }
 
 SMODS.Atlas {
