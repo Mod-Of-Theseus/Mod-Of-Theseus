@@ -57,39 +57,5 @@ SMODS.ConsumableType {
     -- shop_rate = 0.4 -- disable while WIP
 }
 
-SMODS.ConsumableType {
-    key = 'det_tarot',
-    collection_rows = {7, 7, 7},
-    primary_colour = G.C.CHIPS,
-    secondary_colour = HEX('a3589d'),
-    loc_txt = {
-        collection = 'Deteriorated Tarots',
-        name = 'Det. Tarot'
-    },
-    -- shop_rate = 0.4 -- disable while WIP
-}
 
-SMODS.ConsumableType {
-    key = 'det_planet',
-    collection_rows = {7, 7, 7},
-    primary_colour = G.C.CHIPS,
-    secondary_colour = HEX('0067c6'),
-    loc_txt = {
-        collection = 'Deteriorated Planets',
-        name = 'Det. Planet'
-    },
-    -- shop_rate = 0.4 -- disable while WIP
-}
-
-SMODS.ConsumableType {
-    key = 'det_spectral',
-    collection_rows = {7, 7, 7},
-    primary_colour = G.C.CHIPS,
-    secondary_colour = HEX('0000ff'),
-    loc_txt = {
-        collection = 'Deteriorated Spectrals',
-        name = 'Det. Spectral'
-    },
-    
-}
 

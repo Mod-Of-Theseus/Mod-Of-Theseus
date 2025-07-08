@@ -156,6 +156,7 @@ function loadConsumables()
   assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/TarotCards.lua"))()
   assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/PlanetCards.lua"))()
   assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/SpectralCards.lua"))()
+  assert(SMODS.load_file("Items/Consumable Related/DetConsumables.lua"))()
 end
 
 -- Blind / Antes
