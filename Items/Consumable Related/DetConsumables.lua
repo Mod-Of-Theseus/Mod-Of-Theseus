@@ -76,6 +76,13 @@ SMODS.Consumable {
     end
 }
 
+
+-- function add_playable_card(card)
+    -- local _card = SMODS.create_card(card)
+    -- create_playing_card(_card, card.area, card.skip_materialize, )
+-- end
+
+
 SMODS.Consumable {
     key = "detHanged",
     set = "det_tarot",
@@ -87,15 +94,13 @@ SMODS.Consumable {
     end,
     use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
+            delay = 0.7,
+            trigger = "after",
             func = function()
-                local cards = {}
-                for i = 1, card.ability.extra.cards do -- Not adding cards to deck properly
-                    local card = SMODS.add_card {set = "Base", area = G.hand}
-                    card:add_to_deck()
-                    cards[i] = card
-                    print(cards)
+                for _ = 1, card.ability.extra.cards do
+                    SMODS.add_card {set = "Base", area = G.hand}
                 end
-                SMODS.calculate_context({ playing_card_added = true, cards = cards })
+                G.hand:sort()
                 return true
         end}))
     end
