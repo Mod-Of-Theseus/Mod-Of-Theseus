@@ -77,11 +77,6 @@ SMODS.Consumable {
 }
 
 
--- function add_playable_card(card)
-    -- local _card = SMODS.create_card(card)
-    -- create_playing_card(_card, card.area, card.skip_materialize, )
--- end
-
 
 SMODS.Consumable {
     key = "detHanged",
