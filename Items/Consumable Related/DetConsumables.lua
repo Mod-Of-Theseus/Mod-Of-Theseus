@@ -7,7 +7,7 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Tarots',
         name = 'Det. Tarot'
     },
-    -- shop_rate = 0.4 -- disable while WIP
+    shop_rate = 0.4
 }
 
 SMODS.ConsumableType {

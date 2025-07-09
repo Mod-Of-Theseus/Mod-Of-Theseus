@@ -32,7 +32,7 @@ function SMODS.create_mod_badges(card, badges)
 		table.insert(credits, 1, "Theseus")
 		dynatext = DynaText({
 			string = credits,
-			colours = {HEX("97572b")},
+			colours = {HEX("0062ff")},
 			silent = true,
 			scale = 0.33 * 0.9,
 			float = true,
@@ -46,7 +46,7 @@ function SMODS.create_mod_badges(card, badges)
 	end
 
 
-	local badge = create_dynatext_badge(dynatext, HEX("321d0e"))
+	local badge = create_dynatext_badge(dynatext, HEX("96bfff"))
 
 	local function check_colors_equal(x, y)
 		for i = 1, 4 do
@@ -57,7 +57,7 @@ function SMODS.create_mod_badges(card, badges)
 		return true
 	end
 	for i = 1, #badges do
-		if check_colors_equal(badges[i].nodes[1].config.colour, HEX("321d0e")) then
+		if check_colors_equal(badges[i].nodes[1].config.colour, HEX("96bfff")) then
 			badges[i].nodes[1].nodes[2].config.object:remove()
 			badges[i] = badge
 			break
