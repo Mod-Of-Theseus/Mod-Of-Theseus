@@ -9,8 +9,8 @@
 	"prefix": "mot",
 	"main_file": "Main.lua",
 	"priority": 0,
-	"badge_colour": "321d0e",
-	"badge_text_colour": "97572b",
+	"badge_colour": "96bfff",
+	"badge_text_colour": "0062ff",
 	"version": "0.0.0-alpha",
 	"dependencies": [
 		"Talisman"

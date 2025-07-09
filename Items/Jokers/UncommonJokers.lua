@@ -85,7 +85,7 @@ SMODS.Joker {
   key = "officeJobJ",
   pos = { x = 1, y = 0 },
   rarity = 2,
-  atlas = "PLH",
+  atlas = "UncommonJ",
   mot_credits = {
     idea = {
       "Yo Fish",
@@ -137,9 +137,9 @@ SMODS.Joker {
 
 SMODS.Joker {
   key = "bucketOfChickenJ",
-  pos = { x = 1, y = 0 },
+  pos = { x = 2, y = 0 },
   rarity = 2,
-  atlas = "PLH",
+  atlas = "UncommonJ",
   config = { extra = { x_chips = 4, x_chips_loss = 1 } },
   cost = 8,
   pools = {

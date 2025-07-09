@@ -63,9 +63,9 @@ SMODS.Joker {
 
 SMODS.Joker {
   key = "saladNumberJ",
-  pos = { x = 0, y = 0 },
+  pos = { x = 1, y = 0 },
   rarity = 1,
-  atlas = "PLH",
+  atlas = "CommonJ",
   config = { extra = { chips = 1 } },
   cost = 0,
   blueprint_compat = true,
