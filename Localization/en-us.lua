@@ -244,7 +244,7 @@ return {
         },
       },
 
-      j_mot_gachaJ = {
+      j_mot_gachaJokerJ = {
         name = "Gacha Joker",
         text = {
             "Rolls a random joker every end of shop for {X:money,C:white}$#1#{}",
