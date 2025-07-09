@@ -47,6 +47,23 @@ return {
       },
     },
 
+    det_tarot = {
+      c_mot_detFool = {
+        name = "The Fool?",
+        text = {
+          "Create the last deteriorated",
+          "tarot or planet used"
+        }
+      },
+
+      c_mot_detHanged = {
+        name = "Hanged Man?",
+        text = {
+          "Create #1# random cards"
+        }
+      }
+    },
+
     Joker = {
 
       ---------------------------
@@ -247,6 +264,14 @@ return {
           "{C:inactive}Must have room{}"
         },
       },
+
+      c_mot_highway = {
+        name = "Highway",
+        text = {
+          "Create a random",
+          "sinful Joker"
+        }
+      }
     },
   },
 

@@ -168,7 +168,7 @@ assert(SMODS.load_file("Items/Challenges.lua"))()
 -- Mod Utilities
 assert(SMODS.load_file("overrides.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
-assert(SMODS.load_file("utils.lua"))() -- not technically used yet, but don't remove it. *cough cough* seph *cough cough* /lh
+assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Jokers/OwnershipClaiming.lua"))()
 
 loadJokers()

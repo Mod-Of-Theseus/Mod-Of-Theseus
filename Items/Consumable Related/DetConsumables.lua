@@ -84,6 +84,9 @@ SMODS.Consumable {
     atlas = "detC",
     config = { extra = { cards = 2} },
     pos = {x = 2, y = 1},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.cards}}
+    end,
     can_use = function(self, card)
         return G.hand and #G.hand.cards > 1
     end,

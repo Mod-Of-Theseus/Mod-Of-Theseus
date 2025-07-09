@@ -31,7 +31,7 @@ SMODS.Consumable {
 }
 
 SMODS.Consumable {
-    key = "sinful",
+    key = "highway",
     set = "Spectral",
     atlas = "PLH",
     pos = {x = 2, y = 2} ,
