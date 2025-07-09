@@ -247,9 +247,10 @@ return {
       j_mot_gachaJ = {
         name = "Gacha Joker",
         text = {
-          "Rolls a random joker every end of shop for {X:money,C:white}$#1#{}",
-          "Every {C:green}#6#{} rolls, increases how many rolls you get by {C:green}1{}",
-          "{C:inactive} #4#/#3# pity for legendary+",
+            "Rolls a random joker every end of shop for {X:money,C:white}$#1#{}",
+            "Every {C:green}#6#{} rolls, increases how many rolls you get by {C:green}1{}",
+            "{C:green}#2#{C:inactive} rolls (Max: #7#)",
+            "{C:inactive} #4#/#3# pity for legendary+",
         },
       },
 

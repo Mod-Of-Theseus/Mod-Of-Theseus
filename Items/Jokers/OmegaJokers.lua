@@ -94,16 +94,6 @@ SMODS.Joker{
     config = {extra = {rolls = 1, rollCap = 5, currentPity = 0, imutable = { cost = 10, rollIncrease = 5, maxRollCap = 25,  amountOfRolls = 0, pity = 20, }}},
     cost = 50,
     blueprint_compat = false,
-    loc_txt = {
-        name = "Gacha joker",
-        text = {
-            "Rolls a random joker every end of shop for {X:money,C:white}$#1#{}",
-            "Every {C:green}#6#{} rolls, increases how many rolls you get by {C:green}1{}",
-            "{C:green}#2#{C:inactive} rolls (Max: #7#)",
-            "{C:inactive} #4#/#3# pity for legendary+",
-        }
-    },
-
     mot_credits = {
         idea = {
             "Vrinee",
