@@ -18,7 +18,7 @@
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
 
-SMODS.Joker {
+SMODS.Joker { -- Winning Big
   key = "winningbigJ",
   atlas = "RareJ",
   rarity = 3,
@@ -75,7 +75,7 @@ SMODS.Joker {
 
 }
 
-SMODS.Joker({
+SMODS.Joker{ -- Medua
   key = "medusaJ",
   atlas = "RareJ",
   pos = { x = 0, y = 0 },
@@ -193,10 +193,10 @@ SMODS.Joker({
       end
     }
   end
-})
+}
 
 
-SMODS.Joker {
+SMODS.Joker { -- #Queen
   key = "hashtagQueenJ",
   atlas = "RareJ",
   rarity = 3,
@@ -231,7 +231,7 @@ SMODS.Joker {
   -- todo: add joker display compatibility @chore
 }
 
-SMODS.Joker {
+SMODS.Joker { -- Cult Contract
   key = "cultContractJ",
   atlas = "PLH",
   rarity = 3,
@@ -286,7 +286,7 @@ SMODS.Joker {
   -- todo: add joker display compatibility @chore
 }
 
-SMODS.Joker {
+SMODS.Joker { -- Dave
   key = "daveJ",
   pos = { x = 2, y = 0 },
   rarity = 3,
@@ -331,12 +331,12 @@ SMODS.Joker {
   end
 }
 
-SMODS.Joker{
+SMODS.Joker{ -- Wizard
   key = "wizardJ",
   atlas = "PLH",
   rarity = 3,
   pos = {x = 2, y = 0},
-  config = {extra = {spellsGiven = 1}},
+  config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind and #G.consumeables.cards < G.consumeables.config.card_limit then

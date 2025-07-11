@@ -68,7 +68,7 @@ return {
       c_mot_fireballSpl = {
         name = "Fireball",
         text = {
-          "Destroy 3 random cards"
+          "Destroy #1# random cards"
         }
       },
 
@@ -196,8 +196,8 @@ return {
       j_mot_wizardJ = {
         name = "Wizard Joker",
         text = {
-          "Create a random Spell card",
-          "when starting a blind"
+          "Create a random {C:purple}Spell{}",
+          "when blind is selected"
         }
       },
 
@@ -225,7 +225,6 @@ return {
           "Mult gain increases by {X:mult,C:white}X1{} with each",
           "boss blind defeated.",
           "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
-          "{C:inactive}Art + Concept by @jinxfucks{}",
         },
       },
 
@@ -264,7 +263,6 @@ return {
         text = {
           "Every time a steel card is held in hand:",
           "Exponentiate Mult from {X:mult,C:white}^.5{} to {X:mult,C:white}^3{}",
-          "{C:inactive}Art + Concept by inspectnerd{}",
         },
       },
 
@@ -286,7 +284,7 @@ return {
         text = {
           "Summon an Omega Joker,",
           "sets money to {C:money}-$20{}",
-          "{C:inactive}Must have room{}"
+          "{C:inactive,S:0.8}Must have room{}"
         },
       },
 
@@ -294,7 +292,7 @@ return {
         name = "Highway",
         text = {
           "Create a random",
-          "{C:red}sinful{} Joker"
+          "{C:red,E:1}Sinful{} Joker"
         }
       }
     },

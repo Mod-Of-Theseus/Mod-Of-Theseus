@@ -39,6 +39,7 @@ SMODS.Consumable {
     set = "Theseus",
     atlas = "PLH",
     pos = {x = 0, y = 0},
+    config = {extra = {dollars = 10}},
     loc_txt = {
         name = "Ancient Oars",
         text = { "Something something" },
@@ -47,7 +48,7 @@ SMODS.Consumable {
         return true
     end,
     use = function(self, card, area, copier)
-        ease_dollars(10)
+        ease_dollars(card.ability.extra.dollars)
     end
 }
 
