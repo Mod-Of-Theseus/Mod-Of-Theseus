@@ -166,6 +166,7 @@ assert(SMODS.load_file("Items/Blinds.lua"))()
 assert(SMODS.load_file("Items/Challenges.lua"))()
 
 -- Mod Utilities
+assert(SMODS.load_file("Items/Tags.lua"))()
 assert(SMODS.load_file("overrides.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()

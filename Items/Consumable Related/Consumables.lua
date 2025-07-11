@@ -42,7 +42,13 @@ SMODS.Consumable {
     loc_txt = {
         name = "Ancient Oars",
         text = { "Something something" },
-    }
+    },
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        ease_dollars(10)
+    end
 }
 
 SMODS.ConsumableType {
