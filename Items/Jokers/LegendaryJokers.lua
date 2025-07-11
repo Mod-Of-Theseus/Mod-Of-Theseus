@@ -227,7 +227,7 @@ SMODS.Joker {
     for _, removed_card in ipairs(context.removed) do
       if ModofTheseus.debuffed(removed_card)  then
         card.ability.extra.emult = card.ability.extra.emult + card.ability.extra.emult_gain
-        SMODS.calculate_effect({message = "upgraded"}, card)
+        SMODS.calculate_effect({localise(k_upgrade_ex)}, card)
       end
     end
   end
