@@ -330,3 +330,19 @@ SMODS.Joker {
     end
   end
 }
+
+SMODS.Joker{
+  key = "wizardJ",
+  atlas = "PLH",
+  rarity = 3,
+  pos = {x = 2, y = 0},
+  config = {extra = {spellsGiven = 1}},
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind and #G.consumeables.cards < G.consumeables.config.card_limit then
+      SMODS.add_card{
+        set = "spellCard"
+      }
+    end
+  end
+}

@@ -34,7 +34,7 @@ SMODS.ConsumableType {
     
 }
 
-SMODS.Consumable {
+SMODS.Consumable { -- The Fool?
     key = "detFool",
     set = "det_tarot",
     atlas = "detC",
@@ -77,7 +77,9 @@ SMODS.Consumable {
 
 
 
-SMODS.Consumable {
+
+
+SMODS.Consumable { -- Hanged Man?
     key = "detHanged",
     set = "det_tarot",
     atlas = "detC",

@@ -40,3 +40,17 @@ SMODS.Challenge({
         },
     }
 })
+
+SMODS.Challenge({
+    key = "deadEndC",
+    rules = {
+        custom = {},
+        modifiers = {
+            {dollars = 10}
+        }
+    },
+
+    jokers = {
+        {id = "j_mot_officeJobJ", edition = "negative", eternal = true}
+    }
+})

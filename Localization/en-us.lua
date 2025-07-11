@@ -64,6 +64,22 @@ return {
       }
     },
 
+    spellCard = {
+      c_mot_fireballSpl = {
+        name = "Fireball",
+        text = {
+          "Destroy 3 random cards"
+        }
+      },
+
+      c_mot_forceSpl = {
+        name = "Force",
+        text = {
+          "Gives #1#% of the score requirement"
+        }
+      }
+    },
+
     Joker = {
 
       ---------------------------
@@ -177,6 +193,14 @@ return {
         },
       },
 
+      j_mot_wizardJ = {
+        name = "Wizard Joker",
+        text = {
+          "Create a random Spell card",
+          "when starting a blind"
+        }
+      },
+
       ---------------------------
       ------ SUPERB JOKERS ------
       ---------------------------
@@ -270,7 +294,7 @@ return {
         name = "Highway",
         text = {
           "Create a random",
-          "sinful Joker"
+          "{C:red}sinful{} Joker"
         }
       }
     },
@@ -279,6 +303,7 @@ return {
   misc = {
     challenge_names = {
       c_mot_gachaC = "Gacha",
+      c_mot_deadEndC = "Dead End"
     },
 
     labels = {

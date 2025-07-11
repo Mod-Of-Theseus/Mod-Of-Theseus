@@ -97,7 +97,7 @@ SMODS.Joker {
       "Jinx",
     },
   },
-  config = { extra = { dollars = 7.25, poker_hand = "Straight" } },
+  config = { extra = { dollars = 10, poker_hand = "Straight" } },
   cost = 6,
   blueprint_compat = true,
   loc_vars = function(self, info_queue, card)
@@ -133,6 +133,7 @@ SMODS.Joker {
   end,
 
   -- todo: add joker display compatibility @chore
+  -- Are we 100% sure this needs any display compat?
 }
 
 SMODS.Joker {
@@ -203,8 +204,6 @@ SMODS.Joker {
       end
     end
   end,
-
-  -- todo: add joker display compatibility @chore
   joker_display_def = function(JokerDisplay)
     ---@type JDJokerDefinition
     return {
