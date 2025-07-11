@@ -42,7 +42,7 @@ return {
         name = "Lapis Loupe",
         text = {
           "Play only your",
-          "best possible hand",
+          "{C:attention,E:1}best{} possible hand",
         },
       },
     },
@@ -77,7 +77,15 @@ return {
         text = {
           "Gives #1#% of the score requirement"
         }
-      }
+      },
+
+      c_mot_ritualSpl = {
+      name = "Ritual",
+        text = {
+          "Create a random Spectral card",
+          "Then make a random spell card if there's room"
+        }
+      },
     },
 
     Joker = {
@@ -110,6 +118,13 @@ return {
           "{C:inactive}(Currently {C:blue}+#3#{C:inactive} Chips)",
         },
 
+      },
+
+      j_mot_pridefulJokerJ = {
+        name = "Prideful Joker",
+        text = {
+          "{C:Red,E:1}TBD{}"
+        }
       },
 
       ---------------------------

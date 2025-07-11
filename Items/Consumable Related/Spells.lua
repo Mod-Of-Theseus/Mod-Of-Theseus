@@ -32,7 +32,7 @@ SMODS.Consumable{
             end
         )
         pseudoshuffle(tempHand, 0) -- Remember to fix the seed later
-        for i = 1, card.ability.extra.destroyCount do destroyedCards[#destroyedCards + 1] = tempHand [i] end
+        for i = 1, card.ability.extra.destroyCount do destroyedCards[#destroyedCards + 1] = tempHand[i] end
         SMODS.destroy_cards(destroyedCards)
     end
 }
@@ -51,5 +51,47 @@ SMODS.Consumable{
     end,
     use = function(self, card, area, copier)
         ease_chips(round_number(G.GAME.blind.chips * card.ability.extra.blindReduction, 1))
+    end
+}
+
+SMODS.Consumable{
+    key = "ritualSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    pos = {x = 1, y = 2},
+    can_use = function(self, card)
+        return #G.consumeables.cards <= G.consumeables.config.card_limit
+    end,
+    use = function(self, card, area, copier)
+        SMODS.add_card({set = "Spectral"})
+        if #G.consumeables.cards < G.consumeables.config.card_limit then
+            SMODS.add_card({set = "spellCard"})
+        end
+    end
+}
+
+SMODS.Consumable{
+    key = "prestidigitationSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    config = {extra = {cardsModified = 3}},
+    pos = {x = 1, y = 2},
+    can_use = function(self, card)
+        return G.hand and #G.hand.cards > 0
+    end,
+    use = function(self, card, area, copier)
+        local modifiedCards = {}
+        local modifiedCardsSH = {}
+        for _, card in ipairs(G.hand.cards) do modifiedCards[#modifiedCards + 1] = card end
+        table.sort(modifiedCards,
+            function(a, b)
+                return not a.playing_card or not b.playing_card or a.playing_card < b.playing_card
+            end
+        )
+        pseudoshuffle(modifiedCards, 0) -- Remember to fix the seed later
+        for i = 1, card.ability.extra.cardsModified do modifiedCardsSH[#modifiedCardsSH + 1] = modifiedCards[i] end
+        for _, cardd in ipairs(modifiedCardsSH) do
+            cardd:set_ability(SMODS.poll_enhancement({guaranteed = true}))
+        end
     end
 }
