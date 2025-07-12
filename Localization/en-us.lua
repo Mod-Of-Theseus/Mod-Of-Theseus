@@ -72,13 +72,6 @@ return {
         }
       },
 
-      c_mot_forceSpl = {
-        name = "Force",
-        text = {
-          "Gives #1#% of the score requirement"
-        }
-      },
-
       c_mot_ritualSpl = {
       name = "Ritual",
         text = {
@@ -86,6 +79,49 @@ return {
           "Then make a random spell card if there's room"
         }
       },
+
+      c_mot_immortalitySpl = {
+        name = "Immortality",
+        text = {
+          "Turn 1 selected Joker eternal"
+        }
+      },
+
+      c_mot_mageHandSpl = {
+        name = "Mage Hand",
+        text = {
+          "Increase hand size by 1"
+        }
+      },
+
+      c_mot_pocketDimensionSpl = {
+        name = "Pocket Dimension",
+        text = {
+          "Gain 1 consumable slot"
+        }
+      },
+
+      c_mot_darknessSpl = {
+        name = "Darkness",
+        text = {
+          "Turn one selected joker Negative",
+          "reduces handsize by 2"
+        }
+      },
+
+      c_mot_polymorphSpl = {
+        name = "Polymorph",
+        text = {
+          "Swap everything on 2 selected cards"
+        }
+      },
+
+      c_mot_creationSpl = {
+        name = "Creation",
+        text = {
+          "+1 shop slot"
+        }
+      }
     },
 
     Joker = {
@@ -123,7 +159,8 @@ return {
       j_mot_pridefulJokerJ = {
         name = "Prideful Joker",
         text = {
-          "{C:Red,E:1}TBD{}"
+          "Gives {C:mult}Mult{} equal to",
+          "{C:attention}#1#{} minus your {C:attention}current dollars{}"
         }
       },
 

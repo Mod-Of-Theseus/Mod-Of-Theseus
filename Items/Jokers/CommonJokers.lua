@@ -156,7 +156,7 @@ SMODS.Joker {
   -- todo: add joker display compatibility @chore
 }
 
---[[
+
 SMODS.Joker {
   key = "pridefulJokerJ",
   pools = {
@@ -166,14 +166,16 @@ SMODS.Joker {
   blueprint_compat = true,
   pos = {x = 0, y = 0},
   config = {extra = {multMax = 20}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.multMax}}
+  end,
   calculate = function(self, card, context)
     if context.joker_main then
-      local multTotal = card.ability.extra.multMax - G.GAME.dollars
-      if to_big(multTotal) < to_big(0) then
+      local multTotal = card.ability.extra.multMax - to_number(G.GAME.dollars)
+      if multTotal <= 0 then
         return {mult = 0}
       end
       return {mult = multTotal}
     end
   end
 }
-]] -- Crashing when trying to score. No fix that I tried worked.

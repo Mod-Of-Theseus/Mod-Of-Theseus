@@ -3,7 +3,7 @@ SMODS.ConsumableType{
     primary_colour = HEX("dec671"),
     secondary_colour = HEX("dec671"),
     collection_rows = {7, 7, 7},
-    shop_rate = .1,
+    shop_rate = 1,
     loc_txt = {
         collection = "Spell Cards",
         name = "Spells"
@@ -31,26 +31,9 @@ SMODS.Consumable{
                 return not a.playing_card or not b.playing_card or a.playing_card < b.playing_card
             end
         )
-        pseudoshuffle(tempHand, 0) -- Remember to fix the seed later
+        pseudoshuffle(tempHand, pseudoseed(158, 'smollusty')) -- Remember to fix the seed later
         for i = 1, card.ability.extra.destroyCount do destroyedCards[#destroyedCards + 1] = tempHand[i] end
         SMODS.destroy_cards(destroyedCards)
-    end
-}
-
-SMODS.Consumable{
-    key = "forceSpl",
-    config = {extra = {blindReduction = .33333}}, -- Set for accuracy, maybe not necessary with rounding?
-    loc_vars = function(self, info_queue, card)
-        return {vars = {(round_number(card.ability.extra.blindReduction * 100, 1))}}
-    end,
-    set = "spellCard",
-    atlas = "PLH",
-    pos = {x = 1, y = 2},
-    can_use = function(self, card)
-        return G.GAME.facing_blind -- Might change so that you can't be over 66% of the way there
-    end,
-    use = function(self, card, area, copier)
-        ease_chips(round_number(G.GAME.blind.chips * card.ability.extra.blindReduction, 1))
     end
 }
 
@@ -71,27 +54,159 @@ SMODS.Consumable{
 }
 
 SMODS.Consumable{
-    key = "prestidigitationSpl",
+    key = "immortalitySpl",
     set = "spellCard",
     atlas = "PLH",
-    config = {extra = {cardsModified = 3}},
     pos = {x = 1, y = 2},
     can_use = function(self, card)
-        return G.hand and #G.hand.cards > 0
+        if #G.jokers.highlighted >= 1 then
+            local joker = G.jokers.highlighted[1]
+            return joker.ability.eternal or (joker.config.center.eternal_compat and not joker.ability.perishable)
+        end
+        return false
+    end,
+
+    use = function(self, card, area, copier)
+        local joker = G.jokers.highlighted[1]
+        if not joker.ability.eternal then
+            joker:set_eternal(true)
+        end
+    end
+}
+
+SMODS.Consumable{
+    key = "mageHandSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    config = {extra = {handIncrease = 1}},
+    pos = {x = 1, y = 2},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.handIncrease}}
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
-        local modifiedCards = {}
-        local modifiedCardsSH = {}
-        for _, card in ipairs(G.hand.cards) do modifiedCards[#modifiedCards + 1] = card end
-        table.sort(modifiedCards,
-            function(a, b)
-                return not a.playing_card or not b.playing_card or a.playing_card < b.playing_card
+        G.hand:change_size(card.ability.extra.handIncrease)
+    end
+}
+
+SMODS.Consumable{
+    key = "pocketDimensionSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    pos = {x = 1, y = 2},
+    config = {extra = {slots = 1}},
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        G.consumeables:change_size(card.ability.extra.slots)
+    end
+}
+
+SMODS.Consumable{
+    key = "darknessSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    pos = {x = 1, y = 2},
+    config = {extra = {penalty = 2}},
+    can_use = function(self, card)
+        if #G.jokers.highlighted >= 1 then
+            local joker = G.jokers.highlighted[1]
+            if not joker.edition then 
+                return true
             end
-        )
-        pseudoshuffle(modifiedCards, 0) -- Remember to fix the seed later
-        for i = 1, card.ability.extra.cardsModified do modifiedCardsSH[#modifiedCardsSH + 1] = modifiedCards[i] end
-        for _, cardd in ipairs(modifiedCardsSH) do
-            cardd:set_ability(SMODS.poll_enhancement({guaranteed = true}))
         end
+    end,
+    use = function(self, card, area, copier)
+        local joker = G.jokers.highlighted[1]
+        if not joker.edition then
+            joker:set_edition('e_negative', true)
+            G.hand:change_size(-card.ability.extra.penalty)
+        end
+    end
+}
+
+SMODS.Consumable{
+    key = "polymorphSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    pos = {x = 1, y = 2},
+    can_use = function(self, card)
+        if #G.hand.highlighted == 2 then return true end
+    end,
+    use = function(self, card, area, copier)
+        local card1 = G.hand.highlighted[1]
+        local card2 = G.hand.highlighted[2]
+        local card1Stats = {}
+        local card2Stats = {}
+
+        -- Create a list of everything card 1 has
+        card1Stats[1] = card1.config.center
+        card1Stats[2] = card1.seal
+        card1Stats[3] = card1.edition
+
+        -- Create a list of everything card 2 has
+        card2Stats[1] = card2.config.center
+        card2Stats[2] = card2.seal
+        card2Stats[3] = card2.edition
+
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = .1,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    return true
+                end
+            }))
+        end
+
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = .2,
+                func = function()
+                    -- Set card 1 to have card 2's stuff
+                    card1:set_ability(card2Stats[1].key)
+                    card1:set_seal(card2Stats[2])
+                    card1:set_edition(card2Stats[3].key)
+                    card1:juice_up(.3, .5)
+
+                    -- Set card 2 to have card 1's stuff
+                    card2:set_ability(card1Stats[1].key)
+                    card2:set_seal(card1Stats[2])
+                    card2:set_edition(card1Stats[3].key)
+                    card2:juice_up(.3, .5)
+                    return true
+                end
+            }))
+        end
+
+        -- Flip them back
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = .4,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    return true
+                end
+            }))
+        end
+    end
+}
+
+SMODS.Consumable{
+    key = "creationSpl",
+    set = "spellCard",
+    atlas = "PLH",
+    pos = {x = 1, y = 2},
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        change_shop_size(1)
     end
 }
