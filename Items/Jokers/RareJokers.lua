@@ -18,14 +18,26 @@
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
 
-SMODS.Joker {
+SMODS.Joker { -- Winning Big
   key = "winningbigJ",
   atlas = "RareJ",
   rarity = 3,
-  pos = { x = 0, y = 0 },
+  pos = { x = 1, y = 0 },
   config = { extra = { dollars = 1, money_mod = 1 } },
   cost = 10,
   blueprint_compat = false,
+  mot_credits = {
+    idea = {
+      "Yo Fish",
+    },
+    art = {
+      "Abducted",
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.dollars, card.ability.extra.money_mod } }
   end,
@@ -63,14 +75,24 @@ SMODS.Joker {
 
 }
 
-SMODS.Joker({
+SMODS.Joker{ -- Medua
   key = "medusaJ",
-  -- TODO: add to a proper atlas file
-  -- TODO: VVVVVVVVVVVVVVVVVVVVVVVVVV
-  atlas = "MedusaJ",
+  atlas = "RareJ",
   pos = { x = 0, y = 0 },
   rarity = 3,
   cost = 8,
+  mot_credits = {
+    idea = {
+      "Goldog", -- Pluey
+    },
+    art = {
+      "Goldog", -- Pluey
+    },
+    code = {
+      "Jinx",
+      "Hoarfrost Trickle",
+    },
+  },
   config = {
     extra = {
       mult = 100, x_mult = 2,
@@ -143,7 +165,7 @@ SMODS.Joker({
     ---@type JDJokerDefinition
     return {
       text = {
-        { text = "+",                              colour = G.C.MULT },
+        { text = "+", colour = G.C.MULT },
         { ref_table = "card.joker_display_values", ref_value = "mult", colour = G.C.MULT, retrigger_type = "mult" },
         {
           border_nodes = {
@@ -171,18 +193,29 @@ SMODS.Joker({
       end
     }
   end
-})
+}
 
 
-SMODS.Joker {
+SMODS.Joker { -- #Queen
   key = "hashtagQueenJ",
-  atlas = "PLH",
+  atlas = "RareJ",
   rarity = 3,
-  pos = { x = 2, y = 0 },
+  pos = { x = 3, y = 0 },
   config = { extra = { x_mult = 1.5, dumb_fucking_workaround = "#" } },
   cost = 10,
   pools = { ["Q"] = true },
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Jinx",
+    },
+    art = {
+      -- "bologna",
+    },
+    code = {
+      "Jinx",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.dumb_fucking_workaround, card.ability.extra.x_mult } }
   end,
@@ -196,4 +229,65 @@ SMODS.Joker {
   end,
 
   -- todo: add joker display compatibility @chore
+}
+
+SMODS.Joker { -- Dave
+  key = "daveJ",
+  pos = { x = 2, y = 0 },
+  rarity = 3,
+  atlas = "RareJ",
+  config = { extra = { odds = 2 } },
+  cost = 9,
+  pools = {
+    ["Food"] = true
+  },
+  blueprint_compat = true, -- Made consistent with other effects
+  mot_credits = {
+    idea = {
+      "bologna",
+    },
+    art = {
+      "bologna",
+    },
+    code = {
+      "Cardboard",
+    },
+},
+  loc_vars = function(self, info_queue, card)
+    return { vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+  end,
+  --either this or i hook another function
+  add_to_deck = function (self, card, from_debuff)
+    card.ability.extra_value = (-card.sell_cost)
+    card:set_cost()
+  end,
+  calculate = function(self, card, context)
+    if context.selling_self then
+      if pseudorandom('dave') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        return { 
+          dollars = to_number(to_big(G.GAME.dollars))
+        }
+      else
+        return { 
+          dollars = to_number(to_big(-G.GAME.dollars))
+        }
+      end
+    end
+  end
+}
+
+SMODS.Joker{ -- Wizard
+  key = "wizardJ",
+  atlas = "PLH",
+  rarity = 3,
+  pos = {x = 2, y = 0},
+  config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind and #G.consumeables.cards < G.consumeables.config.card_limit then
+      SMODS.add_card{
+        set = "spellCard"
+      }
+    end
+  end
 }

@@ -42,9 +42,86 @@ return {
         name = "Lapis Loupe",
         text = {
           "Play only your",
-          "best possible hand",
+          "{C:attention,E:1}best{} possible hand",
         },
       },
+    },
+
+    det_tarot = {
+      c_mot_detFool = {
+        name = "The Fool?",
+        text = {
+          "Create the last deteriorated",
+          "tarot or planet used"
+        }
+      },
+
+      c_mot_detHanged = {
+        name = "Hanged Man?",
+        text = {
+          "Create #1# random cards"
+        }
+      }
+    },
+
+    spellCard = {
+      c_mot_fireballSpl = {
+        name = "Fireball",
+        text = {
+          "Destroy #1# random cards"
+        }
+      },
+
+      c_mot_ritualSpl = {
+      name = "Ritual",
+        text = {
+          "Create a random Spectral card",
+          "Then make a random spell card if there's room"
+        }
+      },
+
+      c_mot_immortalitySpl = {
+        name = "Immortality",
+        text = {
+          "Turn 1 selected Joker eternal"
+        }
+      },
+
+      c_mot_mageHandSpl = {
+        name = "Mage Hand",
+        text = {
+          "Increase hand size by 1"
+        }
+      },
+
+      c_mot_pocketDimensionSpl = {
+        name = "Pocket Dimension",
+        text = {
+          "Gain 1 consumable slot"
+        }
+      },
+
+      c_mot_darknessSpl = {
+        name = "Darkness",
+        text = {
+          "Turn one selected joker Negative",
+          "reduces handsize by 2"
+        }
+      },
+
+      c_mot_polymorphSpl = {
+        name = "Polymorph",
+        text = {
+          "Swap everything on 2 selected cards"
+        }
+      },
+
+      c_mot_creationSpl = {
+        name = "Creation",
+        text = {
+          "+1 shop slot"
+        }
+      }
     },
 
     Joker = {
@@ -57,7 +134,15 @@ return {
         name = "Rekoj",
         text = {
           "{C:chips}+#1#{} Chips",
-          '{C:inactive}"Oh no, it\'s Jimbo\'s evil cousin, Obmij!{}'
+          '{C:inactive}"Oh no, it\'s Jimbo\'s evil cousin, Obmij!"{}'
+        },
+      },
+      
+      j_mot_saladNumberJ = {
+        name = "Salad Number",
+        text = {
+          "{C:chips}+#1#{} chips",
+          '{C:inactive}Its bigger... technically{}'
         },
       },
 
@@ -69,6 +154,14 @@ return {
           "{C:inactive}(Currently {C:blue}+#3#{C:inactive} Chips)",
         },
 
+      },
+
+      j_mot_pridefulJokerJ = {
+        name = "Prideful Joker",
+        text = {
+          "Gives {C:mult}Mult{} equal to",
+          "{C:attention}#1#{} minus your {C:attention}current dollars{}"
+        }
       },
 
       ---------------------------
@@ -131,6 +224,32 @@ return {
         },
       },
 
+      j_mot_daveJ = {
+        name = "Dave",
+        text = {
+          "When sold, {C:green}#1# in #2# chance{}",
+          "to {C:attention}double money{},",
+          "set money to {C:money}$0{} otherwise"
+        },
+      },
+
+      j_mot_cultContractJ = {
+        name = "Cult Contract",
+        text = {
+          "Retrigger all scored {V:1}#2#{} cards",
+          "{C:attention} #1# {} additional times",
+          "All non-{V:1}#2#{} cards are debuffed"
+        },
+      },
+
+      j_mot_wizardJ = {
+        name = "Wizard Joker",
+        text = {
+          "Create a random {C:purple}Spell{}",
+          "when blind is selected"
+        }
+      },
+
       ---------------------------
       ------ SUPERB JOKERS ------
       ---------------------------
@@ -139,7 +258,7 @@ return {
         name = "Reinforced Glass",
         text = {
           "Prevents scoring {C:attention}glass{} cards from",
-          "{C:red,E:1,S:1.1}shattering{} after play."
+          "{C:red,E:1,S:1.1}shattering{}."
         }
       },
 
@@ -153,7 +272,6 @@ return {
           "When {C:attention}Boss Blind{} defeated, this joker gains",
           "{X:mult,C:white}X#2#{} Mult and increases the gain by {X:mult,C:white}X1{}",
           "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
-          "{C:inactive}Art + Concept by @jinxfucks{}",
         },
       },
 
@@ -195,6 +313,16 @@ return {
         },
       },
 
+      j_mot_gachaJokerJ = {
+        name = "Gacha Joker",
+        text = {
+            "Rolls a random joker every end of shop for {X:money,C:white}$#1#{}",
+            "Every {C:green}#6#{} rolls, increases how many rolls you get by {C:green}1{}",
+            "{C:green}#2#{C:inactive} rolls (Max: #7#)",
+            "{C:inactive} #4#/#3# pity for legendary+",
+        },
+      },
+
     },
 
     Spectral = {
@@ -203,23 +331,40 @@ return {
         text = {
           "Summon an Omega Joker,",
           "sets money to {C:money}-$20{}",
-          "{C:inactive}Must have room{}"
+          "{C:inactive,S:0.8}Must have room{}"
         },
       },
+
+      c_mot_highway = {
+        name = "Highway",
+        text = {
+          "Create a random",
+          "{C:red,E:1}Sinful{} Joker"
+        }
+      }
     },
   },
 
   misc = {
+    challenge_names = {
+      c_mot_gachaC = "Gacha",
+      c_mot_deadEndC = "Dead End"
+    },
+
     labels = {
-      k_mot_superb = { "Superb" },
-      k_mot_omega = { "Omega" },
+      k_mot_superb = "Superb",
+      k_mot_omega = "Omega",
     },
 
     dictionary = {
-      k_mot_superb = { "Superb" },
-      k_mot_omega = { "Omega" },
+      k_mot_superb = "Superb",
+      k_mot_omega = "Omega",
+      k_not_enough_money = "Not enough money!",
+      k_not_enough_slots = "Not enough slots!",
+      k_rolled = "Rolled",
+      k_mot_gacha = "Gacha Roll!",
     },
-    
+
     v_dictionary = {
       mot_stone_singular = { "+#1# Stone" },
       mot_stone_plural = { "+#1# Stones" },

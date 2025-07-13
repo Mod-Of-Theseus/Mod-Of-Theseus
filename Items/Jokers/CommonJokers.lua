@@ -23,9 +23,21 @@ SMODS.Joker {
   pos = { x = 0, y = 0 },
   rarity = 1,
   atlas = "CommonJ",
-  config = { extra = { chips = 4 } },
+  config = { extra = { chips = 40 } },
   cost = 1,
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Alt X.X",
+    },
+    art = {
+      "Alt X.X",
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips } }
   end,
@@ -48,6 +60,48 @@ SMODS.Joker {
 
 }
 
+
+SMODS.Joker {
+  key = "saladNumberJ",
+  pos = { x = 1, y = 0 },
+  rarity = 1,
+  atlas = "CommonJ",
+  config = { extra = { chips = 1 } },
+  cost = 0,
+  blueprint_compat = true,
+  loc_vars = function(self, info_queue, card)
+    return { vars = { card.ability.extra.chips } }
+  end,
+  calculate = function(self, card, context)
+    if context.joker_main then
+      return { chips = card.ability.extra.chips }
+    end
+  end,
+
+  mot_credits = {
+    idea = {
+      "Yo Fish",
+    },
+    art = {
+      "Yo Fish",
+    },
+    code = {
+      "Yo Fish",
+    },
+  },
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult" },
+      },
+      text_config = { colour = G.C.CHIPS }
+    }
+  end
+}
+
 SMODS.Joker {
   key = "hashtagQookingJ",
   atlas = "PLH",
@@ -60,6 +114,17 @@ SMODS.Joker {
     ["Food"] = true
   },
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Jinx",
+    },
+    art = {
+      "Jinx",
+    },
+    code = {
+      "Jinx",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     local food_jokers = 0
 
@@ -89,4 +154,28 @@ SMODS.Joker {
   end,
 
   -- todo: add joker display compatibility @chore
+}
+
+
+SMODS.Joker {
+  key = "pridefulJokerJ",
+  pools = {
+    ["sinfulPool"] = true
+  },
+  atlas = "PLH",
+  blueprint_compat = true,
+  pos = {x = 0, y = 0},
+  config = {extra = {multMax = 20}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.multMax}}
+  end,
+  calculate = function(self, card, context)
+    if context.joker_main then
+      local multTotal = card.ability.extra.multMax - to_number(G.GAME.dollars)
+      if multTotal <= 0 then
+        return {mult = 0}
+      end
+      return {mult = multTotal}
+    end
+  end
 }

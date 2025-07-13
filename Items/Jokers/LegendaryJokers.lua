@@ -26,6 +26,18 @@ SMODS.Joker {
   atlas = "LegendJ",
   config = { extra = { X_mult = 2, mult_mod = 1 } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "Jinx",
+    },
+    art = {
+      "Jinx",
+    },
+    code = {
+      "Jinx",
+      "Hoarfrost Trickle",
+    },
+  },
   blueprint_compat = true,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_mult, card.ability.extra.mult_mod } }
@@ -64,6 +76,18 @@ SMODS.Joker {
   blueprint_compat = true,
   config = { extra = { repetitions = 2 }, immutable = { max_repetitions = 25 } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "Alt X.X",
+    },
+    art = {
+      "Alt X.X",
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     local suit = (G.GAME.current_round.ancient_card or {}).suit or 'Spades'
     return {
@@ -119,6 +143,18 @@ SMODS.Joker {
   blueprint_compat = true,
   config = { extra = { X_mult = 2 } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "officer",
+    },
+    art = {
+      "officer",
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_mult } }
   end,
@@ -177,6 +213,17 @@ SMODS.Joker {
     X_chips_gain2 = 2
   } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "Cardboard",
+    },
+    art = {
+      "Cardboard",
+    },
+    code = {
+      "Cardboard",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_chips, card.ability.extra.X_chips_gain1, card.ability.extra.X_chips_gain2 } }
   end,
