@@ -195,8 +195,8 @@ return {
       j_mot_blobbyJ = {
         name = "Blobby",
         text = {
-          "Every time a steel card is held in hand:",
-          "Exponentiate Mult from {X:mult,C:white}^.5{} to {X:mult,C:white}^3{}",
+          "{X:dark_edition,C:white}^0.5-3{} Mult for each",
+          "{C:attention}Steel Card{} held in hand",
           "{C:inactive}Art + Concept by inspectnerd{}",
         },
       },
