@@ -163,26 +163,24 @@ SMODS.Consumable{
             }))
         end
 
-        for i = 1, #G.hand.highlighted do
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = .2,
-                func = function()
-                    -- Set card 1 to have card 2's stuff
-                    card1:set_ability(card2Stats[1].key)
-                    card1:set_seal(card2Stats[2])
-                    card1:set_edition(card2Stats[3].key)
-                    card1:juice_up(.3, .5)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = .2,
+            func = function()
+                -- Set card 1 to have card 2's stuff
+                if card2Stats[1] then card1:set_ability(card2Stats[1].key) elseif not card2Stats[1] then card1:set_ability(nil) end
+                if card2Stats[2] then card1:set_seal(card2Stats[2]) elseif not card2Stats[2] then card1:set_seal(nil) end
+                if card2Stats[3] then card1:set_edition(card2Stats[3].key) elseif not card2Stats[3] then card1:set_seal(nil) end
+                card1:juice_up(.3, .5)
 
-                    -- Set card 2 to have card 1's stuff
-                    card2:set_ability(card1Stats[1].key)
-                    card2:set_seal(card1Stats[2])
-                    card2:set_edition(card1Stats[3].key)
-                    card2:juice_up(.3, .5)
-                    return true
-                end
-            }))
-        end
+                -- Set card 2 to have card 1's stuff
+                if card1Stats[1] then card2:set_ability(card1Stats[1].key) elseif not card1Stats[1] then card2:set_ability(nil) end
+                if card1Stats[2] then card2:set_seal(card1Stats[2]) elseif not card1Stats[2] then card2:set_seal(nil) end
+                if card1Stats[3] then card2:set_edition(card1Stats[3].key) elseif not card1Stats[3] then card2:set_edition(nil) end
+                card2:juice_up(.3, .5)
+                return true
+            end
+        }))
 
         -- Flip them back
         for i = 1, #G.hand.highlighted do
