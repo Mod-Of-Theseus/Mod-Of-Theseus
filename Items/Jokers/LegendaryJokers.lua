@@ -229,21 +229,23 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if context.before and next(context.poker_hands['Straight']) then
-      card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain1
-      return {
-        message = 'Upgraded!',
-        colour = G.C.BLUE
-      }
-    end
+    if not context.blueprint then
+      if context.before and next(context.poker_hands['Straight']) then
+        card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain1
+        return {
+          message = 'Upgraded!',
+          colour = G.C.BLUE
+        }
+      end
 
-    --This is where that calculate_context comes into play
-    if context.upgrade_hand and context.hand == "Straight" then
-      card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain2
-      return {
-        message = 'Upgraded!',
-        colour = G.C.BLUE
-      }
+      --This is where that calculate_context comes into play
+      if context.upgrade_hand and context.hand == "Straight" then
+        card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain2
+        return {
+          message = 'Upgraded!',
+          colour = G.C.BLUE
+        }
+      end
     end
 
     if context.joker_main then

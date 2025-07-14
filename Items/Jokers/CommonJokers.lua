@@ -68,6 +68,9 @@ SMODS.Joker {
   atlas = "CommonJ",
   config = { extra = { chips = 1 } },
   cost = 0,
+  pools = {
+    ["Food"] = true
+  },
   blueprint_compat = true,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips } }
@@ -164,18 +167,18 @@ SMODS.Joker {
   },
   atlas = "PLH",
   blueprint_compat = true,
-  pos = {x = 0, y = 0},
-  config = {extra = {multMax = 20}},
+  pos = { x = 0, y = 0 },
+  config = { extra = { multMax = 20 } },
   loc_vars = function(self, info_queue, card)
-    return {vars = {card.ability.extra.multMax}}
+    return { vars = { card.ability.extra.multMax } }
   end,
   calculate = function(self, card, context)
     if context.joker_main then
       local multTotal = card.ability.extra.multMax - to_number(G.GAME.dollars)
       if multTotal <= 0 then
-        return {mult = 0}
+        return { mult = 0 }
       end
-      return {mult = multTotal}
+      return { mult = multTotal }
     end
   end
 }
