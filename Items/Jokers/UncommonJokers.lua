@@ -149,10 +149,10 @@ SMODS.Joker {
   blueprint_compat = true,
   mot_credits = {
     idea = {
-      "Yo Fish",
+      "Cooked Fish",
     },
     art = {
-      "Yo Fish",
+      "Cooked Fish",
     },
     code = {
       "Jinx",
@@ -208,7 +208,7 @@ SMODS.Joker {
     ---@type JDJokerDefinition
     return {
       text = {
-        { text = "+" },
+        { text = "x" },
         { ref_table = "card.ability.extra", ref_value = "x_chips", retrigger_type = "mult" },
       },
       text_config = { colour = G.C.CHIPS }
