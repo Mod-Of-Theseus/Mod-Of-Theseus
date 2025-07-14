@@ -11,7 +11,7 @@ function Card:is_food()
     j_diet_cola = true,
     j_popcorn = true,
     j_ramen = true,
-    j_seltzer = true,
+    j_selzer = true,
   }
   if food[self.config.center.key] or (Cryptid and Cryptid.safe_get(self.config.center, "pools", "Food")) or ModofTheseus.safe_get(self.config.center, "pools", "Food") then
     return true
@@ -90,20 +90,27 @@ function ModofTheseus.get_highest(hand)
   return highest_card
 end
 
-
 function create_dynatext_badge(dynatext, background_colour)
-	-- No idea how any of this works, it's just a slightly modified version of create_badge
-	return {n=G.UIT.R, config={align = "cm"}, nodes={
-	{n=G.UIT.R, config={align = "cm", colour = background_colour or G.C.GREEN, r = 0.1, minw = 2, minh = 0.4, emboss = 0.05, padding = 0.03}, nodes={
-		{n=G.UIT.B, config={h=0.1,w=0.03}},
-		{n=G.UIT.O, config={object = dynatext}},
-		{n=G.UIT.B, config={h=0.1,w=0.03}},
-	}}
-	}}
+  -- No idea how any of this works, it's just a slightly modified version of create_badge
+  return {
+    n = G.UIT.R,
+    config = { align = "cm" },
+    nodes = {
+      {
+        n = G.UIT.R,
+        config = { align = "cm", colour = background_colour or G.C.GREEN, r = 0.1, minw = 2, minh = 0.4, emboss = 0.05, padding = 0.03 },
+        nodes = {
+          { n = G.UIT.B, config = { h = 0.1, w = 0.03 } },
+          { n = G.UIT.O, config = { object = dynatext } },
+          { n = G.UIT.B, config = { h = 0.1, w = 0.03 } },
+        }
+      }
+    }
+  }
 end
 
 function titlecase(str)
   return (str:gsub("(%a)([%w_']*)", function(first, rest)
-      return first:upper() .. rest:lower()
+    return first:upper() .. rest:lower()
   end))
 end
