@@ -86,6 +86,7 @@ SMODS.Joker {
     code = {
       "Mothball",
       "Hoarfrost Trickle",
+      "Jinx"
     },
   },
   loc_vars = function(self, info_queue, card)
@@ -102,7 +103,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.repetition and context.other_card:is_suit(G.GAME.current_round.ancient_card.suit) and context.cardarea == G.play then
       return {
-        message = 'Again!',
+        message = 'Again!', -- TODO: change this to proper localization @chore
         repetitions = math.min(card.ability.immutable.max_repetitions,
           card.ability.extra.repetitions)
       }
@@ -126,7 +127,7 @@ SMODS.Joker {
       retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
         if held_in_hand then return 0 end
         return playing_card:is_suit(G.GAME.current_round.ancient_card.suit) and
-            JokerDisplay.calculate_joker_triggers(joker_card) * math.min(joker_card.ability.immutable.maxmax_repetitions,
+            JokerDisplay.calculate_joker_triggers(joker_card) * math.min(joker_card.ability.immutable.max_repetitions,
               joker_card.ability.extra.repetitions) or 0
       end
     }
