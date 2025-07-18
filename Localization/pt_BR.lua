@@ -1,5 +1,5 @@
 --[[
- * en-us.lua
+ * pt-br.lua
  * This file is part of Mod of Theseus
  *
  * Copyright (C) 2025 Mod of Theseus
@@ -42,9 +42,86 @@ return {
         name = "Lupa lápis-lazuli",
         text = {
           "Somente jogue sua",
-          "melhor mão possível",
+          "{C:attention,E:1}melhor{} mão possível",
         },
       },
+    },
+
+    det_tarot = {
+      c_mot_detFool = {
+        name = "O tolo?",
+        text = {
+          "Crie a ultima carta deteriorada de ",
+          "tarot ou planeta usada"
+        }
+      },
+
+      c_mot_detHanged = {
+        name = "O enforcado?",
+        text = {
+          "Crie #1# cartas aleatórias"
+        }
+      }
+    },
+
+    spellCard = {
+      c_mot_fireballSpl = {
+        name = "Bola de fogo",
+        text = {
+          "Destrói #1# cartas aleatórias"
+        }
+      },
+
+      c_mot_ritualSpl = {
+      name = "Ritual",
+        text = {
+          "Cria uma carta spectral aleatória",
+          "Então faça uma carta de feitiço aleatória se tiver espaço"
+        }
+      },
+
+      c_mot_immortalitySpl = {
+        name = "Imortalidade",
+        text = {
+          "Transforma o curinga selecionado em eterno"
+        }
+      },
+
+      c_mot_mageHandSpl = {
+        name = "Mão de mago",
+        text = {
+          "Aumenta o tamanho da mão em 1"
+        }
+      },
+
+      c_mot_pocketDimensionSpl = {
+        name = "Dimensão portátil",
+        text = {
+          "Ganha um espaço de consúmivel"
+        }
+      },
+
+      c_mot_darknessSpl = {
+        name = "Escuridão",
+        text = {
+          "Transforma m Curinga selecionado em negativo",
+          "reduz tamanho da mão em 2"
+        }
+      },
+
+      c_mot_polymorphSpl = {
+        name = "Polimorfo",
+        text = {
+          "Troca tudo entre 2 cartas selecionadas"
+        }
+      },
+
+      c_mot_creationSpl = {
+        name = "Criação",
+        text = {
+          "+1 espaço de loja"
+        }
+      }
     },
 
     Joker = {
@@ -77,6 +154,14 @@ return {
           "{C:inactive}(Atualmente {C:blue}+#3#{C:inactive} Fichas)",
         },
 
+      },
+
+      j_mot_pridefulJokerJ = {
+        name = "Curinga orgulhoso",
+        text = {
+          "Dá {C:mult}Multi{} igual a",
+          "{C:attention}#1#{} menos sua {C:attention}Quantidade de grana{}"
+        }
       },
 
       ---------------------------
@@ -160,6 +245,14 @@ return {
         },
       },
 
+      j_mot_wizardJ = {
+        name = "Curinga mago",
+        text = {
+          "Cria um {C:purple}Feitiço{}",
+          "quando blind é selecionado"
+        }
+      },
+
       ---------------------------
       ------ SUPERB JOKERS ------
       ---------------------------
@@ -184,7 +277,6 @@ return {
           "O ganho de Multi aumenta em {X:mult,C:white}X1{} com cada",
           "blind de chefe derrotado.",
           "{C:inactive}(Atualmente {X:mult,C:white} X#1# {C:inactive} Multi)",
-          "{C:inactive}Arte + Conceito por @jinxfucks{}",
         },
       },
 
@@ -223,11 +315,10 @@ return {
         text = {
           "Toda vez que uma carta de aço permanece na mão:",
           "Exponencia o Multi de {X:mult,C:white}^.5{} até {X:mult,C:white}^3{}",
-          "{C:inactive}Arte + Conceito por inspectnerd{}",
         },
       },
 
-      j_mot_gachaJ = {
+      j_mot_gachaJokerJ = {
         name = "Curinga gacha",
         text = {
             "Rola um curinga aleatório no final da loja por {X:money,C:white}$#1#{}",
@@ -248,12 +339,21 @@ return {
           "{C:inactive}Deve ter espaço{}"
         },
       },
+
+      c_mot_highway = {
+        name = "BR-101",
+        text = {
+          "Cria um Curinga",
+          "{C:red,E:1}Pecaminoso{} aleatório"
+        }
+      }
     },
   },
 
   misc = {
     challenge_names = {
       c_mot_gachaC = "Gacha",
+      c_mot_deadEndC = "Beco sem saída"
     },
 
     labels = {
