@@ -150,7 +150,7 @@ return {
         name = "#1#Qooking",
         text = {
           "{C:chips}+#2#{} Chips for",
-          "each {C:attention}Food Joker{} card",
+          "each {C:attention}Food Joker{} owned",
           "{C:inactive}(Currently {C:blue}+#3#{C:inactive} Chips)",
         },
 
@@ -171,10 +171,10 @@ return {
       j_mot_censoredJokerJ = {
         name = "Censored Joker",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult",
-          "Increase by {X:mult,C:white}X#2#{} when selling a card",
-          "Increase by {X:mult,C:white}X#3#{} when rerolling the shop",
-          '{C:inactive}"Literally 1984" - The Blood Moth{}'
+          "This Joker gains {X:mult,C:white}X#2#{} when selling a card",
+          "and gains {X:mult,C:white}X#3#{} when rerolling the shop",
+          "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
+          '{C:inactive}"Literally 1984" - The Blood Moth.{}'
         },
       },
 
@@ -182,16 +182,15 @@ return {
         name = "Office Job",
         text = {
           "Earn {C:money}$#1#{} if played hand",
-          "is a straight from {C:chips}9{} to {C:chips}5{}",
+          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight
         },
       },
 
       j_mot_bucketOfChickenJ = {
         name = "Bucket of Chicken",
         text = {
-          "{X:chips,C:white}X#1#{} {C:chips}Chips{}",
-          "{X:chips,C:white}-#2#X{} {C:chips}Chips{} per",
-          "round played",
+          "{X:chips,C:white}X#1#{} Chips",
+          "{X:chips,C:white}-#2#X{} Chips at end of round", --i know vanilla popcorn says "per round played" but vanilla formatting isn't always the most clear
         },
       },
 
@@ -202,20 +201,18 @@ return {
       j_mot_winningbigJ = {
         name = "Winning Big",
         text = {
-          "Gives {C:money}$#1#{} at end of round,",
-          "increases by {C:money}$#2#{} every time a lucky card triggers"
+          "Earn {C:money}$#1#{} at end of round",
+          "Increases by {C:money}$#2#{} every time a lucky card triggers"
         }
       },
 
       j_mot_medusaJ = {
         name = "Medusa",
         text = {
-          "All played {C:attention}face{} cards",
-          "become {C:attention}Stone{} cards",
-          "when scored",
-          " ",
-          "If all scoring cards are stone cards",
-          "{C:red,s:1.1}+#1#{} Mult, then {X:mult,C:white,s:1.1}x#2#{} Mult",
+          "All played {C:attention}face{} cards become",
+          "{C:attention}Stone{} cards when scored",
+          "{C:mult}+#1#{} Mult and {X:mult,C:white}X#2#{} Mult if all",
+          "scoring cards are {C:attention}Stone{} cards",
         }
       },
 
@@ -223,7 +220,7 @@ return {
         name = "#1#Queen",
         text = {
           "Played {C:attention}Queens{} each give",
-          "{X:mult,C:white} X#2# {} Mult when scored",
+          "{X:mult,C:white}X#2#{} Mult when scored",
         },
       },
 
@@ -272,10 +269,8 @@ return {
       j_mot_jinxJ = {
         name = "Jinx",
         text = {
-          "This Joker gains {X:mult,C:white}X#2#{} Mult",
-          "whenever a boss blind is defeated.",
-          "Mult gain increases by {X:mult,C:white}X1{} with each",
-          "boss blind defeated.",
+          "When {C:attention}Boss Blind{} defeated, this joker gains",
+          "{X:mult,C:white}X#2#{} Mult and increases the gain by {X:mult,C:white}X1{}",
           "{C:inactive}(Currently {X:mult,C:white} X#1# {C:inactive} Mult)",
         },
       },
@@ -283,17 +278,16 @@ return {
       j_mot_altxxJ = {
         name = "Alt X.X",
         text = {
-          "Retrigger all {V:1}#2#{} cards",
-          "{C:attention}#1#{} times",
-          "{C:inactive,s:0.8}suit changes at end of round",
+          "{C:attention}Retrigger{} all {V:1}#2#{} cards",
+          "{C:attention}#1#{} times.",
+          "Suit changes at end of round",
         },
       },
 
       j_mot_titanJ = {
         name = "Titan",
         text = {
-          "Gives {X:mult,C:white}X#1#{} Mult for every",
-          "{C:spade}Spade{} card played and scored"
+          "{C:spade}Spades{} give {X:mult,C:white}X#1#{} Mult when scored",
         },
       },
 
@@ -301,8 +295,8 @@ return {
         name = "Victory Lap",
         text = {
           "Gains {X:chips,C:white}X#2#{} Chips if played hand is a {C:attention}Straight{}",
-          "Gains {X:chips,C:white}X#3#{} Chips if Straight hand is {C:attention}leveled up{}",
-          "{C:inactive}Currently {X:chips,C:white}X#1#{} {C:inactive}Chips{}"
+          "Gains {X:chips,C:white}X#3#{} Chips when {C:attention}Straight{} is {C:attention}leveled up{}", --both the american and british spelling of "levelled" suck
+          "({C:inactive}Currently {X:chips,C:white}X#1#{} {C:inactive}Chips{})"
         }
       },
 
@@ -313,8 +307,9 @@ return {
       j_mot_blobbyJ = {
         name = "Blobby",
         text = {
-          "Every time a steel card is held in hand:",
-          "Exponentiate Mult from {X:mult,C:white}^.5{} to {X:mult,C:white}^3{}",
+          "{X:dark_edition,C:white}^0.5-3{} Mult for each",
+          "{C:attention}Steel Card{} held in hand",
+          "{C:inactive}Art + Concept by inspectnerd{}",
         },
       },
 

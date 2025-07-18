@@ -39,12 +39,14 @@ SMODS.Joker {
         },
     },
     loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_steel
         return {vars = {}}
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             if SMODS.has_enhancement(context.other_card, "m_steel") then
-                return {emult = tonumber(string.format("%.2f", (math.random() + .5) + math.random(0, 2)))}
+                -- this is apparently supposed to be 0.5-3 so i will change it to be that
+                return {emult = (pseudorandom("mot_blobbyj")*2.5)+0.5}
             end
         end
     end
