@@ -195,7 +195,6 @@ SMODS.Joker{ -- Medua
   end
 }
 
-
 SMODS.Joker { -- #Queen
   key = "hashtagQueenJ",
   atlas = "RareJ",

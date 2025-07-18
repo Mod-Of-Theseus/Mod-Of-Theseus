@@ -23,7 +23,7 @@ SMODS.Joker {
   pos = { x = 0, y = 0 },
   rarity = 2,
   atlas = "UncommonJ",
-  config = { extra = { X_mult = 1, mult_modSell = .01, mult_modRoll = .05 } },
+  config = { extra = { X_mult = 1, mult_modSell = .02, mult_modRoll = .05 } },
   cost = 8,
   blueprint_compat = true,
   mot_credits = {

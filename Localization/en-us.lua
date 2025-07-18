@@ -236,19 +236,10 @@ return {
         },
       },
 
-      j_mot_cultContractJ = {
-        name = "Cult Contract",
-        text = {
-          "Retrigger all scored {V:1}#2#{} cards",
-          "{C:attention} #1# {} additional times",
-          "All non-{V:1}#2#{} cards are debuffed"
-        },
-      },
-
       j_mot_wizardJ = {
         name = "Wizard Joker",
         text = {
-          "Create a random {C:purple}Spell{}",
+          "Create a random Spell",
           "when blind is selected"
         }
       },
@@ -263,6 +254,15 @@ return {
           "Prevents scoring {C:attention}glass{} cards from",
           "{C:red,E:1,S:1.1}shattering{}."
         }
+      },
+
+      j_mot_cultContractJ = {
+        name = "Cult Contract",
+        text = {
+          "Retrigger all scored {V:1}#2#{} cards",
+          "{C:attention}#1#{} additional times",
+          "All non-{V:1}#2#{} cards are debuffed"
+        },
       },
 
       ---------------------------
