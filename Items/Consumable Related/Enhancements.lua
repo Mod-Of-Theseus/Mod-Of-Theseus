@@ -18,7 +18,7 @@ SMODS.Enhancement:take_ownership("glass", {
             }))
           end
 
-          print(localize("mot_glass_saved"))
+
 
           return {
             message_card = card,
