@@ -18,12 +18,78 @@
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
 
-SMODS.Joker({
+SMODS.Joker{
   key = "reinforcedGlassJ",
-  pos = { x = 1, y = 0 },
+  pos = { x = 0, y = 0 },
   rarity = "mot_superb",
-  atlas = "PLH",
-  cost = 4,
+  atlas = "SuperbJ",
+  cost = 10,
   blueprint_compat = false,
-  unlocked = true
-})
+  unlocked = true,
+  mot_credits = {
+    idea = {
+      "Jinx",
+    },
+    art = {
+      "Jinx",
+      "Aduckted",
+    },
+    code = {
+      "Jinx",
+      "Mothball",
+    },
+  },
+}
+
+SMODS.Joker{ -- Cult Contract
+  key = "cultContractJ",
+  atlas = "PLH",
+  rarity = "mot_superb",
+  pos = { x = 2, y = 0 },
+  config = { extra = { repetitions = 3, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
+  cost = 8,
+  blueprint_compat = true,
+
+  mot_credits = {
+    idea = {
+      "Cooked Fish",
+    },
+    art = {
+      "Cooked Fish",
+    },
+    code = {
+      "Jinx",
+    },
+},
+
+  loc_vars = function(self, info_queue, card)
+    local suit = card.ability.extra.suit or "Hearts"
+    return {
+      vars = {
+        math.min(card.ability.immutable.max_repetitions,
+          card.ability.extra.repetitions),
+        localize(suit, 'suits_singular'),
+        colours = { G.C.SUITS[suit] },
+      }
+    }
+  end,
+
+  calculate = function(self, card, context)
+    if context.repetition and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
+      return {
+        repetitions = math.min(card.ability.immutable.max_repetitions,
+          card.ability.extra.repetitions)
+      }
+    end
+  end,
+
+  update = function(self, card, dt)
+    if G.hand and card.added_to_deck then
+      for i, v in ipairs(G.hand.cards) do
+        if not v:is_suit("Hearts") then
+          v:set_debuff(true)
+        end
+      end
+    end
+  end
+}

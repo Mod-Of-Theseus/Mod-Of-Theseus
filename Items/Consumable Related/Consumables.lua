@@ -18,27 +18,6 @@
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
 
-SMODS.Consumable {
-    key = "bermuda",
-    set = "Spectral",
-    atlas = "PLH",
-    hidden = true,
-    pos = {x = 2, y = 2},
-    can_use = function(self, card)
-        return #G.jokers.cards < G.jokers.config.card_limit
-    end,
-    use = function(self, card, area, copier)
-        SMODS.add_card{
-            set = "Joker",
-            rarity = "mot_omega"
-        }
-
-        if G.GAME.dollars ~= -20 then
-            ease_dollars(-(G.GAME.dollars + 20), true)
-        end
-    end
-}
-
 SMODS.ConsumableType {
     object_type = "ConsumableType",
     key = "Theseus",
@@ -60,10 +39,17 @@ SMODS.Consumable {
     set = "Theseus",
     atlas = "PLH",
     pos = {x = 0, y = 0},
+    config = {extra = {dollars = 10}},
     loc_txt = {
         name = "Ancient Oars",
         text = { "Something something" },
-    }
+    },
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        ease_dollars(card.ability.extra.dollars)
+    end
 }
 
 SMODS.ConsumableType {
@@ -75,40 +61,8 @@ SMODS.ConsumableType {
         collection = 'Maintenance Cards',
         name = 'Maintenance'
     },
-    shop_rate = 0.4
+    -- shop_rate = 0.4 -- disable while WIP
 }
 
-SMODS.ConsumableType {
-    key = 'det_tarot',
-    collection_rows = {7, 7, 7},
-    primary_colour = G.C.CHIPS,
-    secondary_colour = HEX('a3589d'),
-    loc_txt = {
-        collection = 'Deteriorated Tarots',
-        name = 'Det. Tarot'
-    },
-    shop_rate = 0.4
-}
 
-SMODS.ConsumableType {
-    key = 'det_planet',
-    collection_rows = {7, 7, 7},
-    primary_colour = G.C.CHIPS,
-    secondary_colour = HEX('0067c6'),
-    loc_txt = {
-        collection = 'Deteriorated Planets',
-        name = 'Det. Planet'
-    },
-    shop_rate = 0.4
-}
 
-SMODS.ConsumableType {
-    key = 'det_spectral',
-    collection_rows = {7, 7, 7},
-    primary_colour = G.C.CHIPS,
-    secondary_colour = HEX('0000ff'),
-    loc_txt = {
-        collection = 'Deteriorated Spectrals',
-        name = 'Det. Spectral'
-    },
-}

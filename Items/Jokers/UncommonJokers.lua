@@ -17,14 +17,29 @@
  * You should have received a copy of the GNU General Public License
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
+
 SMODS.Joker {
   key = "censoredJokerJ",
   pos = { x = 0, y = 0 },
   rarity = 2,
   atlas = "UncommonJ",
-  config = { extra = { X_mult = 1, mult_modSell = .01, mult_modRoll = .05 } },
+  config = { extra = { X_mult = 1, mult_modSell = .02, mult_modRoll = .05 } },
   cost = 8,
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Goldog",
+    },
+    art = {
+      -- They kinda just did the same thing at the same time so it'd be hard to justify crediting one over the other regardless of which one made it in
+      "Goldog",
+      "Aduckted"
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_mult, card.ability.extra.mult_modSell, card.ability.extra.mult_modRoll } }
   end,
@@ -70,8 +85,19 @@ SMODS.Joker {
   key = "officeJobJ",
   pos = { x = 1, y = 0 },
   rarity = 2,
-  atlas = "PLH",
-  config = { extra = { dollars = 5, poker_hand = "Straight" } },
+  atlas = "UncommonJ",
+  mot_credits = {
+    idea = {
+      "Yo Fish",
+    },
+    art = {
+      "Yo Fish",
+    },
+    code = {
+      "Jinx",
+    },
+  },
+  config = { extra = { dollars = 10, poker_hand = "Straight" } },
   cost = 6,
   blueprint_compat = true,
   loc_vars = function(self, info_queue, card)
@@ -107,19 +133,31 @@ SMODS.Joker {
   end,
 
   -- todo: add joker display compatibility @chore
+  -- Are we 100% sure this needs any display compat?
 }
 
 SMODS.Joker {
   key = "bucketOfChickenJ",
-  pos = { x = 1, y = 0 },
+  pos = { x = 2, y = 0 },
   rarity = 2,
-  atlas = "PLH",
+  atlas = "UncommonJ",
   config = { extra = { x_chips = 4, x_chips_loss = 1 } },
   cost = 8,
   pools = {
     ["Food"] = true
   },
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Cooked Fish",
+    },
+    art = {
+      "Cooked Fish",
+    },
+    code = {
+      "Jinx",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.x_chips, card.ability.extra.x_chips_loss } }
   end,
@@ -131,7 +169,7 @@ SMODS.Joker {
     if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
       card.ability.extra.x_chips = card.ability.extra.x_chips - card.ability.extra.x_chips_loss
 
-      if card.ability.extra.x_chips <= 0 then
+      if card.ability.extra.x_chips <= 1 then
         G.E_MANAGER:add_event(Event({
           func = function()
             -- This replicates the food destruction effect
@@ -166,13 +204,11 @@ SMODS.Joker {
       end
     end
   end,
-
-  -- todo: add joker display compatibility @chore
   joker_display_def = function(JokerDisplay)
     ---@type JDJokerDefinition
     return {
       text = {
-        { text = "+" },
+        { text = "x" },
         { ref_table = "card.ability.extra", ref_value = "x_chips", retrigger_type = "mult" },
       },
       text_config = { colour = G.C.CHIPS }

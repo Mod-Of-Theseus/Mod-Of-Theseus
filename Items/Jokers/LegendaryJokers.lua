@@ -26,6 +26,18 @@ SMODS.Joker {
   atlas = "LegendJ",
   config = { extra = { X_mult = 2, mult_mod = 1 } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "Jinx",
+    },
+    art = {
+      "Jinx",
+    },
+    code = {
+      "Jinx",
+      "Hoarfrost Trickle",
+    },
+  },
   blueprint_compat = true,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_mult, card.ability.extra.mult_mod } }
@@ -64,6 +76,19 @@ SMODS.Joker {
   blueprint_compat = true,
   config = { extra = { repetitions = 2 }, immutable = { max_repetitions = 25 } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "Alt X.X",
+    },
+    art = {
+      "Alt X.X",
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+      "Jinx"
+    },
+  },
   loc_vars = function(self, info_queue, card)
     local suit = (G.GAME.current_round.ancient_card or {}).suit or 'Spades'
     return {
@@ -78,7 +103,7 @@ SMODS.Joker {
   calculate = function(self, card, context)
     if context.repetition and context.other_card:is_suit(G.GAME.current_round.ancient_card.suit) and context.cardarea == G.play then
       return {
-        message = 'Again!',
+        message = 'Again!', -- TODO: change this to proper localization @chore
         repetitions = math.min(card.ability.immutable.max_repetitions,
           card.ability.extra.repetitions)
       }
@@ -102,7 +127,7 @@ SMODS.Joker {
       retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
         if held_in_hand then return 0 end
         return playing_card:is_suit(G.GAME.current_round.ancient_card.suit) and
-            JokerDisplay.calculate_joker_triggers(joker_card) * math.min(joker_card.ability.immutable.maxmax_repetitions,
+            JokerDisplay.calculate_joker_triggers(joker_card) * math.min(joker_card.ability.immutable.max_repetitions,
               joker_card.ability.extra.repetitions) or 0
       end
     }
@@ -119,6 +144,18 @@ SMODS.Joker {
   blueprint_compat = true,
   config = { extra = { X_mult = 2 } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "officer",
+    },
+    art = {
+      "officer",
+    },
+    code = {
+      "Mothball",
+      "Hoarfrost Trickle",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_mult } }
   end,
@@ -177,26 +214,39 @@ SMODS.Joker {
     X_chips_gain2 = 2
   } },
   cost = 20,
+  mot_credits = {
+    idea = {
+      "Cardboard",
+    },
+    art = {
+      "Cardboard",
+    },
+    code = {
+      "Cardboard",
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.X_chips, card.ability.extra.X_chips_gain1, card.ability.extra.X_chips_gain2 } }
   end,
 
   calculate = function(self, card, context)
-    if context.before and next(context.poker_hands['Straight']) then
-      card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain1
-      return {
-        message = 'Upgraded!',
-        colour = G.C.BLUE
-      }
-    end
+    if not context.blueprint then
+      if context.before and next(context.poker_hands['Straight']) then
+        card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain1
+        return {
+          message = 'Upgraded!',
+          colour = G.C.BLUE
+        }
+      end
 
-    --This is where that calculate_context comes into play
-    if context.upgrade_hand and context.hand == "Straight" then
-      card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain2
-      return {
-        message = 'Upgraded!',
-        colour = G.C.BLUE
-      }
+      --This is where that calculate_context comes into play
+      if context.upgrade_hand and context.hand == "Straight" then
+        card.ability.extra.X_chips = card.ability.extra.X_chips + card.ability.extra.X_chips_gain2
+        return {
+          message = 'Upgraded!',
+          colour = G.C.BLUE
+        }
+      end
     end
 
     if context.joker_main then
@@ -208,3 +258,42 @@ SMODS.Joker {
 
   -- todo: add joker display compatibility @chore
 }
+
+SMODS.Joker {
+  key = "zygornJ", -- (sic)
+  unlocked = true,
+  blueprint_compat = true,
+  rarity = 4,
+  atlas = "PLH",
+  cost = 20,
+  pos = { x = 4, y = 0 },
+  soul_pos = { x = 4, y = 2 },
+  config = { extra = {emult = 1.1, emult_gain = 0.2 } },
+  loc_vars = function(self, info_queue, card)
+    return { vars = { card.ability.extra.emult_gain, card.ability.extra.emult } }
+  end,
+  calculate = function(self, card, context)
+  if context.remove_playing_cards and not context.blueprint then
+    for _, removed_card in ipairs(context.removed) do
+      if ModofTheseus.debuffed(removed_card)  then
+        card.ability.extra.emult = card.ability.extra.emult + card.ability.extra.emult_gain
+        SMODS.calculate_effect({localise(k_upgrade_ex)}, card)
+      end
+    end
+  end
+  if context.selling_card and not context.blueprint then
+    if ModofTheseus.debuffed(context.card) then
+      card.ability.extra.emult = card.ability.extra.emult + card.ability.extra.emult_gain
+      SMODS.calculate_effect({message = "upgraded"}, card)
+    end
+  end
+  if context.joker_main then
+    return { emult = card.ability.extra.emult }
+    end
+  end
+
+  -- todo: add joker display compatibility @chore  
+
+} 
+
+
