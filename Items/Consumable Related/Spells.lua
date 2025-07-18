@@ -170,7 +170,7 @@ SMODS.Consumable{
                 -- Set card 1 to have card 2's stuff
                 if card2Stats[1] then card1:set_ability(card2Stats[1].key) elseif not card2Stats[1] then card1:set_ability(nil) end
                 if card2Stats[2] then card1:set_seal(card2Stats[2]) elseif not card2Stats[2] then card1:set_seal(nil) end
-                if card2Stats[3] then card1:set_edition(card2Stats[3].key) elseif not card2Stats[3] then card1:set_seal(nil) end
+                if card2Stats[3] then card1:set_edition(card2Stats[3].key) elseif not card2Stats[3] then card1:set_edition(nil) end
                 card1:juice_up(.3, .5)
 
                 -- Set card 2 to have card 1's stuff

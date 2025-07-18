@@ -161,6 +161,41 @@ function loadConsumables()
   assert(SMODS.load_file("Items/Consumable Related/Spells.lua"))()
 end
 
+-- Config Stuff
+local motConfigTabs = function()
+  configTabs = {
+      {n = G.UIT.R, config = {align = "cm", padding = 0.1}, nodes = {
+          {n = G.UIT.T, config = {text = "Hello!", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
+      }}
+  }
+	left_settings = { n = G.UIT.C, config = { align = "tl", padding = 0.05 }, nodes = {} }
+	right_settings = { n = G.UIT.C, config = { align = "tl", padding = 0.05 }, nodes = {} }
+	config = { n = G.UIT.R, config = { align = "tm", padding = 0 }, nodes = { left_settings, right_settings } }
+
+  configTabs[#configTabs + 1] = config
+  configTabs[#configTabs + 1] = create_toggle({
+      label = "Deterioration: ",
+      active_colour = HEX("40c76d"),
+      ref_table = ModofTheseus.config,
+      ref_value = "deteriorationOn"
+    })
+  return {
+      n = G.UIT.ROOT,
+      config = {
+              emboss = 0.05,
+              minh = 6,
+              r = 0.1,
+              minw = 10,
+              align = "cm",
+              padding = 0.2,
+              colour = G.C.BLACK,
+      },
+      nodes = configTabs,
+	}
+end
+
+SMODS.current_mod.config_tab = motConfigTabs
+
 -- Blind / Antes
 assert(SMODS.load_file("Items/Blinds.lua"))()
 
@@ -170,9 +205,11 @@ assert(SMODS.load_file("Items/Challenges.lua"))()
 -- Mod Utilities
 assert(SMODS.load_file("Items/Tags.lua"))()
 assert(SMODS.load_file("overrides.lua"))()
+assert(SMODS.load_file("config.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Jokers/OwnershipClaiming.lua"))()
+assert(SMODS.load_file("Items/deterioration.lua"))()
 
 loadJokers()
 loadConsumables()
