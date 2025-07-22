@@ -234,3 +234,58 @@ SMODS.Joker{
         }
     end
 }
+
+
+
+SMODS.Joker {
+    key = "goldEggJ",
+    loc_txt = {
+        name = "Gold Egg",
+        text = {
+            "+{C:chips}#1# chips{}",
+            -- "Gives {C:mult}Mult{} equal to",
+            -- "{C:attention}#1#{} minus your {C:attention}current dollars{}"
+        }
+    },
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 0},
+    rarity = "mot_omega",
+    atlas = "PLH",
+    config = {},
+    cost = 50,
+    blueprint_compat = true,
+    mot_credits = {
+        idea = {
+            "Hoarfrost Trickle",
+        },
+        art = {
+            -- "Willow",
+        },
+        code = {
+            "Hoarfrost Trickle",
+        },
+    },
+    loc_vars = function (self, info_queue, card)
+        return {vars = { get_meta("gold_egg_chips") }}
+    end,
+    calculate = function (self, card, context)
+        if context.joker_main then
+            set_meta("gold_egg_chips", get_meta("gold_egg_chips") + 1)
+            return { chips = get_meta("gold_egg_chips") }
+        end
+    end,
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" },
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                card.joker_display_values.chips = get_meta("gold_egg_chips")
+            end
+        }
+    end,
+}
+

@@ -139,6 +139,10 @@ SMODS.Rarity {
   badge_colour = HEX('000000'),
 }
 
+
+
+assert(SMODS.load_file("meta.lua"))()
+
 -- Jokers
 function loadJokers()
   assert(SMODS.load_file("Items/Jokers/CommonJokers.lua"))()
