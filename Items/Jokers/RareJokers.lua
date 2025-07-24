@@ -31,7 +31,7 @@ SMODS.Joker { -- Winning Big
       "Yo Fish",
     },
     art = {
-      "Abducted",
+      "Aduckted",
     },
     code = {
       "Mothball",
@@ -83,10 +83,10 @@ SMODS.Joker{ -- Medua
   cost = 8,
   mot_credits = {
     idea = {
-      "Goldog", -- Pluey
+      "GoldDog", -- Pluey
     },
     art = {
-      "Goldog", -- Pluey
+      "GoldDog", -- Pluey
     },
     code = {
       "Jinx",
@@ -209,7 +209,7 @@ SMODS.Joker { -- #Queen
       "Jinx",
     },
     art = {
-      -- "bologna",
+      "bologna",
     },
     code = {
       "Jinx",
@@ -282,6 +282,17 @@ SMODS.Joker{ -- Wizard
   pos = {x = 2, y = 0},
   config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Mothball"
+    },
+    art = {
+
+    },
+    code = {
+      "Mothball"
+    }
+  },
   calculate = function(self, card, context)
     if context.setting_blind and #G.consumeables.cards < G.consumeables.config.card_limit then
       SMODS.add_card{

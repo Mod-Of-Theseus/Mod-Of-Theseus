@@ -101,7 +101,7 @@ SMODS.Joker{
             "Vrinee",
         },
         art = {
-            -- "Goldog",
+            -- "GoldDog",
         },
         code = {
             "Vrinee",
