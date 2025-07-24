@@ -2,13 +2,18 @@ CurrentDet = 0
 MaxDet = 10
 BufferRolls = 2
 
+function ease_deterioration(mod)
+    CurrentDet = CurrentDet + mod
+    print(CurrentDet)
+end
+
 if SMODS.current_mod.config.deteriorationOn then 
     local SMODS_calculate_context_ref = SMODS.calculate_context
     function SMODS.calculate_context(context, return_table)
         -- your code before
         local ret = SMODS_calculate_context_ref(context, return_table)
         if context.reroll_shop then
-            if CurrentDet < MaxDet and BufferRolls == 0 then CurrentDet = CurrentDet + 1 elseif BufferRolls ~= 0 then BufferRolls = BufferRolls - 1 end
+            if CurrentDet < MaxDet and BufferRolls == 0 then ease_deterioration(1) elseif BufferRolls ~= 0 then BufferRolls = BufferRolls - 1 end
             G.GAME.common_mod = .05
             G.GAME.uncommon_mod = -.02
             G.GAME.rare_mod = -.01

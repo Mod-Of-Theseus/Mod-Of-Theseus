@@ -48,12 +48,12 @@ end
 -- neat utility made by the wonderful abigail. types by jinxfucks
 ---@param card table|Card
 ---@param source table|Card
-function ModofTheseus.debuffed(card, source)
+function ModofTheseus.debuffed(card)
   if card.debuff then
     return {
       message = localize("k_debuffed"),
       colour = G.C.RED,
-      card = source,
+      card = card,
     }
   end
 end

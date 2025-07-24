@@ -209,7 +209,7 @@ assert(SMODS.load_file("config.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Jokers/OwnershipClaiming.lua"))()
-assert(SMODS.load_file("Items/deterioration.lua"))()
+assert(SMODS.load_file("Items/Deterioration.lua"))()
 
 loadJokers()
 loadConsumables()
