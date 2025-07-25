@@ -31,7 +31,6 @@ SMODS.Joker{
       "Jinx",
     },
     art = {
-      "Jinx",
       "Aduckted",
     },
     code = {

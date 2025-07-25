@@ -169,6 +169,17 @@ SMODS.Joker {
   blueprint_compat = true,
   pos = { x = 0, y = 0 },
   config = { extra = { multMax = 20 } },
+  mot_credits = {
+    idea = {
+      "Mothball"
+    },
+    art = {
+
+    },
+    code = {
+      "Mothball"
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.multMax } }
   end,

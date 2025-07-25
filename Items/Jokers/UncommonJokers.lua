@@ -28,11 +28,11 @@ SMODS.Joker {
   blueprint_compat = true,
   mot_credits = {
     idea = {
-      "Goldog",
+      "GoldDog",
     },
     art = {
       -- They kinda just did the same thing at the same time so it'd be hard to justify crediting one over the other regardless of which one made it in
-      "Goldog",
+      "GoldDog",
       "Aduckted"
     },
     code = {
@@ -88,10 +88,10 @@ SMODS.Joker {
   atlas = "UncommonJ",
   mot_credits = {
     idea = {
-      "Yo Fish",
+      "Cooked Fish",
     },
     art = {
-      "Yo Fish",
+      "Cooked Fish",
     },
     code = {
       "Jinx",

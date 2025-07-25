@@ -269,6 +269,17 @@ SMODS.Joker {
   pos = { x = 4, y = 0 },
   soul_pos = { x = 4, y = 2 },
   config = { extra = {emult = 1.1, emult_gain = 0.2 } },
+  mot_credits = {
+    idea = {
+      "Yo Fish"
+    },
+    art = {
+      
+    },
+    code = {
+      "Yo Fish"
+    },
+  },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.emult_gain, card.ability.extra.emult } }
   end,
