@@ -18,6 +18,8 @@
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
 
+local succ, https = pcall(require, "SMODS.https")
+
 if not ModofTheseus then
   ModofTheseus = {}
 end
@@ -210,6 +212,7 @@ assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Jokers/OwnershipClaiming.lua"))()
 assert(SMODS.load_file("Items/Deterioration.lua"))()
+assert(SMODS.load_file("soundManager.lua"))()
 
 loadJokers()
 loadConsumables()

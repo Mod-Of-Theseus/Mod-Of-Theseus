@@ -241,6 +241,16 @@ return {
         }
       },
 
+      j_mot_skillCheckJ = {
+        name = "Skill Check",
+        text = {
+          "Gives {C:chips}Chips{} equal to",
+          "the amount of times you've {C:attention}Clicked{}",
+          "Resets at end of round",
+          "{C:inactive,S:0.8}Currently {C:attention}#1#{}{}"
+        }
+      },
+
       ---------------------------
       ------ SUPERB JOKERS ------
       ---------------------------
@@ -300,19 +310,6 @@ return {
         }
       },
 
-      
-      j_mot_zygornJ = {
-        name = "Zygorn Republic",
-        text = {
-          "{C:inactive}Shattered-- destroyed and blood stained.",
-          "{C:inactive}But it pertains and for each fall it came back",
-          "{C:inactive}stronger, until it dominated--",
-          "{C:inactive}let lessons be learned; justice be served",
-          "every time you destroy or sell a debuffed card or joker" ,
-          "this joker gains {X:mult,C:white}^#1#{} {C:inactive} currently at {X:mult,C:white}^#2#{}",
-        }
-      },
-
 
       ---------------------------
       ------ OMEGA JOKERS -------
@@ -335,6 +332,21 @@ return {
             "{C:green}#2#{C:inactive} rolls (Max: #7#)",
             "{C:inactive} #4#/#3# pity for legendary+",
         },
+      },
+
+      j_mot_zygornJ = {
+        name = "Zygorn Republic",
+        text = {
+          "Every time you destroy or sell a debuffed card or joker" ,
+          "this joker gains {X:mult,C:white}^#1#{}",
+          "{C:inactive,S0.8}Currently {X:mult,C:white}^#2#{}",
+          --[[
+          "{C:inactive,S:0.8}Shattered-- destroyed and blood stained.{}",
+          "{C:inactive,S:0.8}But it pertains and for each fall it came back{}",
+          "{C:inactive,S:0.8}stronger, until it dominated--{}",
+          "{C:inactive,S:0.8}let lessons be learned; justice be served{}"
+          ]]
+        }
       },
 
     },

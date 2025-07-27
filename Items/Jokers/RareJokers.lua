@@ -279,6 +279,7 @@ SMODS.Joker{ -- Wizard
   key = "wizardJ",
   atlas = "PLH",
   rarity = 3,
+  cost = 10,
   pos = {x = 2, y = 0},
   config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
   blueprint_compat = true,
@@ -298,6 +299,44 @@ SMODS.Joker{ -- Wizard
       SMODS.add_card{
         set = "spellCard"
       }
+    end
+  end
+}
+
+SMODS.Joker{
+  key = "skillCheckJ",
+  atlas = "PLH",
+  cost = 8,
+  rarity = 3,
+  pos = {x = 2, y = 0},
+  config = {extra = {chipsPerClick = 1, clicks = 0}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.clicks}}
+  end,
+  calculate = function(self, card, context)
+    if context.mot_click then 
+      card.ability.extra.clicks = card.ability.extra.clicks + 1
+      play_sound("mot_" .. randomHit())
+    end
+
+    if context.joker_main then
+      G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = .1,
+        func = function()
+          play_sound("mot_" .. randomCrit())
+          return true
+        end
+      }))
+
+        return {
+        chips = card.ability.extra.clicks * card.ability.extra.chipsPerClick,
+      }
+
+    end
+
+    if context.end_of_round then
+      card.ability.extra.clicks = 0
     end
   end
 }
