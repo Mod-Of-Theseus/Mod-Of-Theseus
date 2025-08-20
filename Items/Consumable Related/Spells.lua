@@ -109,8 +109,8 @@ SMODS.Consumable{
     key = "darknessSpl",
     set = "spellCard",
     atlas = "PLH",
+    hidden = true,
     pos = {x = 1, y = 2},
-    config = {extra = {penalty = 2}},
     can_use = function(self, card)
         if #G.jokers.highlighted >= 1 then
             local joker = G.jokers.highlighted[1]
@@ -123,7 +123,7 @@ SMODS.Consumable{
         local joker = G.jokers.highlighted[1]
         if not joker.edition then
             joker:set_edition('e_negative', true)
-            G.hand:change_size(-card.ability.extra.penalty)
+            joker.ability.rental = true
         end
     end
 }
@@ -200,6 +200,7 @@ SMODS.Consumable{
     key = "creationSpl",
     set = "spellCard",
     atlas = "PLH",
+    hidden = true,
     pos = {x = 1, y = 2},
     can_use = function(self, card)
         return true

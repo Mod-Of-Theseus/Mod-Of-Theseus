@@ -105,7 +105,7 @@ return {
         name = "Darkness",
         text = {
           "Turn one selected joker Negative",
-          "reduces handsize by 2"
+          "then make it rental"
         }
       },
 
