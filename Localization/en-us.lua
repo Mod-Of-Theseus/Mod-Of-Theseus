@@ -182,7 +182,7 @@ return {
         name = "Office Job",
         text = {
           "Earn {C:money}$#1#{} if played hand",
-          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight
+          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight "Shortcut + 4 Fingers, J/10, 9, 7, 5" - Moth
         },
       },
 
@@ -366,6 +366,24 @@ return {
         text = {
           "Create a random",
           "{C:red,E:1}Sinful{} Joker"
+        }
+      }
+    },
+
+    Other = {
+      p_mot_sinful_normal = {
+        name = "Sinful Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
+          "{C:red,E:1}Sinful{} jokers",
+        }
+      },
+
+      p_mot_sinful_mega = {
+        name = "Mega Sinful Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
+          "{C:red,E:1}Sinful{} jokers",
         }
       }
     },
