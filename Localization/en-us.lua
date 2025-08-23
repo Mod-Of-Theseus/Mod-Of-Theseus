@@ -320,7 +320,6 @@ return {
         text = {
           "{X:dark_edition,C:white}^0.5-3{} Mult for each",
           "{C:attention}Steel Card{} held in hand",
-          "{C:inactive}Art + Concept by inspectnerd{}",
         },
       },
 
@@ -379,13 +378,21 @@ return {
         }
       },
 
+      p_mot_sinful_jumbo = {
+        name = "Jumbo Sinful Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
+          "{C:red,E:1}Sinful{} jokers",
+        }
+      },
+
       p_mot_sinful_mega = {
         name = "Mega Sinful Pack",
         text = {
           "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
           "{C:red,E:1}Sinful{} jokers",
         }
-      }
+      },
     },
   },
 

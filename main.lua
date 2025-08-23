@@ -61,6 +61,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+  key = "BoostersP",
+  path = "Packs.png",
+  px = 71,
+  py = 95,
+}
+
+SMODS.Atlas {
   key = "CommonJ",
   path = "CommonJokers.png",
   px = 71,
@@ -149,6 +156,7 @@ function loadJokers()
   assert(SMODS.load_file("Items/Jokers/SuperbJokers.lua"))()
   assert(SMODS.load_file("Items/Jokers/LegendaryJokers.lua"))()
   assert(SMODS.load_file("Items/Jokers/OmegaJokers.lua"))()
+  assert(SMODS.load_file("Items/Jokers/SinsNVirtues.lua"))()
 end
 
 -- Consumables

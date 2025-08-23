@@ -42,9 +42,9 @@ SMODS.Joker{
 
 SMODS.Joker{ -- Cult Contract
   key = "cultContractJ",
-  atlas = "PLH",
+  atlas = "SuperbJ",
   rarity = "mot_superb",
-  pos = { x = 2, y = 0 },
+  pos = { x = 1, y = 0 },
   config = { extra = { repetitions = 3, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
   cost = 8,
   blueprint_compat = true,

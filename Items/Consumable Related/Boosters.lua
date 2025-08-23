@@ -40,8 +40,8 @@ end
 for i = 1, 2 do
     SMODS.Booster{
         key = "sinful_normal_" .. i,
-        atlas = "PLH",
-        pos = { x = 0 + i, y = 0 },
+        atlas = "BoostersP",
+        pos = { x = 0 + (i-1), y = 0 },
         config = {extra = 3, choose = 1},
         cost = 4,
         kind = "Sinful",
@@ -60,8 +60,25 @@ for i = 1, 2 do
 end
 
 SMODS.Booster{
+    key = "sinful_jumbo",
+    atlas = "BoostersP",
+    pos = { x = 2, y = 0 },
+    config = {extra = 5, choose = 1},
+    cost = 8,
+    kind = "sinful",
+    weight = 0.5,
+    create_card = function()
+        return create_card("sinfulPool", G.pack_cards, true, true, true, "mot", nil)
+    end,
+    loc_vars = function(self, info_queue, card)
+        local cfg = (card and card.ability) or self.config
+        return {vars = {cfg.choose, cfg.extra },}
+    end,
+}
+
+SMODS.Booster{
     key = "sinful_mega",
-    atlas = "PLH",
+    atlas = "BoostersP",
     pos = { x = 3, y = 0 },
     config = {extra = 5, choose = 2},
     cost = 8,
