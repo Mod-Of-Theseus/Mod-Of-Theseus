@@ -159,8 +159,24 @@ return {
       j_mot_pridefulJokerJ = {
         name = "Prideful Joker",
         text = {
+            "Played {C:red,E:1}suitless{} or {C:red,E:1}omni-suited{}",
+            "cards give {C:mult}+#1#{} Mult when scored",
+        }
+      },
+
+      j_mot_enviousJokerJ = {
+        name = "Envious Joker",
+        text = {
           "Gives {C:mult}Mult{} equal to",
           "{C:attention}#1#{} minus your {C:attention}current dollars{}"
+        }
+      },
+
+      j_mot_slothfulJokerJ = {
+        name = "Slothful Joker",
+        text = {
+          "{C:attention}Unplayed{} cards",
+          "give {C:mult}+#1#{} Mult"
         }
       },
 
@@ -414,6 +430,7 @@ return {
       k_not_enough_slots = "Not enough slots!",
       k_rolled = "Rolled",
       k_mot_gacha = "Gacha Roll!",
+      k_mot_sinful_pack = "Sinful Pack"
     },
 
     v_dictionary = {

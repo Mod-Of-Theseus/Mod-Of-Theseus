@@ -41,6 +41,7 @@ for i = 1, 2 do
     SMODS.Booster{
         key = "sinful_normal_" .. i,
         atlas = "BoostersP",
+        group_key = "k_mot_sinful_pack",
         pos = { x = 0 + (i-1), y = 0 },
         config = {extra = 3, choose = 1},
         cost = 4,
@@ -53,7 +54,7 @@ for i = 1, 2 do
             local cfg = (card and card.ability) or self.config
             return {
                 vars = { cfg.choose, cfg.extra },
-                key = self.key:sub(1, -3), -- This uses the description key of the booster without the number at the end
+                key = self.key:sub(1, -3)
             }
         end,
     }
@@ -62,6 +63,7 @@ end
 SMODS.Booster{
     key = "sinful_jumbo",
     atlas = "BoostersP",
+    group_key = "k_mot_sinful_pack",
     pos = { x = 2, y = 0 },
     config = {extra = 5, choose = 1},
     cost = 8,
@@ -79,6 +81,7 @@ SMODS.Booster{
 SMODS.Booster{
     key = "sinful_mega",
     atlas = "BoostersP",
+    group_key = "k_mot_sinful_pack",
     pos = { x = 3, y = 0 },
     config = {extra = 5, choose = 2},
     cost = 8,

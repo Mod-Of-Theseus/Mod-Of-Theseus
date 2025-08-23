@@ -90,9 +90,9 @@ end
 
 SMODS.Joker{
     key = "gachaJokerJ",
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 0},
     rarity = "mot_omega",
-    atlas = "PLH",
+    atlas = "OmegaJ",
     config = {extra = {rolls = 1, rollCap = 5, currentPity = 0, imutable = { cost = 10, rollIncrease = 5, maxRollCap = 25,  amountOfRolls = 0, pity = 20, }}},
     cost = 50,
     blueprint_compat = false,
