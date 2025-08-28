@@ -282,7 +282,7 @@ return {
       j_mot_cultContractJ = {
         name = "Cult Contract",
         text = {
-          "Retrigger all scored {V:1}#2#{} cards",
+          "Retrigger all {V:1}#2#{} cards",
           "{C:attention}#1#{} additional times",
           "All non-{V:1}#2#{} cards are debuffed"
         },

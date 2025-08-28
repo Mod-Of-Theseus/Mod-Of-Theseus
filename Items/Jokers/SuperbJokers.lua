@@ -80,6 +80,12 @@ SMODS.Joker{ -- Cult Contract
           card.ability.extra.repetitions)
       }
     end
+
+    if context.repetition and context.cardarea == G.hand and context.other_card:is_suit(card.ability.extra.suit) then
+      return {
+        repetitions = math.min(card.ability.immutable.max_repetitions, card.ability.extra.repetitions)
+      }
+    end
   end,
 
   update = function(self, card, dt)
