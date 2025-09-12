@@ -235,7 +235,7 @@ SMODS.Joker { -- Dave
   pos = { x = 2, y = 0 },
   rarity = 3,
   atlas = "RareJ",
-  config = { extra = { odds = 2 } },
+  config = { extra = { numerator = 1, denominator = 2 } },
   cost = 9,
   pools = {
     ["Food"] = true
@@ -253,7 +253,9 @@ SMODS.Joker { -- Dave
     },
 },
   loc_vars = function(self, info_queue, card)
-    return { vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+
+    local num,den = SMODS.get_probability_vars(card, card.ability.extra.numerator, card.ability.extra.denominator, "mot_dave")
+    return { vars = { num,den } }
   end,
   --either this or i hook another function
   add_to_deck = function (self, card, from_debuff)
@@ -262,7 +264,7 @@ SMODS.Joker { -- Dave
   end,
   calculate = function(self, card, context)
     if context.selling_self then
-      if pseudorandom('dave') < G.GAME.probabilities.normal / card.ability.extra.odds then
+      if SMODS.pseudorandom_probability(card, "mot_dave", card.ability.extra.numerator, card.ability.extra.denominator, "mot_dave") then
         return { 
           dollars = to_number(to_big(G.GAME.dollars))
         }
