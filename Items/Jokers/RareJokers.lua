@@ -108,7 +108,7 @@ SMODS.Joker{ -- Medua
   end,
   blueprint_compat = true,
   calculate = function(_self, card, context)
-    if context.before and context.main_eval and not context.blueprint and context.scoring_hand then
+    if context.before and not context.blueprint and context.scoring_hand then
       local faces = 0
 
       for _, scored_card in ipairs(context.scoring_hand) do
