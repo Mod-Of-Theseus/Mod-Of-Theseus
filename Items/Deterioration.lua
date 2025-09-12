@@ -1,7 +1,7 @@
 local original_start_run = G.start_run
 
 function Game:start_run(args)
-    original_start_run(args)
+    original_start_run(self, args)
 
     if not args.savetext then --new save
         G.GAME.current_det = 0
