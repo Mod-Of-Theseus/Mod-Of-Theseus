@@ -116,19 +116,21 @@ SMODS.Consumable{
     atlas = "PLH",
     hidden = true,
     pos = {x = 1, y = 2},
+    config = {extra = {select_limit = 1}},
     can_use = function(self, card)
-        if #G.jokers.highlighted >= 1 then
-            local joker = G.jokers.highlighted[1]
-            if not joker.edition then 
-                return true
+        if #G.jokers.highlighted == card.ability.extra.select_limit then
+            local valid = true
+            for _,joker in pairs(G.jokers.highlighted) do
+                valid = valid and (not joker.edition)
             end
+            return valid
         end
+        return false
     end,
     use = function(self, card, area, copier)
-        local joker = G.jokers.highlighted[1]
-        if not joker.edition then
-            joker:set_edition('e_negative', true)
-            joker.ability.rental = true
+        for _,joker in pairs(G.jokers.highlighted) do
+            joker:set_edition("e_negative")
+            joker:set_rental(true)
         end
     end
 }
@@ -142,6 +144,7 @@ SMODS.Consumable{
         if #G.hand.highlighted == 2 then return true end
     end,
     use = function(self, card, area, copier)
+        --no offense, i'm not touching this
         local card1 = G.hand.highlighted[1]
         local card2 = G.hand.highlighted[2]
         local card1Stats = {}
