@@ -81,7 +81,7 @@ SMODS.Joker {
     atlas = "CommonJ",
     blueprint_compat = true,
     pos = { x = 4, y = 0 },
-    config = { extra = {mult = 2} },
+    config = { extra = {mult = 3} },
     mot_credits = {
         idea = {
             "Jinx"

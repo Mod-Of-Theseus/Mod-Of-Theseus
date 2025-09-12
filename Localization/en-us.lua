@@ -175,8 +175,8 @@ return {
       j_mot_slothfulJokerJ = {
         name = "Slothful Joker",
         text = {
-          "{C:attention}Unplayed{} cards",
-          "give {C:mult}+#1#{} Mult"
+          "{C:attention}Unplayed{} cards give",
+          "{C:mult}+#1#{} Mult when held in hand"
         }
       },
 
