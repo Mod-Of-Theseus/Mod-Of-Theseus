@@ -34,8 +34,8 @@ ModofTheseus.enabled = copy_table(ModofTheseus_config)
 
 SMODS.ObjectType {
   key = "sinfulPool",
-  default = "j_lusty_joker"
-
+  default = "j_lusty_joker",
+  cards = {"j_gluttenous_joker", "j_lusty_joker", "j_wrathful_joker", "j_greedy_joker"},
 }
 
 SMODS.Atlas {
