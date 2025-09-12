@@ -45,7 +45,7 @@ SMODS.Joker{ -- Cult Contract
   atlas = "SuperbJ",
   rarity = "mot_superb",
   pos = { x = 1, y = 0 },
-  config = { extra = { repetitions = 3, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
+  config = { extra = { repetitions = 2, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
   cost = 8,
   blueprint_compat = true,
 
