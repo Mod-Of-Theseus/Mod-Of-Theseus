@@ -58,18 +58,23 @@ SMODS.Consumable{
     set = "spellCard",
     atlas = "PLH",
     pos = {x = 1, y = 2},
+    config = {extra = {select_limit = 1}},
     can_use = function(self, card)
-        if #G.jokers.highlighted >= 1 then
-            local joker = G.jokers.highlighted[1]
-            return joker.ability.eternal or (joker.config.center.eternal_compat and not joker.ability.perishable)
+        if #G.jokers.highlighted == card.ability.extra.select_limit then
+            local valid = true
+            for _,joker in pairs(G.jokers.highlighted) do
+                valid = valid and (joker.ability.eternal or (joker.config.center.eternal_compat and not joker.ability.perishable))
+            end
+            return valid
         end
         return false
     end,
 
     use = function(self, card, area, copier)
-        local joker = G.jokers.highlighted[1]
-        if not joker.ability.eternal then
-            joker:set_eternal(true)
+        for _,joker in pairs(G.jokers.highlighted) do
+            if not joker.ability.eternal then
+                joker:set_eternal(true)
+            end
         end
     end
 }
