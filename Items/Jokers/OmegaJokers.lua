@@ -117,7 +117,7 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.ending_shop and not context.blueprint then
             local remaining_slots = G.jokers.config.card_limit - #G.jokers.cards
-            if G.GAME.dollars < to_big(card.ability.extra.imutable.cost) then -- check if player has enough money
+            if to_big(G.GAME.dollars) < to_big(card.ability.extra.imutable.cost) then -- check if player has enough money
                 return {
                     message = localize('k_not_enough_money'),
                     colour = G.C.MONEY
