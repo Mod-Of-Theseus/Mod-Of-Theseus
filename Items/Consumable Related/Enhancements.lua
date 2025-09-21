@@ -23,6 +23,7 @@ SMODS.Enhancement:take_ownership("glass", {
           return {
             message_card = card,
             -- NOTE: ugly localization hack. don't remove
+            -- what      this is literally just how localize works normally :(
             message = localize({ type = "variable", key = "mot_glass_saved", vars = {} })
           }
         end

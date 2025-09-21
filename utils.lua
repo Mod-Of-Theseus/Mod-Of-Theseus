@@ -13,7 +13,7 @@ function Card:is_food()
     j_ramen = true,
     j_selzer = true,
   }
-  if food[self.config.center.key] or (Cryptid and Cryptid.safe_get(self.config.center, "pools", "Food")) or ModofTheseus.safe_get(self.config.center, "pools", "Food") then
+  if food[self.config.center.key] or ModofTheseus.safe_get(self.config.center, "pools", "Food") then
     return true
   end
 end

@@ -18,6 +18,8 @@
  * along with Mod of Theseus; if not, see <https://www.gnu.org/licenses/>.
 ]]
 
+local succ, https = pcall(require, "SMODS.https")
+
 if not ModofTheseus then
   ModofTheseus = {}
 end
@@ -32,8 +34,8 @@ ModofTheseus.enabled = copy_table(ModofTheseus_config)
 
 SMODS.ObjectType {
   key = "sinfulPool",
-  default = "j_lusty_joker"
-
+  default = "j_lusty_joker",
+  cards = {"j_gluttenous_joker", "j_lusty_joker", "j_wrathful_joker", "j_greedy_joker"},
 }
 
 SMODS.Atlas {
@@ -54,6 +56,13 @@ SMODS.Atlas {
 SMODS.Atlas {
   key = "tarot",
   path = "Tarots.png",
+  px = 71,
+  py = 95,
+}
+
+SMODS.Atlas {
+  key = "BoostersP",
+  path = "Packs.png",
   px = 71,
   py = 95,
 }
@@ -151,6 +160,7 @@ function loadJokers()
   assert(SMODS.load_file("Items/Jokers/SuperbJokers.lua"))()
   assert(SMODS.load_file("Items/Jokers/LegendaryJokers.lua"))()
   assert(SMODS.load_file("Items/Jokers/OmegaJokers.lua"))()
+  assert(SMODS.load_file("Items/Jokers/SinsNVirtues.lua"))()
 end
 
 -- Consumables
@@ -214,6 +224,7 @@ assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Jokers/OwnershipClaiming.lua"))()
 assert(SMODS.load_file("Items/Deterioration.lua"))()
+assert(SMODS.load_file("soundManager.lua"))()
 
 loadJokers()
 loadConsumables()

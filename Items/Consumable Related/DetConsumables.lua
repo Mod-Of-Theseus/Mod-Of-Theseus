@@ -92,12 +92,15 @@ SMODS.Consumable { -- Hanged Man?
         return G.hand and #G.hand.cards > 1
     end,
     use = function(self, card, area, copier)
+        local cards = {}
         G.E_MANAGER:add_event(Event({
             delay = 0.7,
             trigger = "after",
             func = function()
-                for _ = 1, card.ability.extra.cards do
-                    SMODS.add_card {set = "Base", area = G.hand}
+                for i = 1, card.ability.extra.cards do
+                    local card = SMODS.add_card {set = "Base", area = G.hand}
+                    cards[#cards + 1] = card
+                    SMODS.calculate_context({ playing_card_added = true, cards = cards })
                 end
                 return true
         end}))

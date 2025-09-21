@@ -1,10 +1,18 @@
-CurrentDet = 0
-MaxDet = 10
-BufferRolls = 2
+local original_start_run = G.start_run
+
+function Game:start_run(args)
+    original_start_run(self, args)
+
+    if not args.savetext then --new save
+        G.GAME.current_det = 0
+        G.GAME.max_det = 10
+        G.GAME.buffer_rerolls = 2
+    end
+end
 
 function ease_deterioration(mod)
-    CurrentDet = CurrentDet + mod
-    print(CurrentDet)
+    G.GAME.current_det = G.GAME.current_det + mod
+    print(G.GAME.current_det)
 end
 
 if SMODS.current_mod.config.deteriorationOn then 
@@ -13,7 +21,11 @@ if SMODS.current_mod.config.deteriorationOn then
         -- your code before
         local ret = SMODS_calculate_context_ref(context, return_table)
         if context.reroll_shop then
-            if CurrentDet < MaxDet and BufferRolls == 0 then ease_deterioration(1) elseif BufferRolls ~= 0 then BufferRolls = BufferRolls - 1 end
+            if G.GAME.current_det < G.GAME.max_det and G.GAME.buffer_rerolls == 0 then
+                ease_deterioration(1) 
+            elseif G.GAME.buffer_rerolls ~= 0 then
+                G.GAME.buffer_rerolls = G.GAME.buffer_rerollsferRolls - 1
+            end
             G.GAME.common_mod = .05
             G.GAME.uncommon_mod = -.02
             G.GAME.rare_mod = -.01
@@ -21,7 +33,7 @@ if SMODS.current_mod.config.deteriorationOn then
         end
 
         if context.end_of_round then
-            CurrentDet = round_number(CurrentDet / 2)
+            G.GAME.current_det = round_number(G.GAME.current_det / 2)
         end
         return ret
     end

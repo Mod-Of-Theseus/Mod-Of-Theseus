@@ -105,7 +105,7 @@ return {
         name = "Darkness",
         text = {
           "Turn one selected joker Negative",
-          "reduces handsize by 2"
+          "then make it rental"
         }
       },
 
@@ -159,8 +159,24 @@ return {
       j_mot_pridefulJokerJ = {
         name = "Prideful Joker",
         text = {
+            "Played {C:red,E:1}suitless{} or {C:red,E:1}omni-suited{}",
+            "cards give {C:mult}+#1#{} Mult when scored",
+        }
+      },
+
+      j_mot_enviousJokerJ = {
+        name = "Envious Joker",
+        text = {
           "Gives {C:mult}Mult{} equal to",
           "{C:attention}#1#{} minus your {C:attention}current dollars{}"
+        }
+      },
+
+      j_mot_slothfulJokerJ = {
+        name = "Slothful Joker",
+        text = {
+          "{C:attention}Unplayed{} cards give",
+          "{C:mult}+#1#{} Mult when held in hand"
         }
       },
 
@@ -182,7 +198,7 @@ return {
         name = "Office Job",
         text = {
           "Earn {C:money}$#1#{} if played hand",
-          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight
+          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight "Shortcut + 4 Fingers, J/10, 9, 7, 5" - Moth
         },
       },
 
@@ -241,6 +257,16 @@ return {
         }
       },
 
+      j_mot_skillCheckJ = {
+        name = "Skill Check",
+        text = {
+          "Gives {C:chips}Chips{} equal to",
+          "the amount of times you've {C:attention}Clicked{}",
+          "Resets at end of round",
+          "{C:inactive,S:0.8}Currently {C:attention}#1#{}{}"
+        }
+      },
+
       ---------------------------
       ------ SUPERB JOKERS ------
       ---------------------------
@@ -256,7 +282,7 @@ return {
       j_mot_cultContractJ = {
         name = "Cult Contract",
         text = {
-          "Retrigger all scored {V:1}#2#{} cards",
+          "Retrigger all {V:1}#2#{} cards",
           "{C:attention}#1#{} additional times",
           "All non-{V:1}#2#{} cards are debuffed"
         },
@@ -300,19 +326,6 @@ return {
         }
       },
 
-      
-      j_mot_zygornJ = {
-        name = "Zygorn Republic",
-        text = {
-          "{C:inactive}Shattered-- destroyed and blood stained.",
-          "{C:inactive}But it pertains and for each fall it came back",
-          "{C:inactive}stronger, until it dominated--",
-          "{C:inactive}let lessons be learned; justice be served",
-          "every time you destroy or sell a debuffed card or joker" ,
-          "this joker gains {X:mult,C:white}^#1#{} {C:inactive} currently at {X:mult,C:white}^#2#{}",
-        }
-      },
-
 
       ---------------------------
       ------ OMEGA JOKERS -------
@@ -323,7 +336,6 @@ return {
         text = {
           "{X:dark_edition,C:white}^0.5-3{} Mult for each",
           "{C:attention}Steel Card{} held in hand",
-          "{C:inactive}Art + Concept by inspectnerd{}",
         },
       },
 
@@ -335,6 +347,21 @@ return {
             "{C:green}#2#{C:inactive} rolls (Max: #7#)",
             "{C:inactive} #4#/#3# pity for legendary+",
         },
+      },
+
+      j_mot_zygornJ = {
+        name = "Zygorn Republic",
+        text = {
+          "Every time you destroy or sell a debuffed card or joker" ,
+          "this joker gains {X:mult,C:white}^#1#{}",
+          "{C:inactive,S0.8}Currently {X:mult,C:white}^#2#{}",
+          --[[
+          "{C:inactive,S:0.8}Shattered-- destroyed and blood stained.{}",
+          "{C:inactive,S:0.8}But it pertains and for each fall it came back{}",
+          "{C:inactive,S:0.8}stronger, until it dominated--{}",
+          "{C:inactive,S:0.8}let lessons be learned; justice be served{}"
+          ]]
+        }
       },
 
     },
@@ -357,6 +384,32 @@ return {
         }
       }
     },
+
+    Other = {
+      p_mot_sinful_normal = {
+        name = "Sinful Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
+          "{C:red,E:1}Sinful{} jokers",
+        }
+      },
+
+      p_mot_sinful_jumbo = {
+        name = "Jumbo Sinful Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
+          "{C:red,E:1}Sinful{} jokers",
+        }
+      },
+
+      p_mot_sinful_mega = {
+        name = "Mega Sinful Pack",
+        text = {
+          "Choose {C:attention}#1#{} of up to {C:attention}#2#{}",
+          "{C:red,E:1}Sinful{} jokers",
+        }
+      },
+    },
   },
 
   misc = {
@@ -377,6 +430,7 @@ return {
       k_not_enough_slots = "Not enough slots!",
       k_rolled = "Rolled",
       k_mot_gacha = "Gacha Roll!",
+      k_mot_sinful_pack = "Sinful Pack"
     },
 
     v_dictionary = {
