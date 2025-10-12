@@ -164,8 +164,13 @@ SMODS.Rarity {
 }
 
 -- Jokers
-assert(SMODS.load_file("Items/Jokers.lua"))()
-assert(SMODS.load_file("Items/SinsNVirtues.lua"))()
+assert(SMODS.load_file("Items/Jokers/CommonJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/UnommonJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/RareJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/SuperbJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/LegendaryJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/OmegaJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/SinsNVirtues.lua"))()
 
 -- Consumables
 function loadConsumables()
