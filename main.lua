@@ -32,10 +32,25 @@ ModofTheseus = SMODS.current_mod
 ModofTheseus_config = ModofTheseus.config
 ModofTheseus.enabled = copy_table(ModofTheseus_config)
 
+SMODS.current_mod.optional_features = function()
+    return {
+        post_trigger = true,
+    }
+end
+
 SMODS.ObjectType {
   key = "sinfulPool",
   default = "j_lusty_joker",
-  cards = {"j_gluttenous_joker", "j_lusty_joker", "j_wrathful_joker", "j_greedy_joker"},
+}
+
+SMODS.ObjectType {
+  key = "sinfulPoolFull",
+  default = "j_lusty_joker",
+}
+
+SMODS.ObjectType {
+  key = "ringsOfHell",
+  default = "",
 }
 
 SMODS.Atlas {
@@ -149,15 +164,8 @@ SMODS.Rarity {
 }
 
 -- Jokers
-function loadJokers()
-  assert(SMODS.load_file("Items/Jokers/CommonJokers.lua"))()
-  assert(SMODS.load_file("Items/Jokers/UncommonJokers.lua"))()
-  assert(SMODS.load_file("Items/Jokers/RareJokers.lua"))()
-  assert(SMODS.load_file("Items/Jokers/SuperbJokers.lua"))()
-  assert(SMODS.load_file("Items/Jokers/LegendaryJokers.lua"))()
-  assert(SMODS.load_file("Items/Jokers/OmegaJokers.lua"))()
-  assert(SMODS.load_file("Items/Jokers/SinsNVirtues.lua"))()
-end
+assert(SMODS.load_file("Items/Jokers.lua"))()
+assert(SMODS.load_file("Items/SinsNVirtues.lua"))()
 
 -- Consumables
 function loadConsumables()
@@ -218,9 +226,7 @@ assert(SMODS.load_file("overrides.lua"))()
 assert(SMODS.load_file("config.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
-assert(SMODS.load_file("Items/Jokers/OwnershipClaiming.lua"))()
 assert(SMODS.load_file("Items/Deterioration.lua"))()
 assert(SMODS.load_file("soundManager.lua"))()
 
-loadJokers()
 loadConsumables()

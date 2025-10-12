@@ -67,3 +67,18 @@ SMODS.Blind { -- by sephdotwav, art by inspectnerd
         ease_discard(-G.GAME.current_round.discards_left)
     end
 }
+
+SMODS.Blind { -- by sephdotwav, art by inspectnerd
+    key = "black_print",
+    atlas = "BlindsFinisher",
+    pos = {y = 0},
+    discovered = true,
+    mult = 2,
+    boss = {showdown = true},
+    boss_colour = HEX("1c53a8"),
+    recalc_debuff = function(self, card, from_blind)
+        if (card.area == G.jokers) and not G.GAME.blind.disabled and (card.config.center.key == "j_blueprint" or card.config.center.key == "j_brainstorm") then
+            return true
+        end
+    end,
+}

@@ -114,3 +114,7 @@ function titlecase(str)
     return first:upper() .. rest:lower()
   end))
 end
+
+function Destroy_Loud(card, cardToDestroy)
+
+end
