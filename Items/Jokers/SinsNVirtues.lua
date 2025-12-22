@@ -109,3 +109,148 @@ SMODS.Joker {
         end
     end,
 }
+
+SMODS.Joker {
+    key = "brokenFaithJ",
+    pools = {
+        ["sinfulPoolFull"] = true
+    },
+    atlas = "PLH", -- Add to rare atlas
+    pos = {x = 0, y = 0},
+    config = {extra = {}},
+    rarity = 3,
+    cost = 8,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.beat_boss and context.main_eval then
+            if #G.jokers.cards <= G.jokers.config.card_limit then
+                SMODS.add_card{
+                    set = "sinfulPool",
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "ringOfLimboJ",
+    pools = {
+        ['ringsOfHell'] = true,
+        ['sinfulPoolFull'] = true
+    },
+    rarity = "mot_superb",
+    cost = 10,
+    config = {extra = {xMultIncrease = .5, xmult = 1}},
+    atlas = "PLH",
+    pos = {x = 3, y = 0},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.xMultIncrease, card.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.selling_card and context.card:is_in_pool("sinfulPool") then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xMultIncrease
+        end
+        if context.joker_main then
+            return {xmult = card.ability.extra.xmult}
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "ringOfLustJ",
+    pools = {
+        ['ringsOfHell'] = true,
+        ['sinfulPoolFull'] = true
+    },
+    rarity = "mot_superb",
+    cost = 10,
+    config = {extra = {xmult = 1, xmultIncrease = .1}},
+    atlas = "PLH",
+    pos = {x = 3, y = 0},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.post_trigger and context.other_card.config.center.key == 'j_lusty_joker' then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
+            return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
+        end
+        if context.joker_main then
+            return{xmult = card.ability.extra.xmult}
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "ringOfGluttonyJ",
+    pools = {
+        ['ringsOfHell'] = true,
+        ['sinfulPoolFull'] = true
+    },
+    rarity = "mot_superb",
+    cost = 10,
+    config = {extra = {xmult = 1, xmultIncrease = .1}},
+    atlas = "PLH",
+    pos = {x = 3, y = 0},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.post_trigger and context.other_card.config.center.key == 'j_gluttenous_joker' then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
+            return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
+        end
+        if context.joker_main then
+            return{xmult = card.ability.extra.xmult}
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "ringOfGreedJ",
+    pools = {
+        ['ringsOfHell'] = true,
+        ['sinfulPoolFull'] = true
+    },
+    rarity = "mot_superb",
+    cost = 10,
+    config = {extra = {xmult = 1, xmultIncrease = .1}},
+    atlas = "PLH",
+    pos = {x = 3, y = 0},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.post_trigger and context.other_card.config.center.key == 'j_greedy_joker' then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
+            return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
+        end
+        if context.joker_main then
+            return{xmult = card.ability.extra.xmult}
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "ringOfWrathJ",
+    pools = {
+        ['ringsOfHell'] = true,
+        ['sinfulPoolFull'] = true
+    },
+    rarity = "mot_superb",
+    cost = 10,
+    config = {extra = {xmult = 1, xmultIncrease = .1}},
+    atlas = "PLH",
+    pos = {x = 3, y = 0},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.post_trigger and context.other_card.config.center.key == 'j_wrathful_joker' then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
+            return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
+        end
+        if context.joker_main then
+            return{xmult = card.ability.extra.xmult}
+        end
+    end
+}

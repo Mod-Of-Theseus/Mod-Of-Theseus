@@ -70,7 +70,7 @@ SMODS.Booster{
     kind = "sinful",
     weight = 0.5,
     create_card = function()
-        return create_card("sinfulPool", G.pack_cards, true, true, true, "mot", nil)
+        return create_card("sinfulPoolFull", G.pack_cards, true, true, true, "mot", nil)
     end,
     loc_vars = function(self, info_queue, card)
         local cfg = (card and card.ability) or self.config
@@ -88,7 +88,7 @@ SMODS.Booster{
     kind = "sinful",
     weight = 0.5,
     create_card = function()
-        return create_card("sinfulPool", G.pack_cards, true, true, true, "mot", nil)
+        return create_card("sinfulPoolFull", G.pack_cards, true, true, true, "mot", nil)
     end,
     loc_vars = function(self, info_queue, card)
         local cfg = (card and card.ability) or self.config

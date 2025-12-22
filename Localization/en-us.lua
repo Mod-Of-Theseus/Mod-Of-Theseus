@@ -45,6 +45,14 @@ return {
           "{C:attention,E:1}best{} possible hand",
         },
       },
+
+      bl_mot_black_print = {
+        name = "Black Print",
+        text = {
+          "Debuff all {C:red,E:1}Blueprints{}",
+          "and {C:red,E:1}Brainstorms{}"
+        }
+      }
     },
 
     det_tarot = {
@@ -198,7 +206,7 @@ return {
         name = "Office Job",
         text = {
           "Earn {C:money}$#1#{} if played hand",
-          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight "Shortcut + 4 Fingers, J/10, 9, 7, 5" - Moth
+          "is a Straight that contains a {C:attention}9{} and {C:attention}5{}", --contraversial but give me an example of a straight that contains 9 and 5 but isnt a 9-5 straight "Shortcut: J/10, 9, 7/6, 5, 4/3" - Moth
         },
       },
 
@@ -227,8 +235,8 @@ return {
         text = {
           "All played {C:attention}face{} cards become",
           "{C:attention}Stone{} cards when scored",
-          "{C:mult}+#1#{} Mult and {X:mult,C:white}X#2#{} Mult if all",
-          "scoring cards are {C:attention}Stone{} cards",
+          "{C:mult}+#1#{} Mult if all scoring cards",
+          " are {C:attention}Stone{} cards",
         }
       },
 
@@ -267,6 +275,14 @@ return {
         }
       },
 
+      j_mot_brokenFaithJ = {
+        name = "Broken Faith",
+        text = {
+          "Whenever a {C:attentionE:1}Boss Blind{} is defeated,",
+          " create a random {C:red,E:1}Sin{}"
+        }
+      },
+
       ---------------------------
       ------ SUPERB JOKERS ------
       ---------------------------
@@ -287,6 +303,53 @@ return {
           "All non-{V:1}#2#{} cards are debuffed"
         },
       },
+
+      j_mot_ringOfLimboJ = {
+        name = "Ring Of Limbo",
+        text = {
+          "Whenever a {C:red,E:1}Sin{} is sold,",
+          "this card gains {X:mult,C:white}#1#x{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
+
+      j_mot_ringOfLustJ = {
+        name = "Ring Of Lust",
+        text = {
+          "Every time a {C:attention}Lusty Joker{} triggers,",
+          "this Joker gains {X:mult,C:white}#1#x{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
+
+      j_mot_ringOfGluttonyJ = {
+        name = "Ring Of Gluttony",
+        text = {
+          "Every time a {C:attention}Gluttonous Joker{} triggers,",
+          "this Joker gains {X:mult,C:white}#1#x{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
+
+      j_mot_ringOfGreedJ = {
+        name = "Ring Of Greed",
+        text = {
+          "Every time a {C:attention}Greedy Joker{} triggers,",
+          "this Joker gains {X:mult,C:white}#1#x{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
+
+      j_mot_ringOfWrathJ = {
+        name = "Ring Of Wrath",
+        text = {
+          "Every time a {C:attention}Wrathful Joker{} triggers,",
+          "this Joker gains {X:mult,C:white}#1#x{} Mult",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
+        }
+      },
+
+
 
       ---------------------------
       ---- LEGENDARY JOKERS -----
@@ -430,7 +493,8 @@ return {
       k_not_enough_slots = "Not enough slots!",
       k_rolled = "Rolled",
       k_mot_gacha = "Gacha Roll!",
-      k_mot_sinful_pack = "Sinful Pack"
+      k_mot_sinful_pack = "Sinful Pack",
+      k_mot_upgrade = "Upgrade!"
     },
 
     v_dictionary = {
