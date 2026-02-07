@@ -13,6 +13,6 @@
 	"badge_text_colour": "0062ff",
 	"version": "0.0.4-alpha",
 	"dependencies": [
-		"Talisman"
+		"Amulet"
 	]
 }

@@ -188,7 +188,7 @@ end
 local motConfigTabs = function()
   configTabs = {
       {n = G.UIT.R, config = {align = "cm", padding = 0.1}, nodes = {
-          {n = G.UIT.T, config = {text = "Hello!", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
+          {n = G.UIT.T, config = {text = "Settings or something idk", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
       }}
   }
 	left_settings = { n = G.UIT.C, config = { align = "tl", padding = 0.05 }, nodes = {} }

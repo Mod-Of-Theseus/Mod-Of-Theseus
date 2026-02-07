@@ -2,7 +2,6 @@ local original_start_run = G.start_run
 
 function Game:start_run(args)
     original_start_run(self, args)
-
     if not args.savetext then --new save
         G.GAME.current_det = 0
         G.GAME.max_det = 10
@@ -15,26 +14,26 @@ function ease_deterioration(mod)
     print(G.GAME.current_det)
 end
 
-if SMODS.current_mod.config.deteriorationOn then 
-    local SMODS_calculate_context_ref = SMODS.calculate_context
-    function SMODS.calculate_context(context, return_table)
-        -- your code before
-        local ret = SMODS_calculate_context_ref(context, return_table)
-        if context.reroll_shop then
-            if G.GAME.current_det < G.GAME.max_det and G.GAME.buffer_rerolls == 0 then
-                ease_deterioration(1) 
-            elseif G.GAME.buffer_rerolls ~= 0 then
-                G.GAME.buffer_rerolls = G.GAME.buffer_rerollsferRolls - 1
-            end
-            G.GAME.common_mod = .05
-            G.GAME.uncommon_mod = -.02
-            G.GAME.rare_mod = -.01
-            G.GAME.mot_superb_mod = -.001
+SMODS.current_mod.calculate = function(self, context)
+    if self.config.deterioration == false then return end
+    if context.reroll_shop then
+        if G.GAME.current_det < G.GAME.max_det and G.GAME.buffer_rerolls == 0 then
+            ease_deterioration(1) 
+        elseif G.GAME.buffer_rerolls ~= 0 then
+            G.GAME.buffer_rerolls = G.GAME.buffer_rerolls - 1
         end
 
-        if context.end_of_round then
-            G.GAME.current_det = round_number(G.GAME.current_det / 2)
-        end
-        return ret
+        G.GAME.uncommon_mod = math.max(G.GAME.uncommon_mod - .1, 0)
+        G.GAME.rare_mod = math.max(G.GAME.rare_mod - .20, 0)
+        G.GAME.mot_superb_mod = math.max(G.GAME.mot_superb_mod - .33,0)
+
+    end
+
+    if context.end_of_round then
+        G.GAME.current_det = 0
+        G.GAME.common_mod = 1
+        G.GAME.uncommon_mod = 1
+        G.GAME.rare_mod = 1
+        G.GAME.mot_superb_mod = 1
     end
 end

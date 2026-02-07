@@ -74,6 +74,7 @@ SMODS.Consumable{
         for _,joker in pairs(G.jokers.highlighted) do
             if not joker.ability.eternal then
                 joker:set_eternal(true)
+                joker:set_rental(true)
             end
         end
     end
