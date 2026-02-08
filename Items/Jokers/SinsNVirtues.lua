@@ -1,3 +1,31 @@
+SMODS.Joker:take_ownership(lusty_joker, {
+    pools = {
+        ['sinfulPool'] = true,
+        ['sinfulPoolFull'] = true
+    }
+})
+
+SMODS.Joker:take_ownership(gluttenous_joker, {
+    pools = {
+        ['sinfulPool'] = true,
+        ['sinfulPoolFull'] = true
+    }
+})
+
+SMODS.Joker:take_ownership(greedy_joker, {
+    pools = {
+        ['sinfulPool'] = true,
+        ['sinfulPoolFull'] = true
+    }
+})
+
+SMODS.Joker:take_ownership(wrathful_joker, {
+    pools = {
+        ['sinfulPool'] = true,
+        ['sinfulPoolFull'] = true
+    }
+})
+
 SMODS.Joker {
     key = "pridefulJokerJ",
     pools = {
@@ -146,7 +174,7 @@ SMODS.Joker {
         return {vars = {card.ability.extra.xMultIncrease, card.ability.extra.xmult}}
     end,
     calculate = function(self, card, context)
-        if context.selling_card and context.card:is_in_pool("sinfulPool") then
+        if context.selling_card and context.card:is_in_pool("sinfulPool") and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xMultIncrease
         end
         if context.joker_main then
@@ -170,7 +198,7 @@ SMODS.Joker {
         return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
     end,
     calculate = function(self, card, context)
-        if context.post_trigger and context.other_card.config.center.key == 'j_lusty_joker' then
+        if context.post_trigger and context.other_card.config.center.key == 'j_lusty_joker' and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
             return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
         end
@@ -195,7 +223,7 @@ SMODS.Joker {
         return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
     end,
     calculate = function(self, card, context)
-        if context.post_trigger and context.other_card.config.center.key == 'j_gluttenous_joker' then
+        if context.post_trigger and context.other_card.config.center.key == 'j_gluttenous_joker' and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
             return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
         end
@@ -220,7 +248,7 @@ SMODS.Joker {
         return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
     end,
     calculate = function(self, card, context)
-        if context.post_trigger and context.other_card.config.center.key == 'j_greedy_joker' then
+        if context.post_trigger and context.other_card.config.center.key == 'j_greedy_joker' and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
             return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
         end
@@ -245,7 +273,7 @@ SMODS.Joker {
         return {vars = {card.ability.extra.xmultIncrease, card.ability.extra.xmult}}
     end,
     calculate = function(self, card, context)
-        if context.post_trigger and context.other_card.config.center.key == 'j_wrathful_joker' then
+        if context.post_trigger and context.other_card.config.center.key == 'j_wrathful_joker' and not context.blueprint then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultIncrease
             return{message = localize("k_mot_upgrade"), colour = G.C.MULT, message_card = card}
         end
