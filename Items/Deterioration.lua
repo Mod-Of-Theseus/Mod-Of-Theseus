@@ -21,7 +21,6 @@ end
 
 function ease_deterioration(mod)
     G.GAME.current_det = G.GAME.current_det + mod
-    print(G.GAME.current_det)
 end
 
 SMODS.current_mod.calculate = function(self, context)
