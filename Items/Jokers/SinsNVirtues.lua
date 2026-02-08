@@ -1,30 +1,30 @@
-SMODS.Joker:take_ownership(lusty_joker, {
+SMODS.Joker:take_ownership("lusty_joker", {
     pools = {
         ['sinfulPool'] = true,
         ['sinfulPoolFull'] = true
     }
-})
+}, true)
 
-SMODS.Joker:take_ownership(gluttenous_joker, {
+SMODS.Joker:take_ownership("gluttenous_joker", {
     pools = {
         ['sinfulPool'] = true,
         ['sinfulPoolFull'] = true
     }
-})
+}, true)
 
-SMODS.Joker:take_ownership(greedy_joker, {
+SMODS.Joker:take_ownership("greedy_joker", {
     pools = {
         ['sinfulPool'] = true,
         ['sinfulPoolFull'] = true
     }
-})
+}, true)
 
-SMODS.Joker:take_ownership(wrathful_joker, {
+SMODS.Joker:take_ownership("wrathful_joker", {
     pools = {
         ['sinfulPool'] = true,
         ['sinfulPoolFull'] = true
     }
-})
+}, true)
 
 SMODS.Joker {
     key = "pridefulJokerJ",

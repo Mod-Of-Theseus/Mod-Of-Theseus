@@ -47,7 +47,7 @@ SMODS.Blind { -- by sephdotwav, art by inspectnerd
     end,
 }
 
-SMODS.Blind { -- by sephdotwav, art by inspectnerd
+SMODS.Blind { -- By GoldDog, art by GoldDog
     key = "black_print",
     atlas = "Blinds",
     pos = {y = 2},
