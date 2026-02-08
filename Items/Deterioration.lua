@@ -37,16 +37,17 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.rare_mod = math.max(G.GAME.rare_mod - .20, 0)
         G.GAME.mot_superb_mod = math.max(G.GAME.mot_superb_mod - .33,0)
 
-        G.GAME.det_tarot_rate = G.GAME.det_tarot_rate + .5
+        G.GAME.det_tarot_rate = math.min(G.GAME.det_tarot_rate + .5, 4)
         G.GAME.tarot_rate = math.max(G.GAME.tarot_rate - .5, 0)
 
-        G.GAME.det_planet_rate = G.GAME.det_planet_rate + .5
+        G.GAME.det_planet_rate = math.min(G.GAME.det_planet_rate + .5, 4)
         G.GAME.planet_rate = math.max(G.GAME.planet_rate - .5, 0)
 
     end
 
     if context.end_of_round then
         G.GAME.current_det = 0
+        G.GAME.buffer_rerolls = 2
 
         G.GAME.common_mod = 1
         G.GAME.uncommon_mod = 1
