@@ -3,7 +3,7 @@
 	"name": "Mod of Theseus",
 	"display_name": "Theseus",
 	"author": [
-		"Mothball"
+		"The Odyssey Team"
 	],
 	"description": "A semi-balanced mod.",
 	"prefix": "mot",
@@ -11,8 +11,8 @@
 	"priority": 0,
 	"badge_colour": "96bfff",
 	"badge_text_colour": "0062ff",
-	"version": "0.0.3-alpha",
+	"version": "0.0.4-alpha",
 	"dependencies": [
-		"Talisman"
+		"Amulet"
 	]
 }

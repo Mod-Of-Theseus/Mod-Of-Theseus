@@ -1,6 +1,8 @@
 # Mod of Theseus
 A WIP Balatro mod.
 
+Official Dicord Server: https://discord.gg/saCjkby4wc
+
 # TO-DO
 - explain how the shaders work internally and what the values in the file do
 - Examples for

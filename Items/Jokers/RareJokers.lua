@@ -31,7 +31,7 @@ SMODS.Joker { -- Winning Big
       "Yo Fish",
     },
     art = {
-      "Abducted",
+      "Aduckted",
     },
     code = {
       "Mothball",
@@ -83,10 +83,10 @@ SMODS.Joker{ -- Medua
   cost = 8,
   mot_credits = {
     idea = {
-      "Goldog", -- Pluey
+      "GoldDog", -- Pluey
     },
     art = {
-      "Goldog", -- Pluey
+      "GoldDog", -- Pluey
     },
     code = {
       "Jinx",
@@ -108,7 +108,7 @@ SMODS.Joker{ -- Medua
   end,
   blueprint_compat = true,
   calculate = function(_self, card, context)
-    if context.before and context.main_eval and not context.blueprint and context.scoring_hand then
+    if context.before and not context.blueprint and context.scoring_hand then
       local faces = 0
 
       for _, scored_card in ipairs(context.scoring_hand) do
@@ -209,7 +209,7 @@ SMODS.Joker { -- #Queen
       "Jinx",
     },
     art = {
-      -- "bologna",
+      "bologna",
     },
     code = {
       "Jinx",
@@ -235,7 +235,7 @@ SMODS.Joker { -- Dave
   pos = { x = 2, y = 0 },
   rarity = 3,
   atlas = "RareJ",
-  config = { extra = { odds = 2 } },
+  config = { extra = { numerator = 1, denominator = 2 } },
   cost = 9,
   pools = {
     ["Food"] = true
@@ -253,7 +253,9 @@ SMODS.Joker { -- Dave
     },
 },
   loc_vars = function(self, info_queue, card)
-    return { vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+
+    local num,den = SMODS.get_probability_vars(card, card.ability.extra.numerator, card.ability.extra.denominator, "mot_dave")
+    return { vars = { num,den } }
   end,
   --either this or i hook another function
   add_to_deck = function (self, card, from_debuff)
@@ -262,7 +264,7 @@ SMODS.Joker { -- Dave
   end,
   calculate = function(self, card, context)
     if context.selling_self then
-      if pseudorandom('dave') < G.GAME.probabilities.normal / card.ability.extra.odds then
+      if SMODS.pseudorandom_probability(card, "mot_dave", card.ability.extra.numerator, card.ability.extra.denominator, "mot_dave") then
         return { 
           dollars = to_number(to_big(G.GAME.dollars))
         }
@@ -279,14 +281,64 @@ SMODS.Joker{ -- Wizard
   key = "wizardJ",
   atlas = "PLH",
   rarity = 3,
+  cost = 10,
   pos = {x = 2, y = 0},
   config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
   blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Mothball"
+    },
+    art = {
+
+    },
+    code = {
+      "Mothball"
+    }
+  },
   calculate = function(self, card, context)
     if context.setting_blind and #G.consumeables.cards < G.consumeables.config.card_limit then
       SMODS.add_card{
         set = "spellCard"
       }
+    end
+  end
+}
+
+SMODS.Joker{
+  key = "skillCheckJ",
+  atlas = "PLH",
+  cost = 8,
+  rarity = 3,
+  pos = {x = 2, y = 0},
+  config = {extra = {chipsPerClick = 1, clicks = 0}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.clicks}}
+  end,
+  calculate = function(self, card, context)
+    if context.mot_click then 
+      card.ability.extra.clicks = card.ability.extra.clicks + 1
+      play_sound("mot_" .. randomHit())
+    end
+
+    if context.joker_main then
+      G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = .1,
+        func = function()
+          play_sound("mot_" .. randomCrit())
+          return true
+        end
+      }))
+
+        return {
+        chips = card.ability.extra.clicks * card.ability.extra.chipsPerClick,
+      }
+
+    end
+
+    if context.end_of_round then
+      card.ability.extra.clicks = 0
     end
   end
 }

@@ -31,7 +31,6 @@ SMODS.Joker{
       "Jinx",
     },
     art = {
-      "Jinx",
       "Aduckted",
     },
     code = {
@@ -43,10 +42,10 @@ SMODS.Joker{
 
 SMODS.Joker{ -- Cult Contract
   key = "cultContractJ",
-  atlas = "PLH",
+  atlas = "SuperbJ",
   rarity = "mot_superb",
-  pos = { x = 2, y = 0 },
-  config = { extra = { repetitions = 3, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
+  pos = { x = 1, y = 0 },
+  config = { extra = { repetitions = 2, suit = "Hearts" }, immutable = { max_repetitions = 25 } },
   cost = 8,
   blueprint_compat = true,
 
@@ -79,6 +78,12 @@ SMODS.Joker{ -- Cult Contract
       return {
         repetitions = math.min(card.ability.immutable.max_repetitions,
           card.ability.extra.repetitions)
+      }
+    end
+
+    if context.repetition and context.cardarea == G.hand and context.other_card:is_suit(card.ability.extra.suit) then
+      return {
+        repetitions = math.min(card.ability.immutable.max_repetitions, card.ability.extra.repetitions)
       }
     end
   end,

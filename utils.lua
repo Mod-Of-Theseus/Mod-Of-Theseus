@@ -13,7 +13,7 @@ function Card:is_food()
     j_ramen = true,
     j_selzer = true,
   }
-  if food[self.config.center.key] or (Cryptid and Cryptid.safe_get(self.config.center, "pools", "Food")) or ModofTheseus.safe_get(self.config.center, "pools", "Food") then
+  if food[self.config.center.key] or ModofTheseus.safe_get(self.config.center, "pools", "Food") then
     return true
   end
 end
@@ -48,12 +48,12 @@ end
 -- neat utility made by the wonderful abigail. types by jinxfucks
 ---@param card table|Card
 ---@param source table|Card
-function ModofTheseus.debuffed(card, source)
+function ModofTheseus.debuffed(card)
   if card.debuff then
     return {
       message = localize("k_debuffed"),
       colour = G.C.RED,
-      card = source,
+      card = card,
     }
   end
 end
@@ -113,4 +113,8 @@ function titlecase(str)
   return (str:gsub("(%a)([%w_']*)", function(first, rest)
     return first:upper() .. rest:lower()
   end))
+end
+
+function Destroy_Loud(card, cardToDestroy)
+
 end
