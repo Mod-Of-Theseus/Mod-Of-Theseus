@@ -7,7 +7,7 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Tarots',
         name = 'Det. Tarot'
     },
-    shop_rate = 0.4
+    shop_rate = 0.5
 }
 
 SMODS.Consumable { -- The Fool?
@@ -50,10 +50,6 @@ SMODS.Consumable { -- The Fool?
         return G.consumeables.config.card_limit >= #G.consumeables.cards and G.GAME.last_det_tarot_planet and G.GAME.last_det_tarot_planet ~= "c_mot_detFool"
     end
 }
-
-
-
-
 
 SMODS.Consumable { -- Hanged Man?
     key = "detHanged",
