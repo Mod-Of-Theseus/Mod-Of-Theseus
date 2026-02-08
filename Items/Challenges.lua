@@ -41,6 +41,7 @@ SMODS.Challenge({
     }
 })
 
+--[[
 SMODS.Challenge({
     key = "deadEndC",
     rules = {
@@ -54,3 +55,4 @@ SMODS.Challenge({
         {id = "j_mot_officeJobJ", edition = "negative", eternal = true}
     }
 })
+]]

@@ -90,9 +90,9 @@ end
 
 SMODS.Joker{
     key = "gachaJokerJ",
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 0},
     rarity = "mot_omega",
-    atlas = "PLH",
+    atlas = "OmegaJ",
     config = {extra = {rolls = 1, rollCap = 5, currentPity = 0, imutable = { cost = 10, rollIncrease = 5, maxRollCap = 25,  amountOfRolls = 0, pity = 20, }}},
     cost = 50,
     blueprint_compat = false,
@@ -101,7 +101,7 @@ SMODS.Joker{
             "Vrinee",
         },
         art = {
-            -- "Goldog",
+            -- "GoldDog",
         },
         code = {
             "Vrinee",
@@ -117,7 +117,7 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.ending_shop and not context.blueprint then
             local remaining_slots = G.jokers.config.card_limit - #G.jokers.cards
-            if G.GAME.dollars < to_big(card.ability.extra.imutable.cost) then -- check if player has enough money
+            if to_big(G.GAME.dollars) < to_big(card.ability.extra.imutable.cost) then -- check if player has enough money
                 return {
                     message = localize('k_not_enough_money'),
                     colour = G.C.MONEY
