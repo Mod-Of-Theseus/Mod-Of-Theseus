@@ -232,6 +232,8 @@ assert(SMODS.load_file("config.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Deterioration.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Deteriorated Consumables/DetPlanets.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Deteriorated Consumables/DetTarots.lua"))()
 assert(SMODS.load_file("soundManager.lua"))()
 
 loadConsumables()

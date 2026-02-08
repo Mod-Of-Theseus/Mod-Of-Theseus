@@ -69,7 +69,113 @@ return {
         text = {
           "Create #1# random cards"
         }
-      }
+      },
+
+      c_mot_detPriestess = {
+        name = "High Priestess?",
+        text = {
+          "Creates up to #1# random",
+          "{C:attention,E:1}Satellite{} cards"
+        }
+      },
+    },
+
+    det_planet = {
+      c_mot_newHorizons_DetPlanet = {
+        name = "New Horizons",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_messenger_DetPlanet = {
+        name = "Messenger",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_jamesWebb_DetPlanet = {
+        name = "James Webb",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_venera_DetPlanet = {
+        name = "Venera",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_cassini_DetPlanet = {
+        name = "Cassini",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_cassini_DetPlanet = {
+        name = "Juno",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_iss_DetPlanet = {
+        name = "I.S.S.",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_odyssey_DetPlanet = {
+        name = "Odyssey",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_gps_DetPlanet = {
+        name = "GPS",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_voyager_DetPlanet = {
+        name = "Voyager",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_dawn_DetPlanet = {
+        name = "Dawn",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_sputnik_DetPlanet = {
+        name = "Sputnik",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
     },
 
     spellCard = {
