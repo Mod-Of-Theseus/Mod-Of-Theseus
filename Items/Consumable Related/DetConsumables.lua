@@ -19,7 +19,7 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Planets',
         name = 'Det. Planet'
     },
-    -- shop_rate = 0.4 -- disable while WIP
+    shop_rate = 0.4
 }
 
 SMODS.ConsumableType {
@@ -104,5 +104,20 @@ SMODS.Consumable { -- Hanged Man?
                 end
                 return true
         end}))
+    end
+}
+
+SMODS.Consumable {
+    key = "detPluto",
+    set = "det_planet",
+    atlas = "PLH",
+    pos = {x = 0, y = 2},
+    config = {extra = {multbuff = .5, chipsbuff = 5}},
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+        G.GAME.hands["High Card"].l_chips = G.GAME.hands["High Card"].l_chips + card.ability.extra.chipsbuff
+        G.GAME.hands["High Card"].l_mult = G.GAME.hands["High Card"].l_mult + card.ability.extra.multbuff
     end
 }
