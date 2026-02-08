@@ -23,6 +23,14 @@ function ease_deterioration(mod)
     G.GAME.current_det = G.GAME.current_det + mod
 end
 
+function roundToZero(num)
+    if math.abs(num) < 1e-3 then
+        return 0
+    else
+        return num
+    end
+end
+
 SMODS.current_mod.calculate = function(self, context)
     if self.config.deterioration == false then return end
     if context.reroll_shop then
@@ -37,10 +45,10 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.mot_superb_mod = math.max(G.GAME.mot_superb_mod - .33,0)
 
         G.GAME.det_tarot_rate = math.min(G.GAME.det_tarot_rate + .5, 4)
-        G.GAME.tarot_rate = math.max(G.GAME.tarot_rate - .5, 0)
+        G.GAME.tarot_rate = roundToZero(math.max(G.GAME.tarot_rate - .5, 0))
 
         G.GAME.det_planet_rate = math.min(G.GAME.det_planet_rate + .5, 4)
-        G.GAME.planet_rate = math.max(G.GAME.planet_rate - .5, 0)
+        G.GAME.planet_rate = roundToZero(math.max(G.GAME.planet_rate - .5, 0))
 
     end
 
