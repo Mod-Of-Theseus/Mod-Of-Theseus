@@ -121,7 +121,7 @@ return {
         }
       },
 
-      c_mot_cassini_DetPlanet = {
+      c_mot_juno_DetPlanet = {
         name = "Juno",
         text = {
           "Upgrade {C:attention,E:1}#4#{} for a singular use",
@@ -534,6 +534,16 @@ return {
       },
 
     },
+
+      j_mot_fireiceJ = {
+        name = "FireIce",
+        text = {
+          "Gain {X:dark_edition,C:white}^1{} Mult for each used {X:spectral,C:white}Spectral{},",
+          "{X:dark_edition,C:white}^0.25{} Mult for each used {X:tarot,C:white}Tarot{} or {X:planet,C:white}Planet{}.",
+          "{C:inactive}Additional {X:dark_edition,C:white}^0.25{}{C:inactive} if {X:dark,C:white}Deteriorated{}.",
+          "{C:inactive}Currently: {X:dark_edition,C:white}^#1#{}"
+        },
+      },
 
     Spectral = {
       c_mot_bermuda = {
