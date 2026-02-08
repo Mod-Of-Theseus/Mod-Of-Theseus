@@ -121,7 +121,7 @@ return {
         }
       },
 
-      c_mot_cassini_DetPlanet = {
+      c_mot_juno_DetPlanet = {
         name = "Juno",
         text = {
           "Upgrade {C:attention,E:1}#4#{} for a singular use",
