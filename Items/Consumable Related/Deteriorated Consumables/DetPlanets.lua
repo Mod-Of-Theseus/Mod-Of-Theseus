@@ -7,7 +7,7 @@ SMODS.ConsumableType {
         collection = 'Deteriorated Planets',
         name = 'Det. Planet'
     },
-    shop_rate = 0.4
+    shop_rate = .5
 }
 
 SMODS.Consumable {
