@@ -17,6 +17,8 @@ SMODS.Consumable {
     pos = {x = 0, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "High Card", deteriorated = "Pluto"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_pluto
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -37,6 +39,8 @@ SMODS.Consumable {
     pos = {x = 1, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Pair", deteriorated = "Mercury"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_mercury
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -57,6 +61,8 @@ SMODS.Consumable {
     pos = {x = 2, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Two Pair", deteriorated = "Uranus"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_uranus
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -77,6 +83,8 @@ SMODS.Consumable {
     pos = {x = 3, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Three of a Kind", deteriorated = "Venus"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_venus
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -97,6 +105,8 @@ SMODS.Consumable {
     pos = {x = 4, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Straight", deteriorated = "Saturn"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_saturn
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -117,6 +127,8 @@ SMODS.Consumable {
     pos = {x = 5, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Flush", deteriorated = "Jupiter"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_jupiter
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -137,6 +149,8 @@ SMODS.Consumable {
     pos = {x = 6, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Full House", deteriorated = "Earth"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_earth
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -157,6 +171,8 @@ SMODS.Consumable {
     pos = {x = 7, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Four of a Kind", deteriorated = "Mars"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_mars
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -177,6 +193,8 @@ SMODS.Consumable {
     pos = {x = 8, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Straight Flush", deteriorated = "Neptune"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_neptune
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -197,6 +215,8 @@ SMODS.Consumable {
     pos = {x = 9, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Five of a Kind", deteriorated = "Planet X"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_planet_x
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -217,6 +237,8 @@ SMODS.Consumable {
     pos = {x = 10, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Flush House", deteriorated = "Ceres"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_ceres
+
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
@@ -237,6 +259,8 @@ SMODS.Consumable {
     pos = {x = 11, y = 3},
     config = {extra = {multbuff = .5, chipsbuff = .5, hand = "Flush Five", deteriorated = "Eris"}},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_eris
+        
         local t = G.GAME.hands[card.ability.extra.hand]
         return {vars = {t.original_l_mult and card.ability.extra.multbuff * t.original_l_mult or card.ability.extra.multbuff * t.l_mult, t.original_l_chips and card.ability.extra.chipsbuff * t.original_l_chips or card.ability.extra.chipsbuff * t.l_chips, card.ability.extra.hand, card.ability.extra.deteriorated}}
     end,
