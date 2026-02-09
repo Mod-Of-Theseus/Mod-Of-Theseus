@@ -70,6 +70,11 @@ SMODS.Consumable{
         return false
     end,
 
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = SMODS.Stickers.eternal
+        info_queue[#info_queue + 1] = SMODS.Stickers.rental
+    end,
+
     use = function(self, card, area, copier)
         for _,joker in pairs(G.jokers.highlighted) do
             if not joker.ability.eternal then

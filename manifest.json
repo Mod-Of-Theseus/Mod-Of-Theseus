@@ -11,7 +11,7 @@
 	"priority": 0,
 	"badge_colour": "96bfff",
 	"badge_text_colour": "0062ff",
-	"version": "0.0.4-alpha",
+	"version": "0.1.3",
 	"dependencies": [
 		"Amulet"
 	]

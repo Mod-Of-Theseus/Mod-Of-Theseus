@@ -197,7 +197,8 @@ return {
       c_mot_immortalitySpl = {
         name = "Immortality",
         text = {
-          "Turn 1 selected Joker eternal"
+          "Turn 1 selected Joker Eternal",
+          "Joker becomes Rental"
         }
       },
 
@@ -367,7 +368,7 @@ return {
         name = "Wizard Joker",
         text = {
           "Create a random Spell",
-          "when blind is selected"
+          "when {C:attention}boss blind{} is defeated"
         }
       },
 
