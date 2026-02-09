@@ -7,10 +7,10 @@ function Game:start_run(args)
         G.GAME.max_det = 10
         G.GAME.buffer_rerolls = 2
 
-        planet_default = G.GAME.planet_rate -- Should be 4
-        tarot_default = G.GAME.tarot_rate -- Should be 4
-        det_tarot_default = G.GAME.det_tarot_rate -- Should be .4
-        det_planet_default = G.GAME.det_planet_rate -- Should be .4
+        G.GAME.planet_default = G.GAME.planet_rate -- Should be 4
+        G.GAME.tarot_default = G.GAME.tarot_rate -- Should be 4
+        G.GAME.det_tarot_default = G.GAME.det_tarot_rate -- Should be .4
+        G.GAME.det_planet_default = G.GAME.det_planet_rate -- Should be .4
 
         for _, hand in pairs(G.GAME.hands) do
             hand.original_l_mult = hand.l_mult
