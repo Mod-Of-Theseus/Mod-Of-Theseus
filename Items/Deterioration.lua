@@ -61,11 +61,11 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.rare_mod = 1
         G.GAME.mot_superb_mod = 1
 
-        G.GAME.tarot_rate = tarot_default
-        G.GAME.planet_rate = planet_default
+        G.GAME.tarot_rate = G.GAME.tarot_default
+        G.GAME.planet_rate = G.GAME.planet_default
         
-        G.GAME.det_planet_rate = det_planet_default
-        G.GAME.det_tarot_rate = det_tarot_default
+        G.GAME.det_planet_rate = G.GAME.det_planet_default
+        G.GAME.det_tarot_rate = G.GAME.det_tarot_default
     end
 
     if context.using_consumeable and context.consumeable.ability.set == "Planet" then
