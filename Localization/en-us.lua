@@ -605,9 +605,9 @@ return {
     },
 
     v_dictionary = {
-      mot_stone_singular = { "+#1# Stone" },
-      mot_stone_plural = { "+#1# Stones" },
-      mot_glass_saved = { "Saved!" },
+      mot_stone_singular = "+#1# Stone" ,
+      mot_stone_plural = "+#1# Stones" ,
+      mot_glass_saved = "Saved!",
       a_x_chips_minus = "-#1#X",
     }
   },
