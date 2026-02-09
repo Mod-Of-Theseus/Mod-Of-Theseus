@@ -3,7 +3,7 @@ SMODS.ConsumableType{
     primary_colour = HEX("dec671"),
     secondary_colour = HEX("dec671"),
     collection_rows = {7, 7, 7},
-    shop_rate = .5,
+    shop_rate = 0,
     loc_txt = {
         collection = "Spell Cards",
         name = "Spells"
