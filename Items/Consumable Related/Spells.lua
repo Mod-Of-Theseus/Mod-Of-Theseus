@@ -128,6 +128,10 @@ SMODS.Consumable{
         end
         return false
     end,
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
+    end,
     use = function(self, card, area, copier)
         for _,joker in pairs(G.jokers.highlighted) do
             joker:set_edition("e_negative")
