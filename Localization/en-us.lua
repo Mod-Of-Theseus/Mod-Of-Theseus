@@ -49,8 +49,8 @@ return {
       bl_mot_black_print = {
         name = "Black Print",
         text = {
-          "Debuff all {C:red,E:1}Blueprints{}",
-          "and {C:red,E:1}Brainstorms{}"
+          "Debuff all Blueprints",
+          "and Brainstorms"
         }
       }
     },
@@ -59,8 +59,8 @@ return {
       c_mot_detFool = {
         name = "The Fool?",
         text = {
-          "Create the last deteriorated",
-          "tarot or planet used"
+          "Creates the last {C:attention,E:1}deteriorated{}",
+          "tarot or planet card used during this run"
         }
       },
 

@@ -279,10 +279,10 @@ SMODS.Joker { -- Dave
 
 SMODS.Joker{ -- Wizard
   key = "wizardJ",
-  atlas = "PLH",
+  atlas = "RareJ",
   rarity = 3,
   cost = 10,
-  pos = {x = 2, y = 0},
+  pos = {x = 4, y = 0},
   config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
   blueprint_compat = true,
   mot_credits = {
