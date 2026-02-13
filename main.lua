@@ -169,7 +169,7 @@ assert(SMODS.load_file("meta.lua"))()
 
 -- Jokers
 assert(SMODS.load_file("Items/Jokers/CommonJokers.lua"))()
-assert(SMODS.load_file("Items/Jokers/UnommonJokers.lua"))()
+assert(SMODS.load_file("Items/Jokers/UncommonJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/RareJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/SuperbJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/LegendaryJokers.lua"))()
@@ -192,7 +192,7 @@ end
 local motConfigTabs = function()
   configTabs = {
       {n = G.UIT.R, config = {align = "cm", padding = 0.1}, nodes = {
-          {n = G.UIT.T, config = {text = "Hello!", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
+          {n = G.UIT.T, config = {text = "Settings or something idk", colour = G.C.UI.TEXT_LIGHT, scale = 0.5}}
       }}
   }
 	left_settings = { n = G.UIT.C, config = { align = "tl", padding = 0.05 }, nodes = {} }
@@ -236,6 +236,8 @@ assert(SMODS.load_file("config.lua"))()
 assert(SMODS.load_file("contexts.lua"))()
 assert(SMODS.load_file("utils.lua"))()
 assert(SMODS.load_file("Items/Deterioration.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Deteriorated Consumables/DetPlanets.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Deteriorated Consumables/DetTarots.lua"))()
 assert(SMODS.load_file("soundManager.lua"))()
 
 loadConsumables()

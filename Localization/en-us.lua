@@ -49,8 +49,8 @@ return {
       bl_mot_black_print = {
         name = "Black Print",
         text = {
-          "Debuff all {C:red,E:1}Blueprints{}",
-          "and {C:red,E:1}Brainstorms{}"
+          "Debuff all Blueprints",
+          "and Brainstorms"
         }
       }
     },
@@ -59,8 +59,8 @@ return {
       c_mot_detFool = {
         name = "The Fool?",
         text = {
-          "Create the last deteriorated",
-          "tarot or planet used"
+          "Creates the last {C:attention,E:1}deteriorated{}",
+          "tarot or planet card used during this run"
         }
       },
 
@@ -69,65 +69,172 @@ return {
         text = {
           "Create #1# random cards"
         }
-      }
+      },
+
+      c_mot_detPriestess = {
+        name = "High Priestess?",
+        text = {
+          "Creates up to #1# random",
+          "{C:attention,E:1}Satellite{} cards"
+        }
+      },
+    },
+
+    det_planet = {
+      c_mot_newHorizons_DetPlanet = {
+        name = "New Horizons",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_messenger_DetPlanet = {
+        name = "Messenger",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_jamesWebb_DetPlanet = {
+        name = "James Webb",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_venera_DetPlanet = {
+        name = "Venera",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_cassini_DetPlanet = {
+        name = "Cassini",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_juno_DetPlanet = {
+        name = "Juno",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_iss_DetPlanet = {
+        name = "I.S.S.",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_odyssey_DetPlanet = {
+        name = "Odyssey",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_gps_DetPlanet = {
+        name = "GPS",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_voyager_DetPlanet = {
+        name = "Voyager",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_dawn_DetPlanet = {
+        name = "Dawn",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
+
+      c_mot_sputnik_DetPlanet = {
+        name = "Sputnik",
+        text = {
+          "Upgrade {C:attention,E:1}#4#{} for a singular use",
+          "{C:chips,S:.7}+#2# Chips{} {C:inactive,S:.7}and{} {C:mult,S:.7}+#1# Mult{}"
+        }
+      },
     },
 
     spellCard = {
       c_mot_fireballSpl = {
         name = "Fireball",
         text = {
-          "Destroy #1# random cards"
+          "Destroy {C:attention}#1#{} random cards"
         }
       },
 
       c_mot_ritualSpl = {
       name = "Ritual",
         text = {
-          "Create a random Spectral card",
-          "Then make a random spell card if there's room"
+          "Create a random {C:spectral,E:1}Spectral{} card",
+          "Then make a random {C:attention,E:1}Spell{} card if there's room"
         }
       },
 
       c_mot_immortalitySpl = {
         name = "Immortality",
         text = {
-          "Turn 1 selected Joker eternal"
+          "Turn 1 selected Joker {C:attention,E:1}Eternal{}",
+          "Joker becomes {C:attention,E:1}Rental{}"
         }
       },
 
       c_mot_mageHandSpl = {
         name = "Mage Hand",
         text = {
-          "Increase hand size by 1"
+          "Increase hand size by {C:attention}1{}"
         }
       },
 
       c_mot_pocketDimensionSpl = {
         name = "Pocket Dimension",
         text = {
-          "Gain 1 consumable slot"
+          "Gain {C:attention}1{} consumable slot"
         }
       },
 
       c_mot_darknessSpl = {
         name = "Darkness",
         text = {
-          "Turn one selected joker Negative",
-          "then make it rental"
+          "Turn one selected joker {C:dark_edition,E:1}Negative{}",
+          "Joker becomes {C:attention,E:1}rental{}"
         }
       },
 
       c_mot_polymorphSpl = {
         name = "Polymorph",
         text = {
-          "Swap everything on 2 selected cards"
+          "Swap {C:attention,E:1}everything{} on {C:attention}2{} selected cards"
         }
       },
 
       c_mot_creationSpl = {
         name = "Creation",
         text = {
-          "+1 shop slot"
+          "Add {C:attention}1{} {C:gold,E:1}shop slot{}"
         }
       }
     },
@@ -261,7 +368,7 @@ return {
         name = "Wizard Joker",
         text = {
           "Create a random Spell",
-          "when blind is selected"
+          "when {C:attention}boss blind{} is defeated"
         }
       },
 
@@ -498,9 +605,9 @@ return {
     },
 
     v_dictionary = {
-      mot_stone_singular = { "+#1# Stone" },
-      mot_stone_plural = { "+#1# Stones" },
-      mot_glass_saved = { "Saved!" },
+      mot_stone_singular = "+#1# Stone" ,
+      mot_stone_plural = "+#1# Stones" ,
+      mot_glass_saved = "Saved!",
       a_x_chips_minus = "-#1#X",
     }
   },

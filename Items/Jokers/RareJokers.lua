@@ -251,7 +251,7 @@ SMODS.Joker { -- Dave
     code = {
       "Cardboard",
     },
-},
+  },
   loc_vars = function(self, info_queue, card)
 
     local num,den = SMODS.get_probability_vars(card, card.ability.extra.numerator, card.ability.extra.denominator, "mot_dave")
@@ -279,10 +279,10 @@ SMODS.Joker { -- Dave
 
 SMODS.Joker{ -- Wizard
   key = "wizardJ",
-  atlas = "PLH",
+  atlas = "RareJ",
   rarity = 3,
   cost = 10,
-  pos = {x = 2, y = 0},
+  pos = {x = 4, y = 0},
   config = {extra = {spellsGiven = 1}}, -- Unlikely to change in the future
   blueprint_compat = true,
   mot_credits = {
@@ -290,14 +290,14 @@ SMODS.Joker{ -- Wizard
       "Mothball"
     },
     art = {
-
+      "GoldDog"
     },
     code = {
       "Mothball"
     }
   },
   calculate = function(self, card, context)
-    if context.setting_blind and #G.consumeables.cards < G.consumeables.config.card_limit then
+    if context.beat_boss and not context.game_over and context.end_of_round and #G.consumeables.cards < G.consumeables.config.card_limit then
       SMODS.add_card{
         set = "spellCard"
       }

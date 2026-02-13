@@ -3,7 +3,7 @@ SMODS.ConsumableType{
     primary_colour = HEX("dec671"),
     secondary_colour = HEX("dec671"),
     collection_rows = {7, 7, 7},
-    shop_rate = .5,
+    shop_rate = 0,
     loc_txt = {
         collection = "Spell Cards",
         name = "Spells"
@@ -74,6 +74,7 @@ SMODS.Consumable{
         for _,joker in pairs(G.jokers.highlighted) do
             if not joker.ability.eternal then
                 joker:set_eternal(true)
+                joker:set_rental(true)
             end
         end
     end
@@ -126,6 +127,10 @@ SMODS.Consumable{
             return valid
         end
         return false
+    end,
+
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.e_negative
     end,
     use = function(self, card, area, copier)
         for _,joker in pairs(G.jokers.highlighted) do
