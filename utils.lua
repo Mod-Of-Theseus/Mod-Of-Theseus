@@ -118,3 +118,56 @@ end
 function Destroy_Loud(card, cardToDestroy)
 
 end
+
+-- Helper function to roll with weighted chances
+function ModofTheseus.weighted_random(seed, weights)
+  -- This seems error-prone so I crash in case we code something wrong
+  if type(seed) ~= "string" then
+    error("TypeError: seed's type should be \"string\" got \"" .. type(weights) .. "\" instead")
+  end
+  if type(weights) ~= "table" then
+    error("TypeError: weights's type should be \"table\" got \"" .. type(weights) .. "\" instead")
+  end
+  local total_weight = 0
+  for _, weight in pairs(weights) do
+      total_weight = total_weight + weight
+  end
+
+  local roll = pseudorandom(seed .. '_' .. G.GAME.pseudorandom.seed) * total_weight
+
+  local current_weight = 0
+  for  result, weight in pairs(weights) do
+      current_weight = current_weight + weight
+      if roll <= current_weight then
+          return result
+      end
+  end
+end
+
+
+
+-- Does not handle nested keys
+ModofTheseus.META_DEFAULT = {
+  golden_egg_chips_upgrades = 0,
+  golden_egg_mult_upgrades = 0,
+  golden_egg_xmult_upgrades = 0,
+  golden_egg_emult_upgrades = 0,
+  golden_egg_jslot_upgrades = 0,
+}
+
+
+function ModofTheseus.set_meta(key, value)
+  G.PROFILES[G.SETTINGS.profile]["mot_"..key] = value
+end
+
+function ModofTheseus.get_meta(key)
+  if not G.PROFILES[G.SETTINGS.profile]["mot_"..key] then G.PROFILES[G.SETTINGS.profile]["mot_"..key] = ModofTheseus.META_DEFAULT["mot_"..key] end
+  return G.PROFILES[G.SETTINGS.profile]["mot_"..key]
+end
+
+function ModofTheseus.reset_meta()
+  for key, value in pairs(ModofTheseus.META_DEFAULT) do
+      G.PROFILES[G.SETTINGS.profile]["mot_"..key] = value
+  end
+end
+
