@@ -163,6 +163,28 @@ SMODS.Rarity {
   badge_colour = HEX('000000'),
 }
 
+SMODS.Gradient {
+    key = "bismuth",
+    colours = {
+        HEX("3A0CA3"),
+        HEX("6247FF"),
+        HEX("2F6BFF"),
+        HEX("00B7FF"),
+        HEX("00E5FF"),
+        HEX("00D1B2"),
+        HEX("2DE37D"),
+        HEX("A8FF3E"),
+        HEX("FFE066"),
+        HEX("FF8A00"),
+        HEX("FF6F91"),
+        HEX("FF33AA"),
+    },
+    cycle = 3,
+}
+
+
+
+
 -- Jokers
 assert(SMODS.load_file("Items/Jokers/CommonJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/UncommonJokers.lua"))()

@@ -534,6 +534,18 @@ return {
         }
       },
 
+      j_mot_bismuthEggJ = {
+        name = "Bismuth Egg",
+        text = {
+            "{C:mot_bismuth,E:1,s:1}Give it some time...{}",
+            "{C:chips}+#1#{} Chips",
+            "{C:mult}+#2#{} Mult",
+            "{X:mult,C:white}X#3#{} Mult",
+            "{X:dark_edition,C:white}^#4#{} Mult",
+            "{C:inactive}(Persist between runs){}",
+        }
+      },
+
     },
 
     Spectral = {
