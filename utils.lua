@@ -148,11 +148,11 @@ end
 
 -- Does not handle nested keys
 ModofTheseus.META_DEFAULT = {
-  golden_egg_chips_upgrades = 0,
-  golden_egg_mult_upgrades = 0,
-  golden_egg_xmult_upgrades = 0,
-  golden_egg_emult_upgrades = 0,
-  golden_egg_jslot_upgrades = 0,
+  bismuth_egg_chips_upgrades = 0,
+  bismuth_egg_mult_upgrades = 0,
+  bismuth_egg_xmult_upgrades = 0,
+  bismuth_egg_emult_upgrades = 0,
+  bismuth_egg_jslot_upgrades = 0,
 }
 
 
