@@ -262,45 +262,45 @@ SMODS.Joker {
     },
     loc_vars = function (self, info_queue, card)
         return {vars = {
-            ModofTheseus.get_meta("golden_egg_chips_upgrades") * card.ability.extra.scalar.chips,
-            ModofTheseus.get_meta("golden_egg_mult_upgrades") * card.ability.extra.scalar.mult,
-            ModofTheseus.get_meta("golden_egg_xmult_upgrades") * card.ability.extra.scalar.xmult + 1,
-            ModofTheseus.get_meta("golden_egg_emult_upgrades") * card.ability.extra.scalar.emult + 1,
+            ModofTheseus.get_meta("bismuth_egg_chips_upgrades") * card.ability.extra.scalar.chips,
+            ModofTheseus.get_meta("bismuth_egg_mult_upgrades") * card.ability.extra.scalar.mult,
+            ModofTheseus.get_meta("bismuth_egg_xmult_upgrades") * card.ability.extra.scalar.xmult + 1,
+            ModofTheseus.get_meta("bismuth_egg_emult_upgrades") * card.ability.extra.scalar.emult + 1,
         }}
     end,
     calculate = function (self, card, context)
         if context.joker_main then
             return {
-                chips = ModofTheseus.get_meta("golden_egg_chips_upgrades") * card.ability.extra.scalar.chips,
-                mult = ModofTheseus.get_meta("golden_egg_mult_upgrades") * card.ability.extra.scalar.mult,
-                xmult = ModofTheseus.get_meta("golden_egg_xmult_upgrades") * card.ability.extra.scalar.xmult + 1,
-                emult = ModofTheseus.get_meta("golden_egg_emult_upgrades") * card.ability.extra.scalar.emult + 1,
+                chips = ModofTheseus.get_meta("bismuth_egg_chips_upgrades") * card.ability.extra.scalar.chips,
+                mult = ModofTheseus.get_meta("bismuth_egg_mult_upgrades") * card.ability.extra.scalar.mult,
+                xmult = ModofTheseus.get_meta("bismuth_egg_xmult_upgrades") * card.ability.extra.scalar.xmult + 1,
+                emult = ModofTheseus.get_meta("bismuth_egg_emult_upgrades") * card.ability.extra.scalar.emult + 1,
             }
         end
         if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
-            local result = ModofTheseus.weighted_random("golden_egg",{
+            local result = ModofTheseus.weighted_random("bismuth_egg",{
                 chips = 14/24,
                 mult = 8/24,
                 xmult = 2/24,
                 emult = 0.01/24,
             })
-            local nb_golden_egg = 0
+            local nb_bismuth_egg = 0
             for index, joker in pairs(G.jokers.cards) do
                 if joker.config.center.key == "j_mot_goldEggJ" then
-                    nb_golden_egg = nb_golden_egg + 1
+                    nb_bismuth_egg = nb_bismuth_egg + 1
                 end
             end
             if result == "chips" then
-                ModofTheseus.set_meta("golden_egg_chips_upgrades", ModofTheseus.get_meta("golden_egg_chips_upgrades") + 1)
+                ModofTheseus.set_meta("bismuth_egg_chips_upgrades", ModofTheseus.get_meta("bismuth_egg_chips_upgrades") + 1)
                 return { message = "+1 Chips"}
             elseif result == "mult" then
-                ModofTheseus.set_meta("golden_egg_mult_upgrades", ModofTheseus.get_meta("golden_egg_mult_upgrades") + 1)
+                ModofTheseus.set_meta("bismuth_egg_mult_upgrades", ModofTheseus.get_meta("bismuth_egg_mult_upgrades") + 1)
                 return { message = "+1 Mult"}
             elseif result == "xmult" then
-                ModofTheseus.set_meta("golden_egg_xmult_upgrades", ModofTheseus.get_meta("golden_egg_xmult_upgrades") + 1)
+                ModofTheseus.set_meta("bismuth_egg_xmult_upgrades", ModofTheseus.get_meta("bismuth_egg_xmult_upgrades") + 1)
                 return { message = "+1 xMult"}
             elseif result == "emult" then
-                ModofTheseus.set_meta("golden_egg_emult_upgrades", ModofTheseus.get_meta("golden_egg_emult_upgrades") + 1)
+                ModofTheseus.set_meta("bismuth_egg_emult_upgrades", ModofTheseus.get_meta("bismuth_egg_emult_upgrades") + 1)
                 return { message = "+1 eMult"}
             end
         end
@@ -329,10 +329,10 @@ SMODS.Joker {
                 },
             },
             calc_function = function(card)
-                card.joker_display_values.chips = ModofTheseus.get_meta("golden_egg_chips_upgrades") * card.ability.extra.scalar.chips
-                card.joker_display_values.mult = ModofTheseus.get_meta("golden_egg_mult_upgrades") * card.ability.extra.scalar.mult
-                card.joker_display_values.xmult = ModofTheseus.get_meta("golden_egg_xmult_upgrades") * card.ability.extra.scalar.xmult + 1
-                card.joker_display_values.emult = ModofTheseus.get_meta("golden_egg_emult_upgrades") * card.ability.extra.scalar.emult + 1
+                card.joker_display_values.chips = ModofTheseus.get_meta("bismuth_egg_chips_upgrades") * card.ability.extra.scalar.chips
+                card.joker_display_values.mult = ModofTheseus.get_meta("bismuth_egg_mult_upgrades") * card.ability.extra.scalar.mult
+                card.joker_display_values.xmult = ModofTheseus.get_meta("bismuth_egg_xmult_upgrades") * card.ability.extra.scalar.xmult + 1
+                card.joker_display_values.emult = ModofTheseus.get_meta("bismuth_egg_emult_upgrades") * card.ability.extra.scalar.emult + 1
             end
         }
     end,
