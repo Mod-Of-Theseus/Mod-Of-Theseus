@@ -402,6 +402,15 @@ return {
         }
       },
 
+      j_mot_procrastinationJ = {
+        name = "Procrastination",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult",
+          "{C:inactive,S:0.8}(Days since 23rd of July 2025,",
+          "{C:inactive,S:0.8}divided by Theseus jokers)",
+        },
+      },
+
       j_mot_cultContractJ = {
         name = "Cult Contract",
         text = {
