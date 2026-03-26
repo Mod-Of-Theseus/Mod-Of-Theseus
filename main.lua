@@ -149,20 +149,6 @@ SMODS.Atlas {
   atlas_table = 'ANIMATION_ATLAS'
 }
 
-SMODS.Rarity {
-  key = "superb",
-  pools = { ["Joker"] = true },
-  default_weight = 0.01,
-  badge_colour = HEX('ffb0b5'),
-}
-
-SMODS.Rarity {
-  key = "omega",
-  pools = { ["Joker"] = true },
-  default_weight = 0,
-  badge_colour = HEX('000000'),
-}
-
 SMODS.Gradient {
     key = "bismuth",
     colours = {
@@ -182,6 +168,46 @@ SMODS.Gradient {
     cycle = 3,
 }
 
+SMODS.Gradient {
+    key = "bismuth_label",
+    colours = {
+        HEX("3A0CA3"),
+        HEX("6247FF"),
+        HEX("2F6BFF"),
+        HEX("00B7FF"),
+        HEX("00E5FF"),
+        HEX("00D1B2"),
+        HEX("2DE37D"),
+        HEX("A8FF3E"),
+        HEX("FFE066"),
+        HEX("FF8A00"),
+        HEX("FF6F91"),
+        HEX("FF33AA"),
+    },
+    cycle = 10,
+}
+
+SMODS.Rarity {
+  key = "superb",
+  pools = { ["Joker"] = true },
+  default_weight = 0.01,
+  badge_colour = HEX('ffb0b5'),
+}
+
+SMODS.Rarity {
+  key = "omega",
+  pools = { ["Joker"] = true },
+  default_weight = 0,
+  badge_colour = HEX('000000'),
+}
+
+SMODS.Rarity {
+  key = "bismuth",
+  pools = { ["Joker"] = true},
+  default_weight = 0.005,
+  badge_colour = SMODS.Gradients.mot_bismuth_label,
+}
+
 
 
 
@@ -193,18 +219,17 @@ assert(SMODS.load_file("Items/Jokers/SuperbJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/LegendaryJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/OmegaJokers.lua"))()
 assert(SMODS.load_file("Items/Jokers/SinsNVirtues.lua"))()
+assert(SMODS.load_file("Items/Jokers/MetaJokers.lua"))()
 
 -- Consumables
-function loadConsumables()
-  assert(SMODS.load_file("Items/Consumable Related/Consumables.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/Boosters.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/Enhancements.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/TarotCards.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/PlanetCards.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/SpectralCards.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/DetConsumables.lua"))()
-  assert(SMODS.load_file("Items/Consumable Related/Spells.lua"))()
-end
+assert(SMODS.load_file("Items/Consumable Related/Consumables.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Boosters.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Enhancements.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/TarotCards.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/PlanetCards.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Vanilla Based/SpectralCards.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/DetConsumables.lua"))()
+assert(SMODS.load_file("Items/Consumable Related/Spells.lua"))()
 
 -- Config Stuff
 local motConfigTabs = function()
@@ -257,5 +282,3 @@ assert(SMODS.load_file("Items/Deterioration.lua"))()
 assert(SMODS.load_file("Items/Consumable Related/Deteriorated Consumables/DetPlanets.lua"))()
 assert(SMODS.load_file("Items/Consumable Related/Deteriorated Consumables/DetTarots.lua"))()
 assert(SMODS.load_file("soundManager.lua"))()
-
-loadConsumables()

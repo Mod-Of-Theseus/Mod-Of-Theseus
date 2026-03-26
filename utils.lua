@@ -161,7 +161,7 @@ function ModofTheseus.set_meta(key, value)
 end
 
 function ModofTheseus.get_meta(key)
-  if not G.PROFILES[G.SETTINGS.profile]["mot_"..key] then G.PROFILES[G.SETTINGS.profile]["mot_"..key] = ModofTheseus.META_DEFAULT["mot_"..key] end
+  if not G.PROFILES[G.SETTINGS.profile]["mot_"..key] then G.PROFILES[G.SETTINGS.profile]["mot_"..key] = ModofTheseus.META_DEFAULT[key] end
   return G.PROFILES[G.SETTINGS.profile]["mot_"..key]
 end
 
@@ -170,4 +170,3 @@ function ModofTheseus.reset_meta()
       G.PROFILES[G.SETTINGS.profile]["mot_"..key] = value
   end
 end
-

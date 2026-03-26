@@ -541,8 +541,7 @@ return {
             "{C:chips}+#1#{} Chips",
             "{C:mult}+#2#{} Mult",
             "{X:mult,C:white}X#3#{} Mult",
-            "{X:dark_edition,C:white}^#4#{} Mult",
-            "{C:inactive}(Persist between runs){}",
+            "{X:dark_edition,C:white}^#4#{} Mult"
         }
       },
 
@@ -603,11 +602,13 @@ return {
     labels = {
       k_mot_superb = "Superb",
       k_mot_omega = "Omega",
+      k_mot_bismuth = "Bismuth"
     },
 
     dictionary = {
       k_mot_superb = "Superb",
       k_mot_omega = "Omega",
+      k_mot_bismuth = "Bismuth",
       k_not_enough_money = "Not enough money!",
       k_not_enough_slots = "Not enough slots!",
       k_rolled = "Rolled",
