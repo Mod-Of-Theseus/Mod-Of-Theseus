@@ -145,4 +145,21 @@ SMODS.Joker{ -- Procrastination
       return { xmult = procrastination_xmult() }
     end
   end,
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" },
+          }
+        }
+      },
+      calc_function = function(card)
+        card.joker_display_values.xmult = procrastination_xmult()
+      end
+    }
+  end
 }
