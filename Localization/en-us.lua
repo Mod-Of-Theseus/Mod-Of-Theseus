@@ -295,6 +295,13 @@ return {
         }
       },
 
+      j_mot_thesaurusJ = {
+        name = "Thesaurus",
+        text = {
+          "Increment {C:mult}factor{} by a {C:mult}dozen{}",
+        },
+      },
+
       ---------------------------
       ----- UNCOMMON JOKERS -----
       ---------------------------
@@ -322,13 +329,6 @@ return {
         text = {
           "{X:chips,C:white}X#1#{} Chips",
           "{X:chips,C:white}-#2#X{} Chips at end of round", --i know vanilla popcorn says "per round played" but vanilla formatting isn't always the most clear
-        },
-      },
-
-      j_mot_thesaurusJ = {
-        name = "Thesaurus",
-        text = {
-          "Increment {C:mult}factor{} by a {C:mult}dozen{}",
         },
       },
 
