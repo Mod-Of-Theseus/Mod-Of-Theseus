@@ -325,6 +325,13 @@ return {
         },
       },
 
+      j_mot_thesaurusJ = {
+        name = "Thesaurus",
+        text = {
+          "Increment {C:mult}factor{} by a {C:mult}dozen{}",
+        },
+      },
+
       ---------------------------
       ------- RARE JOKERS -------
       ---------------------------
