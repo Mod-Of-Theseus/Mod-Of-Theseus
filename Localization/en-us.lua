@@ -496,6 +496,14 @@ return {
         }
       },
 
+      j_mot_exponentEdwardJ = {
+        name = "Exponent Edward",
+        text = {
+          "{X:chips,C:white}^#1#{} Chips and {X:dark_edition,C:white}^#2#{} Mult",
+          "for every scored card",
+        }
+      },
+
 
       ---------------------------
       ------ OMEGA JOKERS -------
