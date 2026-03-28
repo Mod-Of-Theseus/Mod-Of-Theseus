@@ -98,3 +98,68 @@ SMODS.Joker{ -- Cult Contract
     end
   end
 }
+
+local function procrastination_xmult()
+  -- Count days since June 23, 2025
+  local target = os.time({year = 2025, month = 6, day = 23, hour = 0, min = 0, sec = 0})
+  local now = os.time()
+  local days_elapsed = math.floor((now - target) / 86400)
+
+  -- Count jokers added by Mod of Theseus
+  local mot_joker_count = 0
+  for k, v in pairs(SMODS.Jokers) do
+    if k:find("^j_") and v.mod and v.mod.id == "Mod_of_Theseus" then
+      mot_joker_count = mot_joker_count + 1
+    end
+  end
+  if mot_joker_count == 0 then mot_joker_count = 1 end
+
+  return math.floor((days_elapsed / mot_joker_count) * 100) / 100
+end
+
+SMODS.Joker{ -- Procrastination
+  key = "procrastinationJ",
+  atlas = "PLH",
+  rarity = "mot_superb",
+  pos = { x = 0, y = 0 },
+  cost = 25,
+  blueprint_compat = true,
+  mot_credits = {
+    idea = {
+      "Hoarfrost Trickle",
+    },
+    art = {
+      --"None",
+    },
+    code = {
+      "Hoarfrost Trickle",
+    },
+  },
+
+  loc_vars = function(self, info_queue, card)
+    return { vars = { procrastination_xmult() } }
+  end,
+
+  calculate = function(self, card, context)
+    if context.joker_main then
+      return { xmult = procrastination_xmult() }
+    end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "X" },
+            { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" },
+          }
+        }
+      },
+      calc_function = function(card)
+        card.joker_display_values.xmult = procrastination_xmult()
+      end
+    }
+  end
+}
