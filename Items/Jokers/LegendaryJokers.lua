@@ -259,4 +259,62 @@ SMODS.Joker {
   -- todo: add joker display compatibility @chore
 }
 
+SMODS.Joker {
+  key = "exponentEdwardJ",
+  pos = { x = 0, y = 0 },
+  soul_pos = { x = 0, y = 0 },
+  rarity = 4,
+  atlas = "PLH",
+  blueprint_compat = true,
+  config = { extra = { echips = 1.1, emult = 1.05 } },
+  cost = 20,
+  mot_credits = {
+    idea = {"FireIce"},
+    art = {},
+    code = {"Hoarfrost Trickle"},
+  },
+  loc_vars = function(self, info_queue, card)
+    return { vars = { card.ability.extra.echips, card.ability.extra.emult } }
+  end,
+
+  calculate = function(self, card, context)
+    if context.individual and context.cardarea == G.play then
+      return { echips = card.ability.extra.echips, emult = card.ability.extra.emult }
+    end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        {
+          border_nodes = {
+            { text = "^" },
+            { ref_table = "card.joker_display_values", ref_value = "echips" },
+          },
+          border_colour = G.C.CHIPS
+        },
+        {
+          border_nodes = {
+            { text = "^" },
+            { ref_table = "card.joker_display_values", ref_value = "emult" },
+          },
+          border_colour = G.C.MULT
+        },
+      },
+      calc_function = function(card)
+        local count = 0
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        if text ~= 'Unknown' then
+          for _, scoring_card in pairs(scoring_hand) do
+            count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+          end
+        end
+        card.joker_display_values.echips = card.ability.extra.echips ^ count
+        card.joker_display_values.emult = card.ability.extra.emult ^ count
+      end,
+    }
+  end
+}
+
 
