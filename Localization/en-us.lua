@@ -302,6 +302,15 @@ return {
         },
       },
 
+      j_mot_unfinishedJ = {
+        name = "Unfinished Jo{V:1}ker{}",
+        text = {
+          "{C:chips}+#1#{} Chips if played",
+          "hand contains",
+          "{C:attention}#2#{} or fe{V:1}wer cards{}",
+        },
+      },
+
       ---------------------------
       ----- UNCOMMON JOKERS -----
       ---------------------------

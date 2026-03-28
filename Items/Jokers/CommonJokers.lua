@@ -195,3 +195,84 @@ SMODS.Joker {
 
 }
 
+SMODS.Joker {
+    key = "unfinishedJ",
+    blueprint_compat = true,
+    rarity = 1,
+    cost = 5,
+    pos = { x = 0, y = 0 },
+    atlas = "PLH",
+    config = { extra = { chips = 200, size = 3 } },
+    mot_credit = {
+        idea = {"Cooked Fish"},
+        art = {"Cooked Fish"},
+        code = {"Hoarfrost Trickle"},
+    },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.size, colours = { HEX("FF000000") } } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main and #context.full_hand <= card.ability.extra.size then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
+
+    joker_display_def = function(JokerDisplay)
+        ---@type JDJokerDefinition
+        return {
+            text = {
+                { text = "+" },
+                { ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult" },
+            },
+            text_config = { colour = G.C.CHIPS },
+            calc_function = function(card)
+                local _, _, scoring_hand = JokerDisplay.evaluate_hand()
+                card.joker_display_values.chips = 0
+                if #scoring_hand == 0 then return end
+                if #JokerDisplay.current_hand <= card.ability.extra.size then
+                    card.joker_display_values.chips = card.ability.extra.chips
+                end
+            end
+        }
+    end
+
+}
+
+
+SMODS.Joker {
+  key = "thesaurusJ",
+  pos = { x = 0, y = 0 },
+  rarity = 1,
+  atlas = "PLH",
+  config = { extra = { imutable = { mult = 12 } } },
+  cost = 6,
+  blueprint_compat = true,
+  mot_credits = {
+    idea = {"Hoarfrost Trickle"},
+    art = {},
+    code = {"Hoarfrost Trickle"},
+  },
+  loc_vars = function(self, info_queue, card)
+    return { vars = { card.ability.extra.imutable.mult } }
+  end,
+  calculate = function(self, card, context)
+    if context.joker_main then
+      return { mult = card.ability.extra.imutable.mult }
+    end
+  end,
+
+  joker_display_def = function(JokerDisplay)
+    ---@type JDJokerDefinition
+    return {
+      text = {
+        { text = "+" },
+        { ref_table = "card.ability.extra.imutable", ref_value = "mult", retrigger_type = "mult" },
+      },
+      text_config = { colour = G.C.MULT }
+    }
+  end
+
+}
+
